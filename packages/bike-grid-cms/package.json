@@ -51,7 +51,6 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@3.2.3",
   "devDependencies": {
     "@types/html-minifier": "^4.0.2"
   }
