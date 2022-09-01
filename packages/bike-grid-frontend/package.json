@@ -1,7 +1,6 @@
 {
   "name": "svelte-app",
   "version": "1.0.0",
-  "private": true,
   "type": "module",
   "license": "MIT",
   "scripts": {
@@ -12,8 +11,9 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-vercel": "^1.0.0-next.68",
-    "@sveltejs/kit": "^1.0.0-next.431",
-    "svelte": "^3.0.0",
+    "@sveltejs/kit": "1.0.0-next.431",
+    "svelte": "^3.49.0",
+    "svelte-preprocess": "^4.10.7",
     "vite": "^3.0.9"
   },
   "dependencies": {
