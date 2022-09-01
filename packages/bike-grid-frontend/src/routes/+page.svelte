@@ -21,8 +21,6 @@
     (a: { date: number }, b: { date: number }) =>
       new Date(a.date) <= new Date(b.date)
   )[0];
-
-  let homePage = true;
 </script>
 
 <!-- <a class="twitter-timeline" href="https://twitter.com/bikegridnow?ref_src=twsrc%5Etfw">Tweets by bikegridnow</a>  -->
@@ -106,10 +104,6 @@
   </div>
 
   <Agenda events={previousEvents} previous />
-
-  {#if homePage}
-    <Slides media={homePage} />
-  {/if}
 
   <div class="footer" />
 </div>

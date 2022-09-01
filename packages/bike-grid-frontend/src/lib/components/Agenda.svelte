@@ -7,7 +7,9 @@
   let title = previous ? "Previous Events" : "Upcoming Events";
 
   let sortedEvents = events.sort((a, b) =>
-    previous ? compareDesc(a.date, b.date) : compareAsc(a.date, b.date)
+    previous
+      ? compareDesc(new Date(a.date), new Date(b.date))
+      : compareAsc(new Date(a.date), new Date(b.date))
   );
 
   function formatDate(date: string) {

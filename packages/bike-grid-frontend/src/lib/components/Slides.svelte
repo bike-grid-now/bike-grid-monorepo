@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   export let media;
 
   const BUCKET_URL =
