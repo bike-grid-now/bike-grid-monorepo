@@ -1662,6 +1662,53 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bike-grid-now/cms@workspace:packages/cms":
+  version: 0.0.0-use.local
+  resolution: "@bike-grid-now/cms@workspace:packages/cms"
+  dependencies:
+    "@camberi/firecms": 2.0.0-alpha.28
+    "@emotion/react": ^11.9.3
+    "@emotion/styled": ^11.9.3
+    "@fontsource/ibm-plex-mono": ^4.5.11
+    "@mui/icons-material": ^5.8.4
+    "@mui/lab": ^5.0.0-alpha.90
+    "@mui/material": ^5.9.0
+    "@mui/x-date-pickers": ^5.0.0-beta.1
+    "@types/react": ^18.0.17
+    "@types/react-dom": ^18.0.6
+    "@vitejs/plugin-react": ^2.0.1
+    algoliasearch: ^4.13.0
+    firebase: ^9.0.0
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    react-router: ^6.2.0
+    react-router-dom: ^6.2.0
+    react-scripts: ^5.0.1
+    typeface-rubik: ^1.1.13
+    typescript: ^4.6.4
+    vite: ^3.0.7
+  languageName: unknown
+  linkType: soft
+
+"@bike-grid-now/site@workspace:packages/site":
+  version: 0.0.0-use.local
+  resolution: "@bike-grid-now/site@workspace:packages/site"
+  dependencies:
+    "@sveltejs/adapter-vercel": ^1.0.0-next.68
+    "@sveltejs/kit": 1.0.0-next.431
+    "@types/html-minifier": ^4.0.2
+    date-fns: ^2.29.2
+    firebase: ^9.9.4
+    html-minifier: ^4.0.0
+    svelte: ^3.49.0
+    svelte-carousel: ^1.0.19
+    svelte-preprocess: ^4.10.7
+    svelte-social-media-icons: ^0.0.3
+    svelte-twitter-widgets: ^0.1.0
+    vite: ^3.0.9
+  languageName: unknown
+  linkType: soft
+
 "@camberi/firecms@npm:2.0.0-alpha.28":
   version: 2.0.0-alpha.28
   resolution: "@camberi/firecms@npm:2.0.0-alpha.28"
@@ -5906,34 +5953,6 @@ __metadata:
   checksum: 30befca8019b2eb7dbad38cff6266cf543091dae2825c856a62a8ccf2c3ab9c2907c4d12b288b73101196767f66812365400a227581484a05f968b0307cfaf12
   languageName: node
   linkType: hard
-
-"cms@workspace:packages/cms":
-  version: 0.0.0-use.local
-  resolution: "cms@workspace:packages/cms"
-  dependencies:
-    "@camberi/firecms": 2.0.0-alpha.28
-    "@emotion/react": ^11.9.3
-    "@emotion/styled": ^11.9.3
-    "@fontsource/ibm-plex-mono": ^4.5.11
-    "@mui/icons-material": ^5.8.4
-    "@mui/lab": ^5.0.0-alpha.90
-    "@mui/material": ^5.9.0
-    "@mui/x-date-pickers": ^5.0.0-beta.1
-    "@types/react": ^18.0.17
-    "@types/react-dom": ^18.0.6
-    "@vitejs/plugin-react": ^2.0.1
-    algoliasearch: ^4.13.0
-    firebase: ^9.0.0
-    react: ^18.0.0
-    react-dom: ^18.0.0
-    react-router: ^6.2.0
-    react-router-dom: ^6.2.0
-    react-scripts: ^5.0.1
-    typeface-rubik: ^1.1.13
-    typescript: ^4.6.4
-    vite: ^3.0.7
-  languageName: unknown
-  linkType: soft
 
 "co@npm:^4.6.0":
   version: 4.6.0
@@ -15129,25 +15148,6 @@ __metadata:
   checksum: 53b1e247e68e05db7b3808b99b892bd36fb096e6fba213a06da7fab22045e97597db425c724f2bbd6c99a3c295e1e73f3e4de78592289f38431049e1277ca0ae
   languageName: node
   linkType: hard
-
-"svelte-app@workspace:packages/bike-grid-frontend":
-  version: 0.0.0-use.local
-  resolution: "svelte-app@workspace:packages/bike-grid-frontend"
-  dependencies:
-    "@sveltejs/adapter-vercel": ^1.0.0-next.68
-    "@sveltejs/kit": 1.0.0-next.431
-    "@types/html-minifier": ^4.0.2
-    date-fns: ^2.29.2
-    firebase: ^9.9.4
-    html-minifier: ^4.0.0
-    svelte: ^3.49.0
-    svelte-carousel: ^1.0.19
-    svelte-preprocess: ^4.10.7
-    svelte-social-media-icons: ^0.0.3
-    svelte-twitter-widgets: ^0.1.0
-    vite: ^3.0.9
-  languageName: unknown
-  linkType: soft
 
 "svelte-carousel@npm:^1.0.19":
   version: 1.0.19
