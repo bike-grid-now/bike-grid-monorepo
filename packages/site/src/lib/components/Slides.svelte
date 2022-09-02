@@ -127,9 +127,7 @@
 
   .background,
   .foreground,
-  .ui,
-  .overlay,
-  .ui-bottom {
+  .ui {
     width: 100%;
     height: 100%;
     position: absolute;

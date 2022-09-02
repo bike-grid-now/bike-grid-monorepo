@@ -3,24 +3,26 @@
   import Card from "$lib/components/Card.svelte";
   import Slides from "$lib/components/Slides.svelte";
   import type { PageData } from "./$types";
+  import { compareAsc, compareDesc } from "date-fns";
 
   import headerPhotoUrl from "../static/header-backdrop.jpeg";
+  import { parseEvent } from "$lib/firebase";
 
   export let data: PageData;
 
-  const { events } = data;
+  const { events: stringifiedEvents } = data;
 
-  let futureEvents = events.filter(
-    (event: { date: number }) => new Date(event.date) >= new Date()
-  );
-  let previousEvents = events.filter(
-    (event: { date: number }) => new Date(event.date) < new Date()
-  );
+  let events = stringifiedEvents.map(parseEvent);
 
-  let nextEvent = futureEvents.sort(
-    (a: { date: number }, b: { date: number }) =>
-      new Date(a.date) <= new Date(b.date)
-  )[0];
+  let futureEvents = events
+    .filter((event) => event.date >= new Date())
+    .sort((a, b) => compareAsc(a.date, b.date));
+
+  let previousEvents = events
+    .filter((event) => new Date(event.date) < new Date())
+    .sort((a, b) => compareDesc(a.date, b.date));
+
+  let nextEvent = futureEvents.length > 0 ? futureEvents[0] : null;
 </script>
 
 <!-- <a class="twitter-timeline" href="https://twitter.com/bikegridnow?ref_src=twsrc%5Etfw">Tweets by bikegridnow</a>  -->
@@ -214,15 +216,6 @@
     margin-right: 8px;
   }
 
-  .nav p {
-    font-size: 1.25rem;
-  }
-
-  .nav span {
-    cursor: pointer;
-  }
-
-  .button,
   .button-jam,
   .button-email {
     /* background-color: #157094; */

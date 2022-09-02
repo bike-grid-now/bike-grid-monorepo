@@ -1,11 +1,5 @@
 import { buildCollection } from "@camberi/firecms";
-
-export type Ward = {
-  wardNumber: number;
-  alderName: string;
-  email: string;
-  phone: string;
-};
+import { Ward } from "./types";
 
 export const wardsCollection = buildCollection<Ward>({
   name: "Wards",

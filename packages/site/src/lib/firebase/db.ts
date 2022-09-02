@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyDxbVRKzlIaOj-yyVSA_SRiHoMWtSjj8PI",
+  apiKey: import.meta.env.VITE_PUBLIC_FIREBASE_API_KEY,
   authDomain: "bike-grid-now.firebaseapp.com",
   projectId: "bike-grid-now",
   storageBucket: "bike-grid-now.appspot.com",

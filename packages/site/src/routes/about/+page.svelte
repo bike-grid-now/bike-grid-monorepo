@@ -8,13 +8,10 @@
 {#if organizers && organizers.length > 0}
   <div class="content">
     <div class="grid">
-      {#each organizers as o}
+      {#each organizers as organizer}
         <div class="card">
-          {#if o.attributes?.Image?.data?.attributes?.url}
-            <!-- <img src={url + o.attributes.Image.data.attributes.url} alt=""> -->
-          {/if}
-          <h2>{o.name}</h2>
-          <p>{o.description}</p>
+          <h2>{organizer.name}</h2>
+          <p>{organizer.description}</p>
         </div>
       {/each}
     </div>
@@ -26,7 +23,6 @@
 <style>
   .grid {
     display: grid;
-    /* margin: 50px 20px; */
     grid-gap: 20px;
     grid-template-columns: 1fr 1fr;
   }
@@ -51,13 +47,6 @@
     padding: 0px 15px;
 
     margin-top: 20px;
-  }
-
-  img {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    object-fit: cover;
   }
 
   p {

@@ -1,10 +1,5 @@
 import { buildCollection } from "@camberi/firecms";
-
-export type Organizer = {
-  name: string;
-  description: string;
-  image: string;
-};
+import { Organizer } from "./types";
 
 export const organizersCollection = buildCollection<Organizer>({
   name: "Organizers",

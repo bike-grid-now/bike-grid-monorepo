@@ -1,13 +1,5 @@
-import { buildCollection, EntityReference } from "@camberi/firecms";
-
-export type Event = {
-  eventName: string;
-  date: Date;
-  rsvpLink: string;
-  wards: EntityReference[];
-  poster: string;
-  media: string[];
-};
+import { buildCollection } from "@camberi/firecms";
+import { Event } from "./types";
 
 export const eventsCollection = buildCollection<Event>({
   name: "Events",

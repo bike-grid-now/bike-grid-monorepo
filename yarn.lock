@@ -1662,7 +1662,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bike-grid-now/cms@workspace:packages/cms":
+"@bike-grid-now/cms@workspace:^, @bike-grid-now/cms@workspace:packages/cms":
   version: 0.0.0-use.local
   resolution: "@bike-grid-now/cms@workspace:packages/cms"
   dependencies:
@@ -1678,6 +1678,7 @@ __metadata:
     "@types/react-dom": ^18.0.6
     "@vitejs/plugin-react": ^2.0.1
     algoliasearch: ^4.13.0
+    date-fns: ^2.29.2
     firebase: ^9.0.0
     react: ^18.0.0
     react-dom: ^18.0.0
@@ -1694,8 +1695,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@bike-grid-now/site@workspace:packages/site"
   dependencies:
+    "@bike-grid-now/cms": "workspace:^"
     "@sveltejs/adapter-vercel": ^1.0.0-next.68
     "@sveltejs/kit": 1.0.0-next.431
+    "@types/date-fns": ^2.6.0
     "@types/html-minifier": ^4.0.2
     date-fns: ^2.29.2
     firebase: ^9.9.4
@@ -3944,6 +3947,15 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: fe81351470f2d3165e8b12ce33542eef89ea893e36dd62e8f7d72566dfb7e448376ae962f9f3ea888547ce8b55a40020ca0e01d637fab5d99567673084542641
+  languageName: node
+  linkType: hard
+
+"@types/date-fns@npm:^2.6.0":
+  version: 2.6.0
+  resolution: "@types/date-fns@npm:2.6.0"
+  dependencies:
+    date-fns: "*"
+  checksum: 6839db1d12d6586cd572e8aa77efc2ea88fd6566b7902641cf3efe2e22518aff067df2ba433539a275a3ab1169612b54d007ddcc2800d846be4f7e629cd7bfb3
   languageName: node
   linkType: hard
 

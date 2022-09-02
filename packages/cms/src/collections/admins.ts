@@ -1,8 +1,5 @@
 import { buildCollection } from "@camberi/firecms";
-
-export type Admin = {
-  email: string;
-};
+import { Admin } from "./types";
 
 export const adminsCollection = buildCollection<Admin>({
   name: "Admins",
