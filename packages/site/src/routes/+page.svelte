@@ -3,6 +3,7 @@
   import Card from "$lib/components/Card.svelte";
   import Slides from "$lib/components/Slides.svelte";
   import Hero from './Hero.svelte';
+  import CallToAction from './CallToAction.svelte'
 
   import type { PageData } from "./$types";
   import { compareAsc, compareDesc } from "date-fns";
@@ -30,31 +31,7 @@
 <Hero />
 
 <div class="content main-content">
-  <div class="button-group">
-    <a
-      href="https://www.gofundme.com/f/flags-and-flyers-for-bike-grid-now"
-      target="_blank"
-    >
-      <div class="button-email">
-        <div class="left">
-          <span class="material-symbols-outlined">edit_note</span>
-          <p>Sign the Petition</p>
-        </div>
-        <span class="material-symbols-outlined arrow">chevron_right</span>
-      </div>
-    </a>
-
-    <a href="https://newsletter.bikegridnow.org/" target="_blank">
-      <div class="button-jam">
-        <div class="left">
-          <span class="material-symbols-outlined">mail</span>
-          <p>Newsletter Signup</p>
-        </div>
-        <span class="material-symbols-outlined arrow">chevron_right</span>
-      </div>
-    </a>
-  </div>
-
+  <CallToAction />
   <div class="sideby">
     {#if events && nextEvent}
       <Slides media={[nextEvent.poster]} />
@@ -97,10 +74,6 @@
 </div>
 
 <style>
-  a {
-    text-decoration: none;
-  }
-
   .sideby {
     display: grid;
     grid-gap: 20px;
@@ -133,57 +106,6 @@
     flex-direction: column;
     grid-gap: 25px;
     margin-top: 25px;
-  }
-
-  .left {
-    display: flex;
-    align-items: center;
-  }
-
-  .left span {
-    margin-right: 8px;
-  }
-
-  .button-jam,
-  .button-email {
-    /* background-color: #157094; */
-    background-color: #c70909;
-    /* color: white; */
-    padding: 25px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .button-jam {
-    /* background-color: white; */
-    background-color: #1b1a1b;
-    color: white;
-
-    /* color: black; */
-  }
-
-  .button-email {
-    /* background-color: #3d6779; */
-    /* background-color: rgb(44, 44, 44); */
-    /* background-color: #85d4ef; */
-    color: white;
-  }
-
-  .button-group {
-    /* margin: 25px 0px; */
-    /* border-radius: 20px 20px 0px 0px; */
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid black;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-  }
-
-  .arrow {
-    font-size: 1.75rem;
-    /* margin-right: 20px; */
   }
 
   .footer {
