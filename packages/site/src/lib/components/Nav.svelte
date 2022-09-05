@@ -1,9 +1,13 @@
+<script lang="ts">
+  import PedalBike from '@material-symbols/svg-400/rounded/pedal_bike.svg?component'
+</script>
+
 <div class="nav-outer">
   <div class="content">
     <nav>
       <a href="/" class="logo">
-        <span class="material-symbols-outlined icon">pedal_bike</span>
-        <p><b>Chicago, Bike Grid Now!</b></p>
+        <PedalBike viewBox="0 0 48 48" height="2rem" width="2rem" />
+        <b>Chicago, Bike Grid Now!</b>
       </a>
 
       <div class="spacer" />
@@ -33,10 +37,8 @@
     align-items: center;
     justify-content: center;
     color: white;
-  }
-
-  .icon {
-    margin-right: 0.5rem;
+    fill: currentColor;
+    gap: 0.5rem;
   }
 
   nav {
