@@ -2,10 +2,10 @@
   import Agenda from "$lib/components/Agenda.svelte";
   import Card from "$lib/components/Card.svelte";
   import Slides from "$lib/components/Slides.svelte";
+  import Hero from './Hero.svelte';
+
   import type { PageData } from "./$types";
   import { compareAsc, compareDesc } from "date-fns";
-
-  import headerPhotoUrl from "../static/header-backdrop.jpeg";
   import { parseEvent } from "$lib/firebase";
 
   export let data: PageData;
@@ -27,21 +27,7 @@
 
 <!-- <a class="twitter-timeline" href="https://twitter.com/bikegridnow?ref_src=twsrc%5Etfw">Tweets by bikegridnow</a>  -->
 
-<div class="hero" style={`--header-background-image: url(${headerPhotoUrl})`}>
-  <!-- <video src={videoUrl} autoplay muted loop /> -->
-
-  <div class="hero-overlay">
-    <div class="hero-inner">
-      <h1>Enough is enough.</h1>
-      <p>It's time to build a 450 mile-long network of safe infrastructure</p>
-
-      <div class="location">
-        <span class="material-symbols-outlined">location_on</span>
-        <p>Chicago, IL</p>
-      </div>
-    </div>
-  </div>
-</div>
+<Hero />
 
 <div class="content main-content">
   <div class="button-group">
@@ -121,54 +107,6 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 600px;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: var(--header-background-image);
-    filter: brightness(0.5);
-  }
-
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* background-color: rgba(102, 51, 153, 0.247); */
-    z-index: 2;
-    /* pointer-events: all; */
-    display: grid;
-    place-items: center;
-    color: white;
-  }
-
-  .hero-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px 15px;
-  }
-
-  .hero-inner h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  .hero-inner p {
-    text-align: center;
-  }
-
   .card-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -195,16 +133,6 @@
     flex-direction: column;
     grid-gap: 25px;
     margin-top: 25px;
-  }
-
-  .location {
-    display: flex;
-    margin-top: 50px;
-    align-items: center;
-  }
-
-  .location span {
-    margin-right: 5px;
   }
 
   .left {
