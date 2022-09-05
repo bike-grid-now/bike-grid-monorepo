@@ -1,6 +1,8 @@
 <script lang="ts">
-  import headerPhotoUrl from '../static/header-backdrop.jpeg'
   import BackgroundImage from './BackgroundImage.svelte'
+  import headerPhotoUrl from '../static/header-backdrop.jpeg'
+
+  import LocationOn from '@material-symbols/svg-400/rounded/location_on.svg?component'
 </script>
 
 <BackgroundImage src={headerPhotoUrl} brightness={0.5}>
@@ -11,7 +13,7 @@
     </div>
 
     <div class="location">
-      <span class="material-symbols-outlined">location_on</span>
+      <LocationOn viewBox="0 0 48 48" width="2rem" height="2rem" />
       <p>Chicago, IL</p>
     </div>
   </div>
@@ -47,6 +49,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
+    fill: currentColor;
   }
 
   .location > * + * {
