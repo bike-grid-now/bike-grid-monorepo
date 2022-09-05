@@ -1696,6 +1696,7 @@ __metadata:
   resolution: "@bike-grid-now/site@workspace:packages/site"
   dependencies:
     "@bike-grid-now/cms": "workspace:^"
+    "@material-symbols/svg-400": ^0.2.9
     "@sveltejs/adapter-vercel": ^1.0.0-next.68
     "@sveltejs/kit": 1.0.0-next.431
     "@types/date-fns": ^2.6.0
@@ -1709,6 +1710,7 @@ __metadata:
     svelte-social-media-icons: ^0.0.3
     svelte-twitter-widgets: ^0.1.0
     vite: ^3.0.9
+    vite-plugin-svelte-svg: ^2.0.2
   languageName: unknown
   linkType: soft
 
@@ -3120,6 +3122,13 @@ __metadata:
   bin:
     node-pre-gyp: bin/node-pre-gyp
   checksum: 1b9c4c87a68d200daa13151d0fe033aa7aa8f7b26f3585255424dd8dfee2ec672c3e9bea4071c624469bc0aebbbcde08f8a300c8a958db52c50abadd5fb56920
+  languageName: node
+  linkType: hard
+
+"@material-symbols/svg-400@npm:^0.2.9":
+  version: 0.2.9
+  resolution: "@material-symbols/svg-400@npm:0.2.9"
+  checksum: 1f57d83ffe6c8b1e09aa62081f649a26791d2a89983f9ee09f146fa616b7d463eeb420ff4e54a692a9be436a30d2d3cf01101bb65b44048c5eab9384a8982e28
   languageName: node
   linkType: hard
 
@@ -15279,7 +15288,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svgo@npm:^2.7.0":
+"svgo@npm:^2.7.0, svgo@npm:^2.8.0":
   version: 2.8.0
   resolution: "svgo@npm:2.8.0"
   dependencies:
@@ -16095,6 +16104,18 @@ __metadata:
     unist-util-stringify-position: ^3.0.0
     vfile-message: ^3.0.0
   checksum: 2382edc7c6e3502bca72bc95bc1ff0fe1852482e8a0ac257615f9ab12f32564d6f6a55da8756b74a900d26a247da5ca23a92ca7c9a18dbda2b0f87504ef0611f
+  languageName: node
+  linkType: hard
+
+"vite-plugin-svelte-svg@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "vite-plugin-svelte-svg@npm:2.0.2"
+  dependencies:
+    svgo: ^2.8.0
+  peerDependencies:
+    svelte: ^3.49.0
+    vite: ^3.0.0
+  checksum: 2ca82efad055bdfd751d1bd08fea80cee0b4c14bff2f37a922ec05871999c94a23789d159823c2f8a9329793e2b52ca31fc7714f42b1352e715e2d8d1fa399fb
   languageName: node
   linkType: hard
 

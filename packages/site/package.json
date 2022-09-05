@@ -16,10 +16,12 @@
     "@types/html-minifier": "^4.0.2",
     "svelte": "^3.49.0",
     "svelte-preprocess": "^4.10.7",
-    "vite": "^3.0.9"
+    "vite": "^3.0.9",
+    "vite-plugin-svelte-svg": "^2.0.2"
   },
   "dependencies": {
     "@bike-grid-now/cms": "workspace:^",
+    "@material-symbols/svg-400": "^0.2.9",
     "date-fns": "^2.29.2",
     "firebase": "^9.9.4",
     "html-minifier": "^4.0.0",
