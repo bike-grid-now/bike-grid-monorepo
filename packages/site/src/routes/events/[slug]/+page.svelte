@@ -1,13 +1,15 @@
-lidesscript lang="ts">
+<script lang="ts">
   import { format } from "date-fns";
   import Slides from "$lib/components/Slides.svelte";
   import type { PageData } from "./$types";
+  import { parseEvent } from "$lib/firebase";
 
   export let data: PageData;
-  let { event } = data;
+  let { event: stringifiedEvent } = data;
+  let event = parseEvent(stringifiedEvent);
 
-  function formatDate(date: string) {
-    return format(new Date(date), "EEEE, LLLL d - h:mm a");
+  function formatDate(date: Date) {
+    return format(date, "EEEE, LLLL d - h:mm a");
   }
 </script>
 
@@ -27,12 +29,6 @@ lidesscript lang="ts">
 
       <Slides events={[event]} />
     </div>
-
-    <!-- {#if event.media}
-      <div class="slide-container">
-        <Slides events={event.media} />
-      </div>
-    {/if} -->
   {/if}
 </div>
 
@@ -68,10 +64,6 @@ lidesscript lang="ts">
 
   .footer {
     height: 20px;
-  }
-
-  .slide-container {
-    padding: 0px 20px;
   }
 
   .button {
