@@ -1,5 +1,7 @@
 <script lang="ts">
   import { format, compareAsc, compareDesc } from "date-fns";
+  import CalendarMonthIcon from '@material-symbols/svg-400/rounded/calendar_month.svg?component'
+  import ChevronRight from '@material-symbols/svg-400/rounded/chevron_right.svg?component'
 
   export let events = [];
   export let previous = false;
@@ -20,7 +22,7 @@
 {#if sortedEvents.length > 0}
   <main>
     <div class="top">
-      <span class="material-symbols-outlined"> calendar_month </span>
+      <CalendarMonthIcon viewBox="0 0 48 48" width="1.5rem" height="1.5rem" />
       <h2>{title}</h2>
     </div>
 
@@ -36,7 +38,7 @@
             </p>
           </div>
           <div>
-            <span class="material-symbols-outlined arrow">chevron_right</span>
+            <ChevronRight viewBox="0 0 48 48" width="1.5rem" height="1.5rem" />
           </div>
         </a>
       {/each}
@@ -50,6 +52,7 @@
     border-radius: 15px;
     padding: 20px;
     color: white;
+    fill: currentColor;
     border-radius: 15px;
     border: 1px solid black;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
@@ -58,7 +61,10 @@
 
   .top {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: start;
+    gap: 0.5rem;
     margin-bottom: 20px;
     margin-top: 5px;
   }
@@ -71,6 +77,7 @@
     transition: 0.15s;
     border-radius: 10px;
     color: white;
+    fill: currentColor;
 
     display: flex;
     flex-direction: row;
