@@ -1,4 +1,4 @@
-<script lang="ts">
+lidesscript lang="ts">
   import { format } from "date-fns";
   import Slides from "$lib/components/Slides.svelte";
   import type { PageData } from "./$types";
@@ -25,14 +25,14 @@
         {/if}
       </div>
 
-      <Slides media={[event.poster]} />
+      <Slides events={[event]} />
     </div>
 
-    {#if event.media}
+    <!-- {#if event.media}
       <div class="slide-container">
-        <Slides media={event.media} />
+        <Slides events={event.media} />
       </div>
-    {/if}
+    {/if} -->
   {/if}
 </div>
 
