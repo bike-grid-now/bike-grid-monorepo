@@ -3,6 +3,15 @@
   export let data: PageData;
 
   let { organizers } = data;
+
+  console.log('org', organizers)
+
+  function getImageUrl(imagePath: string) {
+    const BASE = "https://firebasestorage.googleapis.com/v0/b/bike-grid-now.appspot.com/o";
+    const PARAMS = "alt=media";
+
+    return `${BASE}/${encodeURIComponent(imagePath)}?${PARAMS}`;
+  }
 </script>
 
 {#if organizers && organizers.length > 0}
@@ -10,6 +19,9 @@
     <div class="grid">
       {#each organizers as organizer}
         <div class="card">
+          {#if organizer.image}
+             <img src={getImageUrl(organizer.image)} alt=""/>
+          {/if}
           <h2>{organizer.name}</h2>
           <p>{organizer.description}</p>
         </div>
@@ -55,6 +67,13 @@
 
   .footer {
     height: 15px;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
   }
 
   @media only screen and (max-width: 600px) {

@@ -57,7 +57,10 @@ export type Ward = {
 };
 
 export type Post = {
+  postLink: string;
   title: string;
+  subtitle: string;
+  image: string;
   body: string;
   createdOn: Date;
   updatedOn: Date;
