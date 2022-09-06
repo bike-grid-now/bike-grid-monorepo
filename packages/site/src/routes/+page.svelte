@@ -1,9 +1,9 @@
 <script lang="ts">
   import Agenda from "$lib/components/Agenda.svelte";
   import Slides from "$lib/components/Slides.svelte";
-  import Hero from './Hero.svelte';
-  import CallToAction from './CallToAction.svelte'
-  import CardContainer from './CardContainer.svelte'
+  import Hero from "./Hero.svelte";
+  import CallToAction from "./CallToAction.svelte";
+  import CardContainer from "./CardContainer.svelte";
 
   import type { PageData } from "./$types";
   import { compareAsc, compareDesc } from "date-fns";
@@ -32,7 +32,7 @@
   <CallToAction />
   <div class="sideby">
     {#if events && nextEvent}
-      <Slides media={[nextEvent.poster]} />
+      <Slides events={[nextEvent]} />
     {/if}
 
     <Agenda events={futureEvents} />
