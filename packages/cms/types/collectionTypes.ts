@@ -30,10 +30,6 @@
 
 import type { EntityReference } from "@camberi/firecms";
 
-export type Admin = {
-  email: string;
-};
-
 export type Event = {
   eventName: string;
   date: Date;

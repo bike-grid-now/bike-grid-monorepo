@@ -1,18 +1,51 @@
-import { collection, where, query, getDocs } from "firebase/firestore";
+import {
+  collection,
+  getDocs,
+  doc,
+  getDocFromServer,
+  setDoc,
+  getDoc,
+} from "firebase/firestore";
 import { db } from "./firebase";
-import { User as FirebaseUser } from "firebase/auth";
+import {
+  User as FirebaseUser,
+  onAuthStateChanged,
+  getAuth,
+} from "firebase/auth";
 import { Authenticator } from "@camberi/firecms";
-import { Admin, FirebaseType } from "../../types";
+import { User } from "../../types";
+
+const auth = getAuth();
+
+async function makeOrGetUserDoc(userId: string, userEmail: string) {
+  const userDoc = doc(db, "users", userId);
+  const snapshot = await getDocFromServer(userDoc);
+
+  if (!snapshot.exists()) {
+    await setDoc<User>(userDoc as any, {
+      admin: false,
+      email: userEmail,
+    });
+
+    return (await getDocFromServer(userDoc)).data() as User;
+  } else return snapshot.data() as User;
+}
+
+onAuthStateChanged(auth, async (user) => {
+  // User is signed in
+  if (user && user.email) {
+    await makeOrGetUserDoc(user.uid, user.email);
+  }
+});
 
 export const authenticator: Authenticator<FirebaseUser> = async ({ user }) => {
-  const snapshot = await getDocs(collection(db, "admins"));
-  const admins = snapshot.docs.map((x) => x.data() as FirebaseType<Admin>);
-
-  const adminEmails = admins.map((x) => x.email);
-
-  if (user?.email && adminEmails.includes(user.email.toLowerCase())) {
-    return true;
-  } else {
-    throw Error("This user has not been authorized to access this application");
+  if (!user) {
+    throw new Error("User must be logged in");
   }
+  if (!user.email) throw new Error("User must have email.");
+
+  const userDoc = await makeOrGetUserDoc(user.uid, user.email);
+  if (userDoc.admin === false) throw new Error("You cannot access this page.");
+
+  return userDoc.admin === true;
 };

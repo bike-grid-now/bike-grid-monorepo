@@ -8,6 +8,7 @@ export const usersCollection = buildCollection<User>({
   description: "Manage users in the CMS",
   group: "Content",
   icon: "AdminPanelSettings",
+
   customId: true,
   properties: {
     admin: {
@@ -20,7 +21,7 @@ export const usersCollection = buildCollection<User>({
     email: {
       dataType: "string",
       description: "Email",
-      editable: false,
+      readOnly: true,
       validation: {
         min: 3,
       },

@@ -23,7 +23,6 @@ export default function App() {
         collections.postsCollection,
         collections.wardsCollection,
         collections.organizersCollection,
-        collections.adminsCollection,
         collections.usersCollection,
       ]}
       firebaseConfig={firebaseConfig}
