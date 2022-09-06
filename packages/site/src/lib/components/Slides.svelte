@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { ParsedEvent } from "$lib/firebase";
   export let events: ParsedEvent[];
+  import Image from "$lib/components/Image.svelte";
 
   let currentEvent = events.length > 0 && events[0];
 
@@ -16,9 +17,12 @@
 {#if currentEvent}
   <div class="card">
     {#if currentEvent.poster}
-      <img
+      <Image
         src={getImageUrl(currentEvent.poster)}
         alt={`Poster for ${currentEvent.eventName}`}
+        width={600}
+        quality={50}
+        style="width: 100%; height: 100%; object-fit: cover"
       />
     {/if}
   </div>
@@ -32,11 +36,5 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 </style>

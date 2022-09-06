@@ -1,15 +1,18 @@
 <script lang="ts">
-  import BackgroundImage from './BackgroundImage.svelte'
-  import headerPhotoUrl from '../static/header-backdrop.jpeg'
+  import BackgroundImage from "./BackgroundImage.svelte";
+  import headerPhotoUrl from "../static/header-backdrop.jpeg";
 
-  import LocationOn from '@material-symbols/svg-400/rounded/location_on.svg?component'
+  import LocationOn from "@material-symbols/svg-400/rounded/location_on.svg?component";
 </script>
 
-<BackgroundImage src={headerPhotoUrl} brightness={0.5}>
+<BackgroundImage src={headerPhotoUrl} brightness={0.5} maxWidth={1020}>
   <div class="hero">
     <div class="header">
       <h1>Enough is enough.</h1>
-      <p>It's time to build a grid of bike-prioritized streets on 10% of Chicago streets with a 10mph speed limit.</p>
+      <p>
+        It's time to build a grid of bike-prioritized streets on 10% of Chicago
+        streets with a 10mph speed limit.
+      </p>
     </div>
 
     <div class="location">

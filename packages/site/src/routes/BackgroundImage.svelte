@@ -1,12 +1,25 @@
 <script lang="ts">
-  export let src: string;
-  export let brightness: string | number = "1.0"
+  import Image from "$lib/components/Image.svelte";
 
-  let style = `--background-image: url(${src})`
-  style += `; --brightness: ${brightness.toString()}`
+  export let src: string;
+  export let alt: string;
+  export let maxWidth: number;
+  export let brightness: string | number = "1.0";
+
+  let style = `--background-image: url(${src})`;
+  style += `; --brightness: ${brightness.toString()}`;
 </script>
 
 <div {style}>
+  <div class="image">
+    <Image
+      {src}
+      {alt}
+      width={maxWidth}
+      style="width: 100%; height: 100%; object-fit: cover; object-position: center"
+      quality={50}
+    />
+  </div>
   <slot />
 </div>
 
@@ -17,7 +30,7 @@
     width: 100%;
     display: block;
   }
-
+  /* 
   div::before {
     content: "";
     position: absolute;
@@ -27,6 +40,16 @@
     width: 100%;
     height: 100%;
     background-image: var(--background-image);
+    filter: brightness(var(--brightness));
+  } */
+
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
     filter: brightness(var(--brightness));
   }
 </style>
