@@ -5,6 +5,9 @@ export const adminsCollection = buildCollection<Admin>({
   name: "Admins",
   singularName: "Admin",
   path: "admins",
+  description: "Add admins to the CMS",
+  group: "Content",
+  icon: "AdminPanelSettings",
   properties: {
     email: {
       name: "Email",

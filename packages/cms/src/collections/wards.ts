@@ -5,6 +5,9 @@ export const wardsCollection = buildCollection<Ward>({
   name: "Wards",
   singularName: "Ward",
   path: "wards",
+  icon: "Map",
+  description: "Add ward contact information (not yet implemented on the website)",
+  group: "Content",
   properties: {
     wardNumber: {
       name: "Ward Number",

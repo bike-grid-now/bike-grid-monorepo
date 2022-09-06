@@ -5,6 +5,9 @@ export const organizersCollection = buildCollection<Organizer>({
   name: "Organizers",
   singularName: "Organizer",
   path: "organizers",
+  icon: "Person",
+  description: "Add organizers to the [about us page](https://bikegridnow.org/about)",
+  group: "Content",
   properties: {
     name: {
       name: "Name",

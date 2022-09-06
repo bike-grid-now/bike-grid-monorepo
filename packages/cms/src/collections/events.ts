@@ -5,6 +5,9 @@ export const eventsCollection = buildCollection<Event>({
   name: "Events",
   singularName: "Event",
   path: "events",
+  icon: "Event",
+  group: "Events",
+  description: "Add new events to the site (bike jam, bike bus, etc.)",
   properties: {
     poster: {
       name: "Poster",
