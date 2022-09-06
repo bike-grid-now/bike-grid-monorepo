@@ -20,6 +20,7 @@ export default function App() {
       authentication={wrappedAuthenticator}
       collections={[
         collections.eventsCollection,
+        collections.postsCollection,
         collections.wardsCollection,
         collections.organizersCollection,
         collections.adminsCollection,

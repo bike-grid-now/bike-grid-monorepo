@@ -55,3 +55,10 @@ export type Ward = {
   email: string;
   phone: string;
 };
+
+export type Post = {
+  title: string;
+  body: string;
+  createdOn: Date;
+  updatedOn: Date;
+}
