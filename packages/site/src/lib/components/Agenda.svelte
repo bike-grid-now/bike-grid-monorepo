@@ -69,10 +69,6 @@
     margin-top: 5px;
   }
 
-  .top span {
-    margin-right: 10px;
-  }
-
   .row {
     transition: 0.15s;
     border-radius: 10px;
