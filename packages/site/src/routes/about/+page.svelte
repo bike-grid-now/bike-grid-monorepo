@@ -4,8 +4,6 @@
 
   let { organizers } = data;
 
-  console.log('org', organizers)
-
   function getImageUrl(imagePath: string) {
     const BASE = "https://firebasestorage.googleapis.com/v0/b/bike-grid-now.appspot.com/o";
     const PARAMS = "alt=media";
