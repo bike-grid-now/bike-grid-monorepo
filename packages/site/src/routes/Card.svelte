@@ -1,20 +1,13 @@
-<script>
-  export let icon,
-    heading,
-    subheading,
-    link,
-    notarget = false;
+<script lang="ts">
+  export let link: string;
+  export let notarget: boolean = false
+  
+  import ArrowCircleRight from '@material-symbols/svg-400/rounded/arrow_circle_right.svg?component'
 </script>
 
 <a href={link} target={notarget ? "" : "_blank"} class="card">
-  <div class="top">
-    <span class="material-symbols-outlined">{icon}</span>
-    <h1>{heading}</h1>
-    <p>{subheading}</p>
-  </div>
-  <div class="bottom">
-    <span class="material-symbols-outlined arrow">arrow_circle_right</span>
-  </div>
+  <slot />
+  <ArrowCircleRight class="arrow" viewBox="0 0 48 48" width="4rem" height="4rem" />
 </a>
 
 <style>
@@ -24,26 +17,28 @@
   }
 
   .card {
-    background-color: #1b1a1b;
-    border-radius: 15px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    padding: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    grid-gap: 25px;
-    border: 1px solid rgb(0, 0, 0);
+    justify-content: center;
+
     text-align: center;
 
-    color: white;
-
-    transition: box-shadow 0.15s ease, background-color 0.15s ease;
+    padding: 2rem;
+    grid-gap: 2rem;
   }
 
-  .top {
-    display: flex;
-    flex-direction: column;
-    grid-gap: 25px;
+  .card {
+    background-color: #1b1a1b;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: white;
+    fill: currentColor;
+
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 15px;
+
+    transition: 0.15s ease-in-out;
+    line-height: 150%;
   }
 
   .card:hover,
@@ -52,21 +47,8 @@
     background-color: #c70909;
   }
 
-  .card:hover .arrow,
-  .card:focus .arrow {
-    transform: translateX(10px);
-  }
-
-  .card span {
-    font-size: 4rem;
-  }
-
-  .card p {
-    line-height: 175%;
-  }
-
-  .arrow {
-    font-size: 2rem;
-    transition: transform 0.2s;
+  .card:focus {
+    outline: 0.25rem solid white;
+    outline-offset: 0.25rem;
   }
 </style>
