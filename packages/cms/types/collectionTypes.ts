@@ -61,4 +61,9 @@ export type Post = {
   body: string;
   createdOn: Date;
   updatedOn: Date;
-}
+};
+
+export type User = {
+  admin: boolean;
+  email: string;
+};

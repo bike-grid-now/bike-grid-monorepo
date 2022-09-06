@@ -24,6 +24,7 @@ export default function App() {
         collections.wardsCollection,
         collections.organizersCollection,
         collections.adminsCollection,
+        collections.usersCollection,
       ]}
       firebaseConfig={firebaseConfig}
     />
