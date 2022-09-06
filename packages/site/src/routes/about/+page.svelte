@@ -44,7 +44,7 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    padding: 0px 15px;
+    padding: 0px 20px;
 
     margin-top: 20px;
   }
