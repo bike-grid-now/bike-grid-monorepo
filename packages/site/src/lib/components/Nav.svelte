@@ -23,6 +23,14 @@
     width: 100%;
   }
 
+  .content {
+    padding: 0px 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   nav {
     display: flex;
     flex-direction: row;

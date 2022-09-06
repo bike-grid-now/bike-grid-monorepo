@@ -9,7 +9,7 @@
   <div class="hero">
     <div class="header">
       <h1>Enough is enough.</h1>
-      <p>It's time to build a 450 mile-long network of safe infrastructure</p>
+      <p>It's time to build a grid of bike-prioritized streets on 10% of Chicago streets with a 10mph speed limit.</p>
     </div>
 
     <div class="location">
