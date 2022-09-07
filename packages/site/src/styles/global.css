@@ -103,3 +103,8 @@ button:focus {
 	color: #C70909;
 	text-decoration: underline;
 }
+
+.markdown li {
+	line-height: 200%;
+	margin-left: 20px;
+}
