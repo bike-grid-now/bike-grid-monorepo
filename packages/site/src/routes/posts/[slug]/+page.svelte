@@ -1,4 +1,5 @@
 <script lang="ts">
+    import CalendarMonthIcon from "@material-symbols/svg-400/rounded/calendar_month.svg?component";
     import { format } from "date-fns";
     import type { PageData } from "./$types";
     import SvelteMarkdown from 'svelte-markdown'
@@ -35,7 +36,11 @@
                     <h2>{post.subtitle}</h2>
                 {/if}
 
-                <p>{formatDate(post.createdOn)}</p>
+                <div class="horizontal">
+                    <CalendarMonthIcon viewBox="0 0 48 48" width="1.5rem" height="1.5rem" color="white" />
+                    
+                    <p>{formatDate(post.createdOn)}</p>
+                </div>
 
                 {#if post.image}
                     <img src={getImageUrl(post.image)}/>
@@ -94,5 +99,13 @@
         display: flex;
         flex-direction: column;
         gap: 25px;
+    }
+
+    .horizontal {
+        color: white !important;
+        fill: white;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 </style>

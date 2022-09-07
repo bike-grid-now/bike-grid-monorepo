@@ -1,13 +1,14 @@
 <script lang="ts">
-  import MailIcon from '@material-symbols/svg-400/rounded/mail.svg?component'
-  import EditNoteIcon from '@material-symbols/svg-400/rounded/edit_note.svg?component'
-  import ChevronRightIcon from '@material-symbols/svg-400/rounded/chevron_right.svg?component'
+  import MailIcon from "@material-symbols/svg-400/rounded/mail.svg?component";
+  import CallIcon from "@material-symbols/svg-400/rounded/call.svg?component";
+  import EditNoteIcon from "@material-symbols/svg-400/rounded/edit_note.svg?component";
+  import ChevronRightIcon from "@material-symbols/svg-400/rounded/chevron_right.svg?component";
 
   const iconProps = {
     viewBox: "0 0 48 48",
     width: "1.5rem",
-    height: "1.5rem"
-  }
+    height: "1.5rem",
+  };
 </script>
 
 <div class="button-group">
@@ -23,12 +24,24 @@
     <ChevronRightIcon {...iconProps} />
   </a>
 
-  <a href="https://newsletter.bikegridnow.org/" target="_blank">
-      <div class="content">
-        <MailIcon {...iconProps} />
-        <p>Newsletter Signup</p>
-      </div>
-      <ChevronRightIcon {...iconProps} />
+  <a
+    href="/posts/betterbelmont"
+    target="blank"
+    class="light"
+  >
+    <div class="content">
+      <CallIcon {...iconProps} />
+      <p>Call for a Better Belmont</p>
+    </div>
+    <ChevronRightIcon {...iconProps} />
+  </a>
+
+  <a href="https://newsletter.bikegridnow.org/" target="_blank" class="dark">
+    <div class="content">
+      <MailIcon {...iconProps} />
+      <p>Newsletter Signup</p>
+    </div>
+    <ChevronRightIcon {...iconProps} />
   </a>
 </div>
 
@@ -57,6 +70,10 @@
 
   .dark {
     background-color: #1b1a1b;
+  }
+
+  .light {
+	background-color: #272427;
   }
 
   .content {
