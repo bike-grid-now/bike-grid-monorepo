@@ -3,6 +3,7 @@
     import { format } from "date-fns";
     import type { PageData } from "./$types";
     import SvelteMarkdown from 'svelte-markdown'
+    import NewTabLink from "../../../NewTabLink.svelte";
   
     export let data: PageData;
     let { post: stringifiedPost } = data;
@@ -47,10 +48,10 @@
                 {/if}
 
                 <div class="markdown">
-                    <SvelteMarkdown source={post.body}/>
+                    <SvelteMarkdown source={post.body} renderers={{
+                        link: NewTabLink,
+                    }}/>
                 </div>
-
-                <!-- <p>{@html post.body}</p> -->
             {/if}
         </div>
     </div>
