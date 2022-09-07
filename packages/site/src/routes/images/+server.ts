@@ -16,8 +16,6 @@ export const GET: RequestHandler = async ({ request, params, url }) => {
     parsed = new URL(imageUrl, url.origin);
   }
 
-  console.log(parsed);
-
   const image = await fetch(parsed, {
     method: "GET",
   });

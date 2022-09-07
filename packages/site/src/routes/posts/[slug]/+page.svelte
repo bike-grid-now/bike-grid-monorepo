@@ -8,8 +8,6 @@
     export let data: PageData;
     let { post: stringifiedPost } = data;
     let post = stringifiedPost[0]
-
-    console.log('post', post)
   
     function formatDate(date: any) {
         let t = new Date(1970, 0, 1);
