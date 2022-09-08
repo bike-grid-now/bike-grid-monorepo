@@ -1,10 +1,13 @@
 <script lang="ts">
     import CalendarMonthIcon from "@material-symbols/svg-400/rounded/calendar_month.svg?component";
+    import LinkIcon from "@material-symbols/svg-400/rounded/link.svg?component";
+    import DoneIcon from "@material-symbols/svg-400/rounded/done.svg?component";
     import { format } from "date-fns";
     import type { PageData } from "./$types";
     import SvelteMarkdown from 'svelte-markdown'
     import NewTabLink from "../../../NewTabLink.svelte";
-  
+    import SocialIcons from '@rodneylab/svelte-social-icons';
+      
     export let data: PageData;
     let { post: stringifiedPost } = data;
     let post = stringifiedPost[0]
@@ -22,6 +25,18 @@
 
         return `${BASE}/${encodeURIComponent(imagePath)}?${PARAMS}`;
     }
+
+    let copied = false;
+
+    function copy() {
+        if (copied) return;
+
+        copied = true;
+        navigator.clipboard.writeText(`https://www.bikegridnow.org/posts/${post.postLink}`);
+        setTimeout(() => {
+            copied = false;
+        }, 1000);
+    }
 </script>
 
 <div class="responsive-container">
@@ -36,9 +51,33 @@
                 {/if}
 
                 <div class="horizontal">
-                    <CalendarMonthIcon viewBox="0 0 48 48" width="1.5rem" height="1.5rem" color="white" />
-                    
-                    <p>{formatDate(post.createdOn)}</p>
+                    <div class="left">
+                        <CalendarMonthIcon viewBox="0 0 48 48" width="1.5rem" height="1.5rem" color="white" />
+                        <p>{formatDate(post.createdOn)}</p>
+                    </div>
+
+                    <div class="right">
+                        <a href="https://twitter.com/intent/tweet?url=https://www.bikegridnow.org/posts/{post.postLink}&text=@bikegridnow" target="_blank">
+                            <SocialIcons width="40" height="40" network="twitter"/>
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.bikegridnow.org/posts/{post.postLink}" target="_blank">
+                            <SocialIcons width="40" height="40" network="facebook"/>
+                        </a>
+                        <a href="https://www.linkedin.com/shareArticle/?mini=true&url=https://www.bikegridnow.org/posts/{post.postLink}" target="_blank">
+                            <SocialIcons width="40" height="40" network="linkedin"/>
+                        </a>
+                        <div class="copy" on:click={copy}>
+                            <div class="link">
+                                <div class="link-icon" class:active={!copied}>
+                                    <LinkIcon viewBox="0 0 48 48" width="30px" height="30px" color="white" />
+                                </div>
+                                <div class="check-icon" class:active={copied}>
+                                    <DoneIcon viewBox="0 0 48 48" width="30px" height="30px" color="white" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 {#if post.image}
@@ -105,6 +144,64 @@
         fill: white;
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+
+    @media only screen and (max-width: 650px) {
+        .horizontal {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 25px;
+        }
+    }
+
+    .horizontal .left {
+        display: flex;
         gap: 10px;
+        align-items: center;
+        opacity: 0.5;
+    }
+
+    .horizontal .right {
+        display: flex;
+        gap: 10px;
+    }
+
+    .horizontal .right a {
+        color: white;
+        fill: currentColor;
+        text-decoration: none;
+    }
+
+    .copy {
+        cursor: pointer;
+    }
+
+    .link {
+        background-color: #c70909;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        position: relative;
+    }
+
+    .link-icon, .check-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+        transform: scale(0.5);
+        transition: 0.1s;
+    }
+
+    .link-icon.active, .check-icon.active {
+        transition-delay: 0.05s;
+        transform: scale(1);
+        opacity: 1;
     }
 </style>

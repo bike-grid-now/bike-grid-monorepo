@@ -26,7 +26,6 @@
 
   <a
     href="/posts/betterbelmont"
-    target="blank"
     class="light"
   >
     <div class="content">

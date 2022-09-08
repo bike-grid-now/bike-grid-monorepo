@@ -23,6 +23,8 @@
   "dependencies": {
     "@bike-grid-now/cms": "workspace:^",
     "@material-symbols/svg-400": "^0.2.9",
+    "@rodneylab/svelte-social-icons": "^0.0.23",
+    "@zerodevx/svelte-toast": "^0.7.2",
     "date-fns": "^2.29.2",
     "firebase": "^9.9.4",
     "html-minifier": "^4.0.0",

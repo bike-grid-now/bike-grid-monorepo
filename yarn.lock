@@ -1697,11 +1697,13 @@ __metadata:
   dependencies:
     "@bike-grid-now/cms": "workspace:^"
     "@material-symbols/svg-400": ^0.2.9
+    "@rodneylab/svelte-social-icons": ^0.0.23
     "@sveltejs/adapter-vercel": ^1.0.0-next.68
     "@sveltejs/kit": 1.0.0-next.431
     "@types/date-fns": ^2.6.0
     "@types/html-minifier": ^4.0.2
     "@types/sharp": ^0.30.5
+    "@zerodevx/svelte-toast": ^0.7.2
     date-fns: ^2.29.2
     firebase: ^9.9.4
     html-minifier: ^4.0.0
@@ -3553,6 +3555,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rodneylab/svelte-social-icons@npm:^0.0.23":
+  version: 0.0.23
+  resolution: "@rodneylab/svelte-social-icons@npm:0.0.23"
+  checksum: cc8efc8842046f027aa5a7c714d99b993cc7af50483e85bdeb13fa1d049578a228e02699e797740fc9775c48baa7f61620075ff3c31d4dc4d7cb3530b3b9efd3
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-babel@npm:^5.2.0":
   version: 5.3.1
   resolution: "@rollup/plugin-babel@npm:5.3.1"
@@ -4822,6 +4831,13 @@ __metadata:
   version: 4.2.2
   resolution: "@xtuc/long@npm:4.2.2"
   checksum: 8ed0d477ce3bc9c6fe2bf6a6a2cc316bb9c4127c5a7827bae947fa8ec34c7092395c5a283cc300c05b5fa01cbbfa1f938f410a7bf75db7c7846fea41949989ec
+  languageName: node
+  linkType: hard
+
+"@zerodevx/svelte-toast@npm:^0.7.2":
+  version: 0.7.2
+  resolution: "@zerodevx/svelte-toast@npm:0.7.2"
+  checksum: efc64919d424c6b76e0d61641d898e0029617024469e0e69523cbd17df7b2f66b036f2cc38217561aa55a8e941dd9b188d628879a828075f0663cf3718db1073
   languageName: node
   linkType: hard
 
