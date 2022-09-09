@@ -1,0 +1,42 @@
+{
+  "name": "@bike-grid-now/sanity",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "package.json",
+  "author": "Sam Wight <samuelwight@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "build": "sanity build"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^2.33.0",
+    "@sanity/color": "^2.1.14",
+    "@sanity/core": "^2.33.0",
+    "@sanity/data-aspects": "^2.29.3",
+    "@sanity/default-layout": "^2.33.0",
+    "@sanity/default-login": "^2.33.0",
+    "@sanity/desk-tool": "^2.33.0",
+    "@sanity/eslint-config-studio": "^2.0.0",
+    "@sanity/form-builder": "^2.33.0",
+    "@sanity/rich-date-input": "^2.0.9",
+    "@sanity/vision": "^2.33.0",
+    "date-fns": "^2.29.2",
+    "eslint": "^8.6.0",
+    "prop-types": "^15.7",
+    "react": "^17.0",
+    "react-dom": "^17.0",
+    "react-is": "^18.2.0",
+    "styled-components": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.0",
+    "caniuse-lite": "^1.0.30001393",
+    "typescript": "^4.8.3",
+    "webpack": "^5.74.0"
+  }
+}
