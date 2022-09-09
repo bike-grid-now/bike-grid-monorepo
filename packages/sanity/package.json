@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.19.0",
+    "@sanity/cli": "^2.32.0",
     "caniuse-lite": "^1.0.30001393",
     "typescript": "^4.8.3",
     "webpack": "^5.74.0"
