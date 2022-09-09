@@ -25,7 +25,7 @@ export default {
     },
     {
       name: "date",
-      type: "datetime",
+      type: "richDate",
       title: "Date",
       description: "This is assumed to be in CST.",
       options: {

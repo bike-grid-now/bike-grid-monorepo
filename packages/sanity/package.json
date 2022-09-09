@@ -23,6 +23,7 @@
     "@sanity/desk-tool": "^2.33.0",
     "@sanity/eslint-config-studio": "^2.0.0",
     "@sanity/form-builder": "^2.33.0",
+    "@sanity/rich-date-input": "^2.0.9",
     "@sanity/vision": "^2.33.0",
     "date-fns": "^2.29.2",
     "eslint": "^8.6.0",

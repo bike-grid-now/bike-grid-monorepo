@@ -77,6 +77,7 @@ importers:
       '@sanity/desk-tool': ^2.33.0
       '@sanity/eslint-config-studio': ^2.0.0
       '@sanity/form-builder': ^2.33.0
+      '@sanity/rich-date-input': ^2.0.9
       '@sanity/vision': ^2.33.0
       caniuse-lite: ^1.0.30001393
       date-fns: ^2.29.2
@@ -98,6 +99,7 @@ importers:
       '@sanity/desk-tool': 2.33.0_mi3pls6recgb6ihtkrjphkczfm
       '@sanity/eslint-config-studio': 2.0.0_itqs5654cmlnjraw6gjzqacppi
       '@sanity/form-builder': 2.33.0_e2j7mneen3arr2g7olztmnnfl4
+      '@sanity/rich-date-input': 2.0.9_sfoxds7t5ydpegc3knd667wn6m
       '@sanity/vision': 2.33.0_mi3pls6recgb6ihtkrjphkczfm
       date-fns: 2.29.2
       eslint: 8.23.0
@@ -3764,6 +3766,18 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: false
 
+  /@hypnosphi/create-react-context/0.3.1_at7mkepldmzoo6silmqc5bca74:
+    resolution: {integrity: sha512-V1klUed202XahrWJLLOT3EXNeCpFHCcJntdFGI15ntCwau+jfT386w7OFTMaCqOgXUH1fa0w/I1oZs+i/Rfr0A==}
+    peerDependencies:
+      prop-types: ^15.0.0
+      react: '>=0.14.0'
+    dependencies:
+      gud: 1.0.0
+      prop-types: 15.8.1
+      react: 17.0.2
+      warning: 4.0.3
+    dev: false
+
   /@istanbuljs/load-nyc-config/1.1.0:
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}
     engines: {node: '>=8'}
@@ -5095,6 +5109,10 @@ packages:
       - supports-color
     dev: false
 
+  /@sanity/generate-help-url/2.0.9:
+    resolution: {integrity: sha512-Ibr4fEL3McAtvScwVPi5IpnLT+fXfY5NMxjmX0IyLHTod1iwOVpVlPBjWdLiiWiaMqX7Kf9CtoNcjFhtsVj2UA==}
+    dev: false
+
   /@sanity/generate-help-url/3.0.0:
     resolution: {integrity: sha512-wtMYcV5GIDIhVyF/jjmdwq1GdlK07dRL40XMns73VbrFI7FteRltxv48bhYVZPcLkRXb0SHjpDS/icj9/yzbVA==}
     dev: false
@@ -5270,6 +5288,22 @@ packages:
       promise-props-recursive: 1.0.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@sanity/rich-date-input/2.0.9_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-NX4qinn0VUGmo9AiKXY4PQ6H3gBUz6lrJsVnVrypw2JJOQVeUjdKC4U9as2q4ma2PWLbtiJ9iT8s3X8Ri+fugA==}
+    peerDependencies:
+      react: ^16.9 || ^17
+    dependencies:
+      '@sanity/generate-help-url': 2.0.9
+      lodash: 4.17.21
+      moment: 2.29.4
+      moment-timezone: 0.5.37
+      prop-types: 15.8.1
+      react: 17.0.2
+      react-datepicker: 1.8.0_tonpzznxmdkdqlpcs7osdmovtq
+    transitivePeerDependencies:
+      - react-dom
     dev: false
 
   /@sanity/schema/2.31.0:
@@ -9210,6 +9244,17 @@ packages:
     resolution: {integrity: sha512-Q6fKUPqnAHAyhiUgFU7BUzLiv0kd8saH9al7tnu5Q/okj6dnupxyTgFIBjVzJATdfIAm9NAsvXNzjaKa+bxVyA==}
     dev: false
 
+  /deep-equal/1.1.1:
+    resolution: {integrity: sha512-yd9c5AdiqVcR+JjcwUQb9DkhJc8ngNr0MahEBGvDiJw8puWab2yZlh+nkasOnZP+EGTAP6rRp2JzJhJZzvNF8g==}
+    dependencies:
+      is-arguments: 1.1.1
+      is-date-object: 1.0.5
+      is-regex: 1.1.4
+      object-is: 1.1.5
+      object-keys: 1.1.1
+      regexp.prototype.flags: 1.4.3
+    dev: false
+
   /deep-extend/0.6.0:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
     engines: {node: '>=4.0.0'}
@@ -11546,6 +11591,10 @@ packages:
     resolution: {integrity: sha512-qJeuEgziddryH1ClsJvMoZM9aXNQbBViNZZrJwhHKr2wU8HGGM7uNWNVFglWXMX60MMaa2SClX3UohP76Ut68g==}
     dev: false
 
+  /gud/1.0.0:
+    resolution: {integrity: sha512-zGEOVKFM5sVPPrYs7J5/hYEw2Pof8KCyOwyhG8sAF26mCAeUFAcYPu1mwB7hhpIP29zOIBaDqwuHdLp0jvZXjw==}
+    dev: false
+
   /gunzip-maybe/1.4.2:
     resolution: {integrity: sha512-4haO1M4mLO91PW57BMsDFf75UmwoRX0GkdD+Faw+Lr+r/OZrOCS0pIBwOL1xCKQqnQzbNFGgK2V2CpBUPeFNTw==}
     hasBin: true
@@ -12321,6 +12370,14 @@ packages:
     dependencies:
       is-alphabetical: 2.0.1
       is-decimal: 2.0.1
+    dev: false
+
+  /is-arguments/1.1.1:
+    resolution: {integrity: sha512-8Q7EARjzEnKpt/PCD7e1cgUS0a6X8u5tdSiMqXhojOdoV9TsMsiO+9VLC5vAmO8N7/GmXn7yjR8qnA6bVAEzfA==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.2
+      has-tostringtag: 1.0.0
     dev: false
 
   /is-arrayish/0.2.1:
@@ -14644,6 +14701,12 @@ packages:
     hasBin: true
     dev: true
 
+  /moment-timezone/0.5.37:
+    resolution: {integrity: sha512-uEDzDNFhfaywRl+vwXxffjjq1q0Vzr+fcQpQ1bU0kbzorfS7zVtZnCnGc8mhWmF39d4g4YriF6kwA75mJKE/Zg==}
+    dependencies:
+      moment: 2.29.4
+    dev: false
+
   /moment/2.29.4:
     resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
     dev: false
@@ -14965,6 +15028,14 @@ packages:
 
   /object-inspect/1.12.2:
     resolution: {integrity: sha512-z+cPxW0QGUp0mcqcsgQyLVRDoXFQbXOwBaqyF7VIgI4TWNQsDHrBpUQslRmIfAoYWdYzs6UlKJtB2XJpTaNSpQ==}
+    dev: false
+
+  /object-is/1.1.5:
+    resolution: {integrity: sha512-3cyDsyHgtmi7I7DfSSI2LDp6SK2lwvtbg0p0R1e0RvTqF5ceGx+K2dfSjm1bKDMVCFEDAQvy+o8c6a7VujOddw==}
+    engines: {node: '>= 0.4'}
+    dependencies:
+      call-bind: 1.0.2
+      define-properties: 1.1.4
     dev: false
 
   /object-keys/1.1.1:
@@ -15555,6 +15626,11 @@ packages:
       '@popperjs/core': ^2.2.0
     dependencies:
       '@popperjs/core': 2.11.6
+    dev: false
+
+  /popper.js/1.16.1:
+    resolution: {integrity: sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==}
+    deprecated: You can find the new Popper v2 at @popperjs/core, this package is dedicated to the legacy v1
     dev: false
 
   /posix-character-classes/0.1.1:
@@ -17371,6 +17447,22 @@ packages:
       react: 17.0.2
     dev: false
 
+  /react-datepicker/1.8.0_tonpzznxmdkdqlpcs7osdmovtq:
+    resolution: {integrity: sha512-N4LdVTtqJCsZyKXBQ/AqSEcH6FyhgsY1gD07zECNu60nGt5s4ngRlhYdHoE34VNFO+ZY+pvljZRLwSC8LS9RxQ==}
+    peerDependencies:
+      moment: ^2.20.0
+      react: ^16.0.0
+      react-dom: ^16.0.0
+    dependencies:
+      classnames: 2.3.1
+      moment: 2.29.4
+      prop-types: 15.8.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+      react-onclickoutside: 6.12.2_sfoxds7t5ydpegc3knd667wn6m
+      react-popper: 1.3.11_react@17.0.2
+    dev: false
+
   /react-dev-utils/12.0.1_j7mri6brqo6jqc4rzvyyrslsmu:
     resolution: {integrity: sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ==}
     engines: {node: '>=14'}
@@ -17584,6 +17676,31 @@ packages:
 
   /react-merge-refs/1.1.0:
     resolution: {integrity: sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==}
+    dev: false
+
+  /react-onclickoutside/6.12.2_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-NMXGa223OnsrGVp5dJHkuKxQ4czdLmXSp5jSV9OqiCky9LOpPATn3vLldc+q5fK3gKbEHvr7J1u0yhBh/xYkpA==}
+    peerDependencies:
+      react: ^15.5.x || ^16.x || ^17.x || ^18.x
+      react-dom: ^15.5.x || ^16.x || ^17.x || ^18.x
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
+  /react-popper/1.3.11_react@17.0.2:
+    resolution: {integrity: sha512-VSA/bS+pSndSF2fiasHK/PTEEAyOpX60+H5EPAjoArr8JGm+oihu4UbrqcEBpQibJxBVCpYyjAX7abJ+7DoYVg==}
+    peerDependencies:
+      react: 0.14.x || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      '@babel/runtime': 7.18.9
+      '@hypnosphi/create-react-context': 0.3.1_at7mkepldmzoo6silmqc5bca74
+      deep-equal: 1.1.1
+      popper.js: 1.16.1
+      prop-types: 15.8.1
+      react: 17.0.2
+      typed-styles: 0.0.7
+      warning: 4.0.3
     dev: false
 
   /react-popper/2.3.0_vov5yimr6vvxyufd6uigwwkst4:
@@ -20208,6 +20325,10 @@ packages:
 
   /type/2.7.2:
     resolution: {integrity: sha512-dzlvlNlt6AXU7EBSfpAscydQ7gXB+pPGsPnfJnZpiNJBDj7IaJzQlBZYGdEi4R9HmPdBv2XmWJ6YUtoTa7lmCw==}
+    dev: false
+
+  /typed-styles/0.0.7:
+    resolution: {integrity: sha512-pzP0PWoZUhsECYjABgCGQlRGL1n7tOHsgwYv3oIiEpJwGhFTuty/YNeduxQYzXXa3Ge5BdT6sHYIQYpl4uJ+5Q==}
     dev: false
 
   /typedarray-to-buffer/3.1.5:
