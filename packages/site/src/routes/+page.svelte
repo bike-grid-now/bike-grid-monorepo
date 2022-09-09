@@ -11,19 +11,11 @@
 
   export let data: PageData;
 
-  const { events: stringifiedEvents } = data;
+  const { events: stringifiedEvents, upcomingEvents, pastEvents } = data;
 
   let events = stringifiedEvents.map(parseEvent);
 
-  let futureEvents = events
-    .filter((event) => event.date >= new Date())
-    .sort((a, b) => compareAsc(a.date, b.date));
-
-  let previousEvents = events
-    .filter((event) => new Date(event.date) < new Date())
-    .sort((a, b) => compareDesc(a.date, b.date));
-
-  let nextEvent = futureEvents.length > 0 ? futureEvents[0] : null;
+  let nextEvent = upcomingEvents.length > 0 ? upcomingEvents[0] : null;
 </script>
 
 <Hero />
@@ -35,11 +27,11 @@
       <Slides events={[nextEvent]} />
     {/if}
 
-    <Agenda events={futureEvents} />
+    <Agenda events={upcomingEvents} title="Upcoming Events" />
   </div>
 
   <CardContainer />
-  <Agenda events={previousEvents} previous />
+  <Agenda events={pastEvents} title="Past Events" />
 </div>
 
 <style>

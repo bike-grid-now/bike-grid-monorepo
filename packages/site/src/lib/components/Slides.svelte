@@ -1,33 +1,31 @@
 <script lang="ts">
-  import type { ParsedEvent } from "$lib/firebase";
-  export let events: ParsedEvent[];
+  export let events: Event[];
   import Image from "$lib/components/Image.svelte";
 
-  let currentEvent = events.length > 0 && events[0];
-
-  function getImageUrl(imagePath: string) {
-    const BASE =
-      "https://firebasestorage.googleapis.com/v0/b/bike-grid-now.appspot.com/o";
-    const PARAMS = "alt=media";
-
-    return `${BASE}/${encodeURIComponent(imagePath)}?${PARAMS}`;
+  interface Event {
+    poster?: {
+      altText: string;
+      imageUrl: string;
+    };
   }
+
+  let currentEvent = events.length > 0 && events[0];
 </script>
 
 {#if currentEvent}
   <div class="card">
     {#if currentEvent.poster}
       <Image
-        src={getImageUrl(currentEvent.poster)}
-        alt={`Poster for ${currentEvent.eventName}`}
+        src={currentEvent.poster.imageUrl}
+        alt={currentEvent.poster.altText}
         width={600}
         quality={50}
         style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; z-index: 2;"
       />
 
       <Image
-        src={getImageUrl(currentEvent.poster)}
-        alt={`Poster for ${currentEvent.eventName}`}
+        src={currentEvent.poster.imageUrl}
+        alt={currentEvent.poster.altText}
         width={600}
         quality={1}
         style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; filter: blur(10px);"
