@@ -2,34 +2,30 @@
   import { format } from "date-fns";
   import Slides from "$lib/components/Slides.svelte";
   import type { PageData } from "./$types";
-  import { parseEvent } from "$lib/firebase";
 
   export let data: PageData;
-  let { event: stringifiedEvent } = data;
-  let event = parseEvent(stringifiedEvent);
+  let { event } = data;
 
-  function formatDate(date: Date) {
-    return format(date, "EEEE, LLLL d - h:mm a");
+  function formatDate(date: string) {
+    return format(new Date(date), "EEEE, LLLL d - h:mm a");
   }
 </script>
 
 <div class="container">
-  {#if event}
-    <div class="sideby">
-      <div class="card">
-        <h1>{event.eventName}</h1>
-        <p>
-          {formatDate(event.date)}
-        </p>
+  <div class="sideby">
+    <div class="card">
+      <h1>{event.name}</h1>
+      <p>
+        {formatDate(event.date.local)}
+      </p>
 
-        {#if event.rsvpLink}
-          <a href={event.rsvpLink} target="_blank" class="button">RSVP</a>
-        {/if}
-      </div>
-
-      <Slides events={[event]} />
+      {#if event.rsvpLink}
+        <a href={event.rsvpLink} target="_blank" class="button">RSVP</a>
+      {/if}
     </div>
-  {/if}
+
+    <Slides events={[event]} />
+  </div>
 </div>
 
 <div class="footer" />

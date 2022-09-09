@@ -54,3 +54,12 @@ export async function pastEvents() {
   const result: Event[] = await client.fetch(query);
   return result;
 }
+
+export async function eventFromSlug(slug: string): Promise<Event | null> {
+  const query = eventsQuery + `[slug == "${slug}"]` + eventsProjection;
+
+  const results: Event[] = await client.fetch(query);
+  if (results.length === 0) return null;
+
+  return results[0];
+}
