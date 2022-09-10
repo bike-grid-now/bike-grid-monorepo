@@ -1,14 +1,14 @@
 import { error } from "@sveltejs/kit";
-import { getEvent } from "$lib/firebase";
 import { headers } from "$lib/caching";
+import { eventFromSlug } from "$lib/sanity";
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params: { slug }, setHeaders }) {
-  const event = await getEvent(slug);
+  const event = await eventFromSlug(slug);
 
   setHeaders(headers);
 
-  if (event) {
+  if (event !== null) {
     return {
       event,
     };

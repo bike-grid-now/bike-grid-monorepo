@@ -120,7 +120,9 @@ importers:
     specifiers:
       '@bike-grid-now/cms': workspace:^
       '@material-symbols/svg-400': ^0.2.9
+      '@portabletext/svelte': ^1.0.1
       '@rodneylab/svelte-social-icons': ^0.0.23
+      '@sanity/client': ^3.3.6
       '@sveltejs/adapter-vercel': ^1.0.0-next.68
       '@sveltejs/kit': 1.0.0-next.431
       '@types/date-fns': ^2.6.0
@@ -143,6 +145,7 @@ importers:
       '@bike-grid-now/cms': link:../cms
       '@material-symbols/svg-400': 0.2.9
       '@rodneylab/svelte-social-icons': 0.0.23
+      '@sanity/client': 3.3.6
       '@zerodevx/svelte-toast': 0.7.2
       date-fns: 2.29.2
       firebase: 9.9.4
@@ -153,6 +156,7 @@ importers:
       svelte-social-media-icons: 0.0.3
       svelte-twitter-widgets: 0.1.0
     devDependencies:
+      '@portabletext/svelte': 1.0.1_svelte@3.49.0
       '@sveltejs/adapter-vercel': 1.0.0-next.72
       '@sveltejs/kit': 1.0.0-next.431_svelte@3.49.0+vite@3.0.9
       '@types/date-fns': 2.6.0
@@ -4484,16 +4488,23 @@ packages:
       react: 17.0.2
     dev: false
 
+  /@portabletext/svelte/1.0.1_svelte@3.49.0:
+    resolution: {integrity: sha512-37nyWavAl/MykqN5mrCmog9rYy+Bj6v64qn5oO2aj5GLF/BVz+zJThhdO2Ks70B6gkJXjVHDrcNs3qeIdZ53EA==}
+    peerDependencies:
+      svelte: ^3.47.0
+    dependencies:
+      '@portabletext/toolkit': 1.0.5
+      svelte: 3.49.0
+    dev: true
+
   /@portabletext/toolkit/1.0.5:
     resolution: {integrity: sha512-kwVOfVoquufDQNmzzhGxji9A+/T+dhLKKOHEHldM1kMUoNzY6wwrt5H/Plnw4xbdE780kkwqJqHxjxoSYr706A==}
     dependencies:
       '@portabletext/types': 1.0.3
-    dev: false
 
   /@portabletext/types/1.0.3:
     resolution: {integrity: sha512-SDDsdury2SaTI2D5Ea6o+Y39SSZMYHRMWJHxkxYl3yzFP0n/0EknOhoXcoaV+bxGr2dTTqZi2TOEj+uWYuavSw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    dev: false
 
   /@protobufjs/aspromise/1.1.2:
     resolution: {integrity: sha512-j+gKExEuLmKwvz3OgROXtrJ2UG2x8Ch2YZUxahh+s1F2HZ+wAceUNLkvy6zKCPVRkU++ZWQrdxsUeQXmcg4uoQ==}

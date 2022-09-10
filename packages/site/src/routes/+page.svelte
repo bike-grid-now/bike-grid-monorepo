@@ -6,24 +6,16 @@
   import CardContainer from "./CardContainer.svelte";
 
   import type { PageData } from "./$types";
-  import { compareAsc, compareDesc } from "date-fns";
-  import { parseEvent } from "$lib/firebase";
 
   export let data: PageData;
 
-  const { events: stringifiedEvents } = data;
+  let upcomingEvents = data.upcomingEvents;
+  let pastEvents = data.pastEvents;
 
-  let events = stringifiedEvents.map(parseEvent);
+  $: upcomingEvents = data.upcomingEvents;
+  $: pastEvents = data.pastEvents;
 
-  let futureEvents = events
-    .filter((event) => event.date >= new Date())
-    .sort((a, b) => compareAsc(a.date, b.date));
-
-  let previousEvents = events
-    .filter((event) => new Date(event.date) < new Date())
-    .sort((a, b) => compareDesc(a.date, b.date));
-
-  let nextEvent = futureEvents.length > 0 ? futureEvents[0] : null;
+  let nextEvent = upcomingEvents.length > 0 ? upcomingEvents[0] : null;
 </script>
 
 <Hero />
@@ -31,15 +23,15 @@
 <div class="content main-content">
   <CallToAction />
   <div class="sideby">
-    {#if events && nextEvent}
+    {#if nextEvent}
       <Slides events={[nextEvent]} />
     {/if}
 
-    <Agenda events={futureEvents} />
+    <Agenda events={upcomingEvents} title="Upcoming Events" />
   </div>
 
   <CardContainer />
-  <Agenda events={previousEvents} previous />
+  <Agenda events={pastEvents} title="Past Events" />
 </div>
 
 <style>

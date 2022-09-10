@@ -1,25 +1,23 @@
 <script lang="ts">
   import { format, compareAsc, compareDesc } from "date-fns";
-  import CalendarMonthIcon from '@material-symbols/svg-400/rounded/calendar_month.svg?component'
-  import ChevronRight from '@material-symbols/svg-400/rounded/chevron_right.svg?component'
+  import CalendarMonthIcon from "@material-symbols/svg-400/rounded/calendar_month.svg?component";
+  import ChevronRight from "@material-symbols/svg-400/rounded/chevron_right.svg?component";
 
-  export let events = [];
-  export let previous = false;
+  type Event = {
+    name: string;
+    date: string;
+    slug: string;
+  };
 
-  let title = previous ? "Previous Events" : "Upcoming Events";
-
-  let sortedEvents = events.sort((a, b) =>
-    previous
-      ? compareDesc(new Date(a.date), new Date(b.date))
-      : compareAsc(new Date(a.date), new Date(b.date))
-  );
+  export let events: Event[] = [];
+  export let title: string;
 
   function formatDate(date: string) {
     return format(new Date(date), "EEEE, LLLL d - h:mm a");
   }
 </script>
 
-{#if sortedEvents.length > 0}
+{#if events.length > 0}
   <main>
     <div class="top">
       <CalendarMonthIcon viewBox="0 0 48 48" width="1.5rem" height="1.5rem" />
@@ -29,10 +27,10 @@
     <div class="divider" />
 
     <div>
-      {#each sortedEvents as event}
-        <a class="row" href={`/events/${event.id}`}>
+      {#each events as event}
+        <a class="row" href={`/events/${event.slug}`}>
           <div>
-            <p class="title">{event.eventName}</p>
+            <p class="title">{event.name}</p>
             <p class="time">
               {formatDate(event.date)}
             </p>
