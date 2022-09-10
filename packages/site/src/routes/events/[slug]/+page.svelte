@@ -8,6 +8,8 @@
   import type { PageData } from "./$types";
 
   export let data: PageData;
+
+  let event = data.event;
   $: event = data.event;
 
   function formatDate(date: string) {

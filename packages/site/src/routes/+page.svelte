@@ -9,6 +9,9 @@
 
   export let data: PageData;
 
+  let upcomingEvents = data.upcomingEvents;
+  let pastEvents = data.pastEvents;
+
   $: upcomingEvents = data.upcomingEvents;
   $: pastEvents = data.pastEvents;
 

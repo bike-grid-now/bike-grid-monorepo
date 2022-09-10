@@ -19,7 +19,7 @@ export async function load({ setHeaders }) {
 
   return {
     events: await getEvents(),
-    pastEvents: past.map(mapEvent),
-    upcomingEvents: future.map(mapEvent),
+    pastEvents: past.map(mapEvent) || [],
+    upcomingEvents: future.map(mapEvent) || [],
   };
 }
