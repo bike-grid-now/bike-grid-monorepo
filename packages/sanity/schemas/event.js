@@ -79,12 +79,12 @@ export default {
     {
       title: "Event Date, Old",
       name: "dateAsc",
-      by: [{ field: "date", direction: "asc" }],
+      by: [{ field: "date.local", direction: "asc" }],
     },
     {
       title: "Event Date, New",
       name: "dateDesc",
-      by: [{ field: "date", direction: "desc" }],
+      by: [{ field: "date.local", direction: "desc" }],
     },
   ],
 };
