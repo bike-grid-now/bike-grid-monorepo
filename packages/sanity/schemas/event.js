@@ -68,8 +68,6 @@ export default {
       media: "poster.asset",
     },
     prepare({ title, subtitle, ...params }) {
-      console.log(params);
-
       return {
         ...params,
         title,

@@ -6,14 +6,11 @@
   import CardContainer from "./CardContainer.svelte";
 
   import type { PageData } from "./$types";
-  import { compareAsc, compareDesc } from "date-fns";
-  import { parseEvent } from "$lib/firebase";
 
   export let data: PageData;
 
-  const { events: stringifiedEvents, upcomingEvents, pastEvents } = data;
-
-  let events = stringifiedEvents.map(parseEvent);
+  $: upcomingEvents = data.upcomingEvents;
+  $: pastEvents = data.pastEvents;
 
   let nextEvent = upcomingEvents.length > 0 ? upcomingEvents[0] : null;
 </script>
@@ -23,7 +20,7 @@
 <div class="content main-content">
   <CallToAction />
   <div class="sideby">
-    {#if events && nextEvent}
+    {#if nextEvent}
       <Slides events={[nextEvent]} />
     {/if}
 

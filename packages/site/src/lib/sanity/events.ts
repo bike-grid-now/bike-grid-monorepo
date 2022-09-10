@@ -31,7 +31,7 @@ export interface Event {
   slug: {
     current: string;
   };
-  description?: unknown;
+  description?: any;
 }
 
 const eventsQuery = `*[_type == "event"]`;
@@ -56,7 +56,7 @@ export async function pastEvents() {
 }
 
 export async function eventFromSlug(slug: string): Promise<Event | null> {
-  const query = eventsQuery + `[slug == "${slug}"]` + eventsProjection;
+  const query = eventsQuery + `[slug.current == "${slug}"]` + eventsProjection;
 
   const results: Event[] = await client.fetch(query);
   if (results.length === 0) return null;

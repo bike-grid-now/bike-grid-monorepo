@@ -1,23 +1,35 @@
 <script lang="ts">
   import { format } from "date-fns";
   import Slides from "$lib/components/Slides.svelte";
+  import Seo from "$lib/components/Seo.svelte";
+  import Image from "$lib/components/Image.svelte";
+  import { PortableText } from "@portabletext/svelte";
+
   import type { PageData } from "./$types";
 
   export let data: PageData;
-  let { event } = data;
+  $: event = data.event;
 
   function formatDate(date: string) {
-    return format(new Date(date), "EEEE, LLLL d - h:mm a");
+    return format(new Date(date), "M/dd/yyyy 'at' h:mm a");
   }
 </script>
+
+<Seo title={event.name} />
 
 <div class="container">
   <div class="sideby">
     <div class="card">
       <h1>{event.name}</h1>
       <p>
-        {formatDate(event.date.local)}
+        Date: {formatDate(event.date.local)}
       </p>
+
+      {#if event.description}
+        <div>
+          <PortableText value={event.description} />
+        </div>
+      {/if}
 
       {#if event.rsvpLink}
         <a href={event.rsvpLink} target="_blank" class="button">RSVP</a>
