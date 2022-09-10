@@ -64,11 +64,14 @@ export default {
   preview: {
     select: {
       title: "name",
-      subtitle: "date",
-      media: "poster.image",
+      subtitle: "date.local",
+      media: "poster.asset",
     },
-    prepare({ title, subtitle }) {
+    prepare({ title, subtitle, ...params }) {
+      console.log(params);
+
       return {
+        ...params,
         title,
         subtitle: format(new Date(subtitle), "M/dd/yyyy 'at' h:mm a"),
       };
