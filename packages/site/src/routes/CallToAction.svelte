@@ -24,10 +24,7 @@
     <ChevronRightIcon {...iconProps} />
   </a>
 
-  <a
-    href="/posts/betterbelmont"
-    class="light"
-  >
+  <a href="/posts/betterbelmont" class="light">
     <div class="content">
       <CallIcon {...iconProps} />
       <p>Call for a Better Belmont</p>
@@ -47,11 +44,11 @@
 <style>
   a {
     text-decoration: none;
-    color: white;
+    color: var(--color-text);
     fill: currentColor;
     display: block;
 
-    background-color: #c70909;
+    background-color: var(--color-primary);
     padding: 25px;
     font-size: 1.5rem;
     cursor: pointer;
@@ -63,16 +60,16 @@
   .button-group {
     border-radius: 15px;
     overflow: hidden;
-    border: 1px solid black;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 2px 3px var(--color-shadow);
   }
 
   .dark {
-    background-color: #1b1a1b;
+    background-color: var(--color-card);
   }
 
   .light {
-	background-color: #272427;
+    background-color: var(--color-card-light);
   }
 
   .content {

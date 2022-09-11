@@ -1,0 +1,13 @@
+/* CSS colors */
+:root {
+  --color-bg: #000;
+  --color-card: #1b1a1b;
+  --color-card-light: #272427;
+  --color-primary: #c70909;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+  --color-shadow-hover: rgba(0, 0, 0, 0.1);
+  --color-text: #fff;
+  --color-border: #000;
+  --color-outline: #fff;
+  --color-grid-lines: var(--color-card-light);
+}

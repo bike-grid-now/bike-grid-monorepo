@@ -1,5 +1,5 @@
 <script lang="ts">
-  import PedalBike from '@material-symbols/svg-400/rounded/pedal_bike.svg?component'
+  import PedalBike from "@material-symbols/svg-400/rounded/pedal_bike.svg?component";
 </script>
 
 <div class="nav-outer">
@@ -44,7 +44,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-text);
     fill: currentColor;
     gap: 0.5rem;
   }
@@ -55,9 +55,9 @@
     margin-left: auto;
     margin-right: auto;
 
-    background-color: #1b1a1b;
+    background-color: var(--color-card);
 
-    color: white;
+    color: var(--color-text);
     padding: 1.2rem;
     margin-bottom: 1.5rem;
     border-radius: 15px;

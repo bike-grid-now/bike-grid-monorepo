@@ -39,14 +39,14 @@
   }
 
   .card {
-    background-color: #1b1a1b;
+    background-color: var(--color-card);
     padding: 50px;
     border-radius: 15px;
 
     display: flex;
     flex-direction: column;
     grid-gap: 30px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px var(--color-shadow);
   }
 
   .content {

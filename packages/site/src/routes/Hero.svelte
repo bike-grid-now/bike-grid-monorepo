@@ -52,7 +52,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--color-text);
     fill: currentColor;
   }
 

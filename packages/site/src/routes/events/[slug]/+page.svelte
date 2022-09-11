@@ -64,7 +64,7 @@
   }
 
   .card {
-    background-color: #1b1a1b;
+    background-color: var(--color-card);
     padding: 25px;
     border-radius: 15px;
     display: flex;
@@ -78,9 +78,9 @@
 
   .button {
     padding: 15px 30px;
-    background-color: #c70909;
+    background-color: var(--color-primary);
     border-radius: 15px;
-    color: white;
+    color: var(--color-text);
     text-decoration: none;
     cursor: pointer;
     width: fit-content;

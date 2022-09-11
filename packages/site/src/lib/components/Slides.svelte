@@ -36,7 +36,7 @@
 
 <style>
   .card {
-    background-color: #1b1a1b;
+    background-color: var(--color-card);
     height: 600px;
     border-radius: 15px;
     width: 100%;

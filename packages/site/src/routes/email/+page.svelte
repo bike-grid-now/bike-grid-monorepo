@@ -79,8 +79,8 @@
   }
 
   input[type="submit"] {
-    background-color: #c70909;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-text);
     border: none;
     padding: 15px;
     border-radius: 15px;

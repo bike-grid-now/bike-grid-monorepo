@@ -46,14 +46,14 @@
 
 <style>
   main {
-    background-color: #1b1a1b;
+    background-color: var(--color-card);
     border-radius: 15px;
     padding: 20px;
-    color: white;
+    color: var(--color-text);
     fill: currentColor;
     border-radius: 15px;
     border: 1px solid black;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 3px var(--color-shadow);
     transition: box-shadow 0.15s;
   }
 
@@ -70,7 +70,7 @@
   .row {
     transition: 0.15s;
     border-radius: 10px;
-    color: white;
+    color: var(--color-text);
     fill: currentColor;
 
     display: flex;
@@ -82,7 +82,7 @@
 
   .row:hover,
   .row:focus {
-    background-color: #c70909;
+    background-color: var(--color-primary);
   }
 
   .title {

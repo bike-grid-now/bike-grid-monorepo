@@ -2,6 +2,7 @@
   import Nav from "$lib/components/Nav.svelte";
   import Seo from "$lib/components/Seo.svelte";
   import VercelBanner from "$lib/components/VercelBanner.svelte";
+  import "../styles/globals.css";
 </script>
 
 <Nav />
@@ -26,10 +27,17 @@
   }
 
   body {
-    background-color: #1b1a1b;
-    color: white;
-    background-image: linear-gradient(#1b1a1b 1px, transparent 1px),
-      linear-gradient(to right, #1b1a1b 1px, #000000 1px);
+    background-color: var(--color-card);
+    color: var(--color-text);
+    background-image: linear-gradient(
+        var(--color-grid-lines) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to right,
+        var(--color-grid-lines) 1px,
+        var(--color-bg) 1px
+      );
     background-size: 20px 20px;
 
     box-sizing: border-box;
@@ -97,7 +105,7 @@
   }
 
   .card {
-    background-color: #1b1a1b;
+    background-color: var(--color-card);
     padding: 20px;
     border-radius: 15px;
     overflow: hidden;
@@ -108,7 +116,7 @@
   }
 
   .markdown a {
-    color: #c70909;
+    color: var(--color-primary);
     text-decoration: underline;
   }
 
