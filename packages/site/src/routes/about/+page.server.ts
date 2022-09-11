@@ -1,4 +1,4 @@
-import { getOrganizers } from "$lib/firebase";
+import { getOrganizers } from "$lib/sanity";
 import { headers } from "$lib/caching";
 
 /** @type {import('./$types').PageLoad} */

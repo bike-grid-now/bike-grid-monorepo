@@ -10,13 +10,13 @@ export default {
     },
     {
       name: "description",
-      type: "text",
+      type: "blockContent",
       validation: (Rule) => Rule.required(),
     },
     {
       name: "image",
       description: "Put a pic of your bike here!",
-      type: "image",
+      type: "media",
     },
   ],
 };

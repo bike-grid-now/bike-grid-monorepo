@@ -1,15 +1,11 @@
 <script lang="ts">
+  import Image from "$lib/components/Image.svelte";
+  import { PortableText } from "@portabletext/svelte";
+
   import type { PageData } from "./$types";
   export let data: PageData;
 
   let { organizers } = data;
-
-  function getImageUrl(imagePath: string) {
-    const BASE = "https://firebasestorage.googleapis.com/v0/b/bike-grid-now.appspot.com/o";
-    const PARAMS = "alt=media";
-
-    return `${BASE}/${encodeURIComponent(imagePath)}?${PARAMS}`;
-  }
 </script>
 
 {#if organizers && organizers.length > 0}
@@ -18,10 +14,15 @@
       {#each organizers as organizer}
         <div class="card">
           {#if organizer.image}
-             <img src={getImageUrl(organizer.image)} alt=""/>
+            <Image
+              style="height: 150px; width: 150px; object-fit: cover; border-radius: 50%"
+              src={organizer.image.imageUrl}
+              alt={organizer.image.altText}
+              width={150}
+            />
           {/if}
           <h2>{organizer.name}</h2>
-          <p>{organizer.description}</p>
+          <PortableText value={organizer.description} />
         </div>
       {/each}
     </div>
@@ -59,19 +60,8 @@
     margin-top: 20px;
   }
 
-  p {
-    line-height: 200%;
-  }
-
   .footer {
     height: 15px;
-  }
-
-  img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
   }
 
   @media only screen and (max-width: 600px) {

@@ -1,20 +1,11 @@
 import { client } from "./client";
-
-const imageProjection = `{
-  altText,
-  "imageUrl": asset->url
-}`;
+import { type Image, imageProjection } from "./images";
 
 const eventsProjection = `{
   ...,
   poster${imageProjection},
   media[]${imageProjection}
 }`;
-
-interface Image {
-  altText: string;
-  imageUrl: string;
-}
 
 interface DateType {
   local: string;
