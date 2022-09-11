@@ -116,4 +116,8 @@
     line-height: 200%;
     margin-left: 20px;
   }
+
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 </style>

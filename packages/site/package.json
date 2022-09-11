@@ -16,8 +16,11 @@
     "@types/date-fns": "^2.6.0",
     "@types/html-minifier": "^4.0.2",
     "@types/sharp": "^0.30.5",
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.16",
     "svelte": "^3.49.0",
     "svelte-preprocess": "^4.10.7",
+    "tailwindcss": "^3.1.8",
     "vite": "^3.0.9",
     "vite-plugin-svelte-svg": "^2.0.2"
   },

@@ -6,7 +6,9 @@ const config = {
   kit: {
     adapter: vercel(),
   },
-  preprocess: sveltepreprocess(),
+  preprocess: sveltepreprocess({
+    postcss: true,
+  }),
 };
 
 export default config;
