@@ -125,6 +125,7 @@ importers:
       '@sanity/client': ^3.3.6
       '@sveltejs/adapter-vercel': ^1.0.0-next.68
       '@sveltejs/kit': 1.0.0-next.431
+      '@tailwindcss/typography': ^0.5.7
       '@types/date-fns': ^2.6.0
       '@types/html-minifier': ^4.0.2
       '@types/sharp': ^0.30.5
@@ -162,6 +163,7 @@ importers:
       '@portabletext/svelte': 1.0.1_svelte@3.49.0
       '@sveltejs/adapter-vercel': 1.0.0-next.72
       '@sveltejs/kit': 1.0.0-next.431_svelte@3.49.0+vite@3.0.9
+      '@tailwindcss/typography': 0.5.7_tailwindcss@3.1.8
       '@types/date-fns': 2.6.0
       '@types/html-minifier': 4.0.2
       '@types/sharp': 0.30.5
@@ -5857,6 +5859,18 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
+
+  /@tailwindcss/typography/0.5.7_tailwindcss@3.1.8:
+    resolution: {integrity: sha512-JTTSTrgZfp6Ki4svhPA4mkd9nmQ/j9EfE7SbHJ1cLtthKkpW2OxsFXzSmxbhYbEkfNIyAyhle5p4SYyKRbz/jg==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      lodash.castarray: 4.4.0
+      lodash.isplainobject: 4.0.6
+      lodash.merge: 4.6.2
+      postcss-selector-parser: 6.0.10
+      tailwindcss: 3.1.8_postcss@8.4.16
+    dev: true
 
   /@tootallnate/once/1.1.2:
     resolution: {integrity: sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==}
@@ -13814,6 +13828,10 @@ packages:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: false
 
+  /lodash.castarray/4.4.0:
+    resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
+    dev: true
+
   /lodash.clonedeep/4.5.0:
     resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
     dev: false
@@ -13869,7 +13887,6 @@ packages:
 
   /lodash.isplainobject/4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
-    dev: false
 
   /lodash.keys/3.1.2:
     resolution: {integrity: sha512-CuBsapFjcubOGMn3VD+24HOAPxM79tH+V6ivJL3CHYjtrawauDJHUk//Yew9Hvc6e9rbCrURGk8z6PC+8WJBfQ==}
@@ -13885,7 +13902,6 @@ packages:
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
-    dev: false
 
   /lodash.sortby/4.7.0:
     resolution: {integrity: sha512-HDWXG8isMntAyRF5vZ7xKuEvOhT4AhlRt/3czTSjvGUxjYCBVRQY48ViDHyfYz9VIoBkW4TMGQNapx+l3RUwdA==}

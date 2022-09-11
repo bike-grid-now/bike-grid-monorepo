@@ -30,18 +30,6 @@
     width: 100%;
     display: block;
   }
-  /* 
-  div::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    background-image: var(--background-image);
-    filter: brightness(var(--brightness));
-  } */
 
   .image {
     position: absolute;

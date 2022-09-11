@@ -2,6 +2,7 @@
   import Nav from "$lib/components/Nav.svelte";
   import Seo from "$lib/components/Seo.svelte";
   import VercelBanner from "$lib/components/VercelBanner.svelte";
+  import "../tailwind.css";
 </script>
 
 <Nav />
@@ -12,7 +13,7 @@
 <VercelBanner />
 
 <style global>
-  * {
+  /* * {
     font-family: "Inter", sans-serif;
     box-sizing: border-box;
     padding: 0px;
@@ -25,6 +26,7 @@
     height: 100%;
   }
 
+  */
   body {
     background-color: #1b1a1b;
     color: white;
@@ -35,7 +37,7 @@
     box-sizing: border-box;
   }
 
-  a {
+  /*a {
     color: rgb(0, 100, 200);
     text-decoration: none;
   }
@@ -115,7 +117,7 @@
   .markdown li {
     line-height: 200%;
     margin-left: 20px;
-  }
+  } */
 
   @tailwind base;
   @tailwind components;
