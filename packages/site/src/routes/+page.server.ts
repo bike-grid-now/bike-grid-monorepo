@@ -18,7 +18,6 @@ export async function load({ setHeaders }) {
   const [future, past] = await Promise.all([upcomingEvents(), pastEvents()]);
 
   return {
-    events: await getEvents(),
     pastEvents: past.map(mapEvent) || [],
     upcomingEvents: future.map(mapEvent) || [],
   };
