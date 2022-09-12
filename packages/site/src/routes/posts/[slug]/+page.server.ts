@@ -1,16 +1,16 @@
 import { error } from "@sveltejs/kit";
 import { headers } from "$lib/caching";
-import { getPost } from "$lib/firebase/posts";
+import { postFromSlug } from "$lib/sanity";
 
 /** @type {import('./$types').PageLoad} */
 export async function load({ params: { slug }, setHeaders }) {
-  const post = await getPost(slug);
-  
+  const post = await postFromSlug(slug);
+
   setHeaders(headers);
 
-  if (post) {
+  if (post !== null) {
     return {
-        post,
+      post,
     };
   }
 
