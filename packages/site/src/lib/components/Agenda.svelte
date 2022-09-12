@@ -90,7 +90,7 @@
   }
 
   .time {
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     margin-top: 0.2rem;
     color: #ddd;
     text-decoration: none;

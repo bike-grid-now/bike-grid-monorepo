@@ -123,13 +123,13 @@
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: var(--text-5xl);
     font-weight: 700;
     /* margin-top: 25px; */
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
     font-weight: 400;
   }
 

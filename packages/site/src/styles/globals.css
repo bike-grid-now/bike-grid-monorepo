@@ -1,13 +1,39 @@
 /* CSS colors */
 :root {
   --color-bg: #000;
-  --color-card: #1b1a1b;
-  --color-card-light: #272427;
   --color-primary: #c70909;
+
   --color-shadow: rgba(0, 0, 0, 0.2);
   --color-shadow-hover: rgba(0, 0, 0, 0.1);
+
   --color-text: #fff;
   --color-border: #000;
-  --color-outline: #fff;
+  --color-outline: var(--color-text);
+  --color-card: #1b1a1b;
+  --color-card-light: #272427;
+
   --color-grid-lines: var(--color-card-light);
+}
+
+/**
+ * Define a global 'space unit' that all of our styles will use to calculate spacing.
+ * This allows us to increase or decrease spacing as needed.
+ * To use this, use `calc(2 * var(--space))`, replacing the `2` with how much space you need.
+ */
+:root {
+  --space: 0.25rem;
+}
+
+/** Define text sizes. This is based on Tailwind CSS' font size spacing system.
+ */
+:root {
+  --text-xs: calc(3 * var(--space));
+  --text-sm: calc(3.5 * var(--space));
+  --text-base: calc(4 * var(--space));
+  --text-lg: calc(4.5 * var(--space));
+  --text-xl: calc(5 * var(--space));
+  --text-2xl: calc(6 * var(--space));
+  --text-3xl: calc(7.5 * var(--space));
+  --text-4xl: calc(9 * var(--space));
+  --text-5xl: calc(12 * var(--space));
 }

@@ -4,6 +4,6 @@
 
 <style>
   h3 {
-    font-size: 2rem;
+    font-size: var(--text-3xl);
   }
 </style>

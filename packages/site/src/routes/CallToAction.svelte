@@ -50,7 +50,7 @@
 
     background-color: var(--color-primary);
     padding: 25px;
-    font-size: 1.5rem;
+    font-size: var(--text-2xl);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
