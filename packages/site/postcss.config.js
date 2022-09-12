@@ -7,7 +7,7 @@ export default {
     autoprefixer,
     flexbugs,
     cssnano({
-      preset: "advanced",
+      preset: ["advanced", { zindex: false }],
     }),
   ],
 };
