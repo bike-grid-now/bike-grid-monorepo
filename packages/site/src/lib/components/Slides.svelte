@@ -14,53 +14,43 @@
     poster?: Poster
   }
 
-  const posters = (): Poster[] => events.flatMap((ev) => ev.poster ? [ev.poster] : [])
+  let posters: Poster[]
+  $: posters = events.flatMap((ev) => ev.poster ? [ev.poster] : [])
 
-  let currentIdx = 0;
-  let current: Poster | undefined = posters()[0]
+  $: currentIdx = 0;
 
-  const advance = (): void => {
-    const ps = posters()
-    if (currentIdx < ps.length - 1) {
-      currentIdx++;
-      current = ps[currentIdx];
-    }
-  }
+  const advance = (): void => void currentIdx++;
+  const goBack = (): void => void currentIdx--;
 
-  const goBack = (): void => { 
-    const ps = posters()
-    if(currentIdx > 0) {
-      currentIdx--;
-      current = ps[currentIdx];
-    }
-  }
+  $: canAdvance = currentIdx < posters.length - 1;
+  $: canGoBack = currentIdx > 0;
 
+  let current: Poster | undefined;
+  $: current = posters[currentIdx];
 </script>
 
 {#if current}
   <div class="card">
-    {#if current}
-      {#if currentIdx > 0}
-        <div class="swap left" on:click={goBack}><ChevronLeft /></div>
-      {/if}
-      <Image
-        src={current.imageUrl}
-        alt={current.altText}
-        width={600}
-        quality={50}
-        style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; z-index: 2;"
-      />
+    {#if canGoBack }
+      <div class="swap left" on:click={goBack}><ChevronLeft /></div>
+    {/if}
+    <Image
+      src={current.imageUrl}
+      alt={current.altText}
+      width={600}
+      quality={50}
+      style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0; z-index: 2;"
+    />
 
-      <Image
-        src={current.imageUrl}
-        alt={current.altText}
-        width={600}
-        quality={1}
-        style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; filter: blur(10px);"
-      />
-      {#if currentIdx < posters().length - 1 }
-        <div class="swap right" on:click={advance}><ChevronRight /></div>
-      {/if}
+    <Image
+      src={current.imageUrl}
+      alt={current.altText}
+      width={600}
+      quality={1}
+      style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; filter: blur(10px);"
+    />
+    {#if canAdvance }
+      <div class="swap right" on:click={advance}><ChevronRight /></div>
     {/if}
   </div>
 {/if}
