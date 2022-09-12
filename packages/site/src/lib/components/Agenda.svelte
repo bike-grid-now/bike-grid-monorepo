@@ -11,6 +11,14 @@
 
   export let events: Event[] = [];
   export let title: string;
+  
+  const maxPerPage: number = 5;
+
+  let pageNumber: number = 1;
+  let filteredEvents: Event[] = events;
+  let numPages: number = Math.ceil(filteredEvents.length / maxPerPage);
+
+  let currentPageEvents: Event[]
 
   function formatDate(date: string) {
     return format(new Date(date), "EEEE, LLLL d - h:mm a");
@@ -20,6 +28,40 @@
     viewBox: "0 0 48 48",
     style: "width: calc(6 * var(--space)); height: calc(6 * var(--space))",
   };
+
+  let searchValue: string = '';
+
+  function getFilteredEvents() {
+    if((searchValue ?? '') === '') {
+      return events
+    }
+    
+    return events.filter((ev) => ev.name.toLowerCase().includes(searchValue.toLowerCase()))
+  }
+
+  function updateEvents(): void {
+    filteredEvents = getFilteredEvents()
+    updatePagedEvents();
+  }
+
+  function updatePagedEvents(): void {
+    const start = (pageNumber - 1) * maxPerPage;
+    const end = start + maxPerPage
+    currentPageEvents = filteredEvents.slice(start, end);
+    numPages = Math.ceil(filteredEvents.length / maxPerPage);
+  }
+
+  const goBack = (): void => {
+    pageNumber -= 1;
+    updatePagedEvents();
+  }
+
+  const advance = (): void => {
+    pageNumber += 1;
+    updatePagedEvents();
+  }
+
+  updatePagedEvents();
 </script>
 
 {#if events.length > 0}
@@ -27,12 +69,17 @@
     <div class="top">
       <CalendarMonthIcon {...iconProps} />
       <h2>{title}</h2>
+      {#if events.length > maxPerPage }
+        <div class="right">
+          <input type="text" placeholder="Search" on:keyup={updateEvents} bind:value={searchValue} />
+        </div>
+      {/if}
     </div>
 
     <div class="divider" />
 
     <div>
-      {#each events as event}
+      {#each currentPageEvents as event}
         <a class="row" href={`/events/${event.slug}`}>
           <div>
             <p class="title">{event.name}</p>
@@ -46,6 +93,19 @@
         </a>
       {/each}
     </div>
+    {#if numPages > 1}
+      <div class="right group">
+        {#if pageNumber < numPages}
+          <div><button type="button" on:click={advance}>Next</button></div>
+        {/if}
+        <div>Page {pageNumber} of {numPages}</div>
+        {#if pageNumber > 1}
+        <div>
+          <button type="button" on:click={goBack}>Back</button>
+        </div>
+        {/if}
+      </div>
+    {/if}
   </main>
 {/if}
 
@@ -84,6 +144,18 @@
     align-items: center;
     justify-content: space-between;
     padding: calc(3 * var(--space));
+  }
+  
+  .group > div {
+    padding-left: calc(3 * var(--space));
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .right > * {
+    float: right;
   }
 
   .row:hover,
