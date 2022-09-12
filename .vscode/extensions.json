@@ -1,5 +1,9 @@
 {
   "recommendations": [
-    "arcanis.vscode-zipfs"
+    "sanity-io.vscode-sanity",
+    "svelte.svelte-vscode",
+    "mikestead.dotenv",
+    "vunguyentuan.vscode-css-variables",
+    "esbenp.prettier-vscode"
   ]
 }
