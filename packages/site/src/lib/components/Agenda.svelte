@@ -18,7 +18,9 @@
   let filteredEvents: Event[] = events;
   let numPages: number = Math.ceil(filteredEvents.length / maxPerPage);
 
-  let currentPageEvents: Event[]
+  let currentPageEvents: Event[];
+
+  let searchValue: string = '';
 
   function formatDate(date: string) {
     return format(new Date(date), "EEEE, LLLL d - h:mm a");
@@ -29,37 +31,39 @@
     style: "width: calc(6 * var(--space)); height: calc(6 * var(--space))",
   };
 
-  let searchValue: string = '';
-
-  function getFilteredEvents() {
+  const getFilteredEvents = (): Event[] => {
     if((searchValue ?? '') === '') {
       return events
     }
     
     return events.filter((ev) => ev.name.toLowerCase().includes(searchValue.toLowerCase()))
-  }
+  };
 
-  function updateEvents(): void {
-    filteredEvents = getFilteredEvents()
-    updatePagedEvents();
-  }
-
-  function updatePagedEvents(): void {
+  const getCurrentPageEvents = (): Event[] => {
     const start = (pageNumber - 1) * maxPerPage;
     const end = start + maxPerPage
-    currentPageEvents = filteredEvents.slice(start, end);
+    return filteredEvents.slice(start, end);
+  };
+
+  const updatePagedEvents = (): void => {
+    currentPageEvents = getCurrentPageEvents();
     numPages = Math.ceil(filteredEvents.length / maxPerPage);
-  }
+  };
 
   const goBack = (): void => {
     pageNumber -= 1;
     updatePagedEvents();
-  }
+  };
 
   const advance = (): void => {
     pageNumber += 1;
     updatePagedEvents();
-  }
+  };
+
+  const updateEvents = (): void => {
+    filteredEvents = getFilteredEvents()
+    updatePagedEvents();
+  };
 
   updatePagedEvents();
 </script>
