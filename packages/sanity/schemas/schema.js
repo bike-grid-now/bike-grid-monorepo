@@ -10,6 +10,7 @@ import blockContent from "./blockContent";
 import event from "./event";
 import organizer from "./organizer";
 import media from "./media";
+import post from "./post";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -27,5 +28,6 @@ export default createSchema({
     blockContent,
     media,
     richDate,
+    post,
   ]),
 });
