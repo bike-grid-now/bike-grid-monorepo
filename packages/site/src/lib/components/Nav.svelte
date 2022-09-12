@@ -35,7 +35,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
   }
 
   a.logo {
@@ -46,7 +46,7 @@
     justify-content: center;
     color: var(--color-text);
     fill: currentColor;
-    gap: 0.5rem;
+    gap: calc(2 * var(--space));
   }
 
   nav {
@@ -58,7 +58,7 @@
     background-color: var(--color-card);
 
     color: var(--color-text);
-    padding: 1.2rem;
+    padding: calc(5 * var(--space));
     margin-bottom: calc(6 * var(--space));
     border-radius: 15px;
 

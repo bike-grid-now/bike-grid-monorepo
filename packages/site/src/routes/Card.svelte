@@ -29,8 +29,8 @@
 
     text-align: center;
 
-    padding: 2rem;
-    grid-gap: 2rem;
+    padding: calc(8 * var(--space));
+    grid-gap: calc(8 * var(--space));
   }
 
   .card {
@@ -53,7 +53,7 @@
   }
 
   .card:focus {
-    outline: 0.25rem solid var(--color-outline);
-    outline-offset: 0.25rem;
+    outline: var(--space) solid var(--color-outline);
+    outline-offset: var(--space);
   }
 </style>

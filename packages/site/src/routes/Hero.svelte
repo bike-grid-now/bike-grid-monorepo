@@ -24,8 +24,8 @@
 
 <style>
   .hero {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: calc(48 * var(--space));
+    padding-bottom: calc(48 * var(--space));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,11 +33,11 @@
   }
 
   .hero > * + * {
-    margin-top: 2.5rem;
+    margin-top: calc(10 * var(--space));
   }
 
   .header > * + * {
-    margin-top: 0.5rem;
+    margin-top: calc(2 * var(--space));
   }
 
   .header {
@@ -56,7 +56,7 @@
     fill: currentColor;
   }
 
-  .location > * + * {
-    margin-left: 0.25rem;
+  .location > :global(* + *) {
+    margin-left: var(--space);
   }
 </style>
