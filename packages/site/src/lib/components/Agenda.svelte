@@ -2,6 +2,7 @@
   import { format, compareAsc, compareDesc } from "date-fns";
   import CalendarMonthIcon from "@material-symbols/svg-400/rounded/calendar_month.svg?component";
   import ChevronRight from "@material-symbols/svg-400/rounded/chevron_right.svg?component";
+  import { paginated } from "$lib/util";
 
   type Event = {
     name: string;
@@ -11,14 +12,25 @@
 
   export let events: Event[] = [];
   export let title: string;
+  export let maxPerPage: number = 5;
   
-  const maxPerPage: number = 5;
+  $: pageNumber = 0;
 
-  let pageNumber: number = 1;
-  let filteredEvents: Event[] = events;
-  let numPages: number = Math.ceil(filteredEvents.length / maxPerPage);
+  const getFilteredEvents = (events: Event[], searchValue: string): Event[] => {
+    if(searchValue.trim() === '') {
+      return events
+    }
+    
+    return events.filter((ev) => ev.name.toLowerCase().includes(searchValue.toLowerCase()))
+  };
 
-  let currentPageEvents: Event[];
+  
+  $: filteredEvents = getFilteredEvents(events, searchValue);
+  
+  let numPages: number
+  $: numPages = Math.ceil(filteredEvents.length / maxPerPage);
+
+  $: currentPageEvents = paginated(filteredEvents, pageNumber, maxPerPage);
 
   let searchValue: string = '';
 
@@ -31,41 +43,12 @@
     style: "width: calc(6 * var(--space)); height: calc(6 * var(--space))",
   };
 
-  const getFilteredEvents = (): Event[] => {
-    if((searchValue ?? '') === '') {
-      return events
-    }
-    
-    return events.filter((ev) => ev.name.toLowerCase().includes(searchValue.toLowerCase()))
-  };
+  $: canAdvance = pageNumber < numPages - 1;
+  $: canGoBack = pageNumber > 0;
 
-  const getCurrentPageEvents = (): Event[] => {
-    const start = (pageNumber - 1) * maxPerPage;
-    const end = start + maxPerPage
-    return filteredEvents.slice(start, end);
-  };
+  const goBack = (): void => void pageNumber--;
+  const advance = (): void => void pageNumber++;
 
-  const updatePagedEvents = (): void => {
-    currentPageEvents = getCurrentPageEvents();
-    numPages = Math.ceil(filteredEvents.length / maxPerPage);
-  };
-
-  const goBack = (): void => {
-    pageNumber -= 1;
-    updatePagedEvents();
-  };
-
-  const advance = (): void => {
-    pageNumber += 1;
-    updatePagedEvents();
-  };
-
-  const updateEvents = (): void => {
-    filteredEvents = getFilteredEvents()
-    updatePagedEvents();
-  };
-
-  updatePagedEvents();
 </script>
 
 {#if events.length > 0}
@@ -75,7 +58,7 @@
       <h2>{title}</h2>
       {#if events.length > maxPerPage }
         <div class="right">
-          <input type="text" placeholder="Search" on:keyup={updateEvents} bind:value={searchValue} />
+          <input type="text" placeholder="Search" bind:value={searchValue} />
         </div>
       {/if}
     </div>
@@ -99,11 +82,11 @@
     </div>
     {#if numPages > 1}
       <div class="right group">
-        {#if pageNumber < numPages}
+        {#if canAdvance }
           <div><button type="button" on:click={advance}>Next</button></div>
         {/if}
-        <div>Page {pageNumber} of {numPages}</div>
-        {#if pageNumber > 1}
+        <div>Page {pageNumber + 1} of {numPages}</div>
+        {#if canGoBack }
         <div>
           <button type="button" on:click={goBack}>Back</button>
         </div>
@@ -148,6 +131,12 @@
     align-items: center;
     justify-content: space-between;
     padding: calc(3 * var(--space));
+  }
+
+  .group {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
   }
   
   .group > div {
