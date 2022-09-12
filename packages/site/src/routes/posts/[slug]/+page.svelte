@@ -4,26 +4,15 @@
   import DoneIcon from "@material-symbols/svg-400/rounded/done.svg?component";
   import { format } from "date-fns";
   import type { PageData } from "./$types";
-  import SvelteMarkdown from "svelte-markdown";
-  import NewTabLink from "../../../NewTabLink.svelte";
   import SocialIcons from "@rodneylab/svelte-social-icons";
+  import Image from "$lib/components/Image.svelte";
+  import { PortableText } from "@portabletext/svelte";
 
   export let data: PageData;
-  let { post: stringifiedPost } = data;
-  let post = stringifiedPost[0];
+  let { post } = data;
 
-  function formatDate(date: any) {
-    let t = new Date(1970, 0, 1);
-    t.setSeconds(date.seconds - 18000); // uhhhhhhhh????????? don't think I did this right lol
-    return format(t, "EEEE, LLLL d");
-  }
-
-  function getImageUrl(imagePath: string) {
-    const BASE =
-      "https://firebasestorage.googleapis.com/v0/b/bike-grid-now.appspot.com/o";
-    const PARAMS = "alt=media";
-
-    return `${BASE}/${encodeURIComponent(imagePath)}?${PARAMS}`;
+  function formatDate(date: string) {
+    return format(new Date(date), "EEEE, LLLL d");
   }
 
   let copied = false;
@@ -33,7 +22,7 @@
 
     copied = true;
     navigator.clipboard.writeText(
-      `https://www.bikegridnow.org/posts/${post.postLink}`
+      `https://www.bikegridnow.org/posts/${post.slug.current}`
     );
     setTimeout(() => {
       copied = false;
@@ -57,24 +46,27 @@
               viewBox="0 0 48 48"
               style="width: calc(6 * var(--space)); height: calc(6 * var(--space))"
             />
-            <p>{formatDate(post.createdOn)}</p>
+            <p>{formatDate(post.date.local)}</p>
           </div>
 
           <div class="right">
             <a
-              href="https://twitter.com/intent/tweet?url=https://www.bikegridnow.org/posts/{post.postLink}&text=@bikegridnow"
+              href="https://twitter.com/intent/tweet?url=https://www.bikegridnow.org/posts/{post
+                .slug.current}&text=@bikegridnow"
               target="_blank"
             >
-              <SocialIcons width="40" height="40" network="twitter" />
+              <SocialIcons width={40} height={40} network="twitter" />
             </a>
             <a
-              href="https://www.facebook.com/sharer/sharer.php?u=https://www.bikegridnow.org/posts/{post.postLink}"
+              href="https://www.facebook.com/sharer/sharer.php?u=https://www.bikegridnow.org/posts/{post
+                .slug.current}"
               target="_blank"
             >
               <SocialIcons width={40} height={40} network="facebook" />
             </a>
             <a
-              href="https://www.linkedin.com/shareArticle/?mini=true&url=https://www.bikegridnow.org/posts/{post.postLink}"
+              href="https://www.linkedin.com/shareArticle/?mini=true&url=https://www.bikegridnow.org/posts/{post
+                .slug.current}"
               target="_blank"
             >
               <SocialIcons width={40} height={40} network="linkedin" />
@@ -99,16 +91,16 @@
         </div>
 
         {#if post.image}
-          <img src={getImageUrl(post.image)} />
+          <Image
+            src={post.image.imageUrl}
+            alt={post.image.altText}
+            width={1000}
+            style="width: 100%; border-radius: 15px"
+          />
         {/if}
 
         <div class="markdown">
-          <SvelteMarkdown
-            source={post.body}
-            renderers={{
-              link: NewTabLink,
-            }}
-          />
+          <PortableText value={post.body} />
         </div>
       {/if}
     </div>
@@ -134,11 +126,6 @@
   h2 {
     font-size: var(--text-2xl);
     font-weight: 400;
-  }
-
-  img {
-    width: 100%;
-    border-radius: 10px;
   }
 
   .markdown {
