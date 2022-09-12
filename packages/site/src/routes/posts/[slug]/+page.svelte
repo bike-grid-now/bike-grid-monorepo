@@ -55,8 +55,7 @@
           <div class="left">
             <CalendarMonthIcon
               viewBox="0 0 48 48"
-              width="1.5rem"
-              height="1.5rem"
+              style="width: calc(6 * var(--space)); height: calc(6 * var(--space))"
             />
             <p>{formatDate(post.createdOn)}</p>
           </div>

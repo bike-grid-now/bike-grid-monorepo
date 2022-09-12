@@ -6,8 +6,7 @@
 
   const iconProps = {
     viewBox: "0 0 48 48",
-    width: "1.5rem",
-    height: "1.5rem",
+    style: "width: calc(6 * var(--space)); height: calc(6 * var(--space))",
   };
 </script>
 
@@ -77,6 +76,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: calc(2 * var(--space));
   }
 </style>

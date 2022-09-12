@@ -10,8 +10,7 @@
   <ArrowCircleRight
     class="arrow"
     viewBox="0 0 48 48"
-    width="4rem"
-    height="4rem"
+    style="width: calc(16 * var(--space)); height: calc(16 * var(--space))"
   />
 </a>
 

@@ -16,7 +16,10 @@
     </div>
 
     <div class="location">
-      <LocationOn viewBox="0 0 48 48" width="2rem" height="2rem" />
+      <LocationOn
+        viewBox="0 0 48 48"
+        style="width: calc(8 * var(--space)); height: calc(8 * var(--space))"
+      />
       <p>Chicago, IL</p>
     </div>
   </div>

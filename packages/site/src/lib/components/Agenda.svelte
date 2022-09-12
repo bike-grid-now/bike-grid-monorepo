@@ -15,12 +15,17 @@
   function formatDate(date: string) {
     return format(new Date(date), "EEEE, LLLL d - h:mm a");
   }
+
+  const iconProps = {
+    viewBox: "0 0 48 48",
+    style: "width: calc(6 * var(--space)); height: calc(6 * var(--space))",
+  };
 </script>
 
 {#if events.length > 0}
   <main>
     <div class="top">
-      <CalendarMonthIcon viewBox="0 0 48 48" width="1.5rem" height="1.5rem" />
+      <CalendarMonthIcon {...iconProps} />
       <h2>{title}</h2>
     </div>
 
@@ -36,7 +41,7 @@
             </p>
           </div>
           <div>
-            <ChevronRight viewBox="0 0 48 48" width="1.5rem" height="1.5rem" />
+            <ChevronRight {...iconProps} />
           </div>
         </a>
       {/each}

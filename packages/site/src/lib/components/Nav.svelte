@@ -6,7 +6,10 @@
   <div class="content">
     <nav>
       <a href="/" class="logo">
-        <PedalBike viewBox="0 0 48 48" height="2rem" width="2rem" />
+        <PedalBike
+          viewBox="0 0 48 48"
+          style="width: calc(8 * var(--space)); height: calc(8 * var(--space))"
+        />
         <b>Chicago, Bike Grid Now!</b>
       </a>
 
