@@ -15,7 +15,7 @@
         <div class="card">
           {#if organizer.image}
             <Image
-              style="height: 150px; width: 150px; object-fit: cover; border-radius: 50%"
+              style="height: calc(36 * var(--space)); width: calc(36 * var(--space)); object-fit: cover; border-radius: 50%"
               src={organizer.image.imageUrl}
               alt={organizer.image.altText}
               width={150}
@@ -27,25 +27,23 @@
       {/each}
     </div>
   </div>
-
-  <div class="footer" />
 {/if}
 
 <style>
   .grid {
     display: grid;
-    grid-gap: 20px;
+    grid-gap: calc(5 * var(--space));
     grid-template-columns: 1fr 1fr;
   }
 
   .card {
     background-color: var(--color-card);
-    padding: 50px;
+    padding: calc(12 * var(--space));
     border-radius: 15px;
 
     display: flex;
     flex-direction: column;
-    grid-gap: 30px;
+    grid-gap: calc(8 * var(--space));
     box-shadow: 0 0 5px var(--color-shadow);
   }
 
@@ -55,13 +53,9 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    padding: 0px 20px;
+    padding: 0 calc(5 * var(--space));
 
-    margin-top: 20px;
-  }
-
-  .footer {
-    height: 15px;
+    margin-top: calc(5 * var(--space));
   }
 
   @media only screen and (max-width: 600px) {

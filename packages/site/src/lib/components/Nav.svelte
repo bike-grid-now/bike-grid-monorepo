@@ -18,13 +18,13 @@
 <style>
   .nav-outer {
     position: sticky;
-    top: 0.75rem;
+    top: calc(3 * var(--space));
     z-index: 99;
     width: 100%;
   }
 
   .content {
-    padding: 0px 20px;
+    padding: 0 calc(5 * var(--space));
     width: 100%;
     max-width: 1000px;
     margin-left: auto;
@@ -59,10 +59,10 @@
 
     color: var(--color-text);
     padding: 1.2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: calc(6 * var(--space));
     border-radius: 15px;
 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px var(--color-shadow);
     transition: box-shadow 0.15s;
   }
 </style>

@@ -72,21 +72,27 @@
               href="https://www.facebook.com/sharer/sharer.php?u=https://www.bikegridnow.org/posts/{post.postLink}"
               target="_blank"
             >
-              <SocialIcons width="40" height="40" network="facebook" />
+              <SocialIcons width={40} height={40} network="facebook" />
             </a>
             <a
               href="https://www.linkedin.com/shareArticle/?mini=true&url=https://www.bikegridnow.org/posts/{post.postLink}"
               target="_blank"
             >
-              <SocialIcons width="40" height="40" network="linkedin" />
+              <SocialIcons width={40} height={40} network="linkedin" />
             </a>
             <div class="copy" on:click={copy}>
               <div class="link">
                 <div class="link-icon" class:active={!copied}>
-                  <LinkIcon viewBox="0 0 48 48" width="30px" height="30px" />
+                  <LinkIcon
+                    viewBox="0 0 48 48"
+                    style="width: calc(6 * var(--space)); height: calc(6 * var(--space))"
+                  />
                 </div>
                 <div class="check-icon" class:active={copied}>
-                  <DoneIcon viewBox="0 0 48 48" width="30px" height="30px" />
+                  <DoneIcon
+                    viewBox="0 0 48 48"
+                    style="width: calc(6 * var(--space)); height: calc(6 * var(--space))"
+                  />
                 </div>
               </div>
             </div>
@@ -116,32 +122,19 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    /* padding: 0px 25px; */
+    gap: calc(6 * var(--space));
+    margin-top: calc(6 * var(--space));
+    margin-bottom: calc(6 * var(--space));
   }
 
   h1 {
     font-size: var(--text-5xl);
     font-weight: 700;
-    /* margin-top: 25px; */
   }
 
   h2 {
     font-size: var(--text-2xl);
     font-weight: 400;
-  }
-
-  .published {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--color-text);
-  }
-
-  p {
-    /* font-weight: 400; */
   }
 
   img {
@@ -152,7 +145,7 @@
   .markdown {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: calc(6 * var(--space));
   }
 
   .horizontal {
@@ -161,27 +154,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 50px;
+    margin-bottom: calc(12 * var(--space));
   }
 
   @media only screen and (max-width: 650px) {
     .horizontal {
       flex-direction: column;
       align-items: flex-start;
-      gap: 25px;
+      gap: calc(6 * var(--space));
     }
   }
 
   .horizontal .left {
     display: flex;
-    gap: 10px;
+    gap: calc(2 * var(--space));
     align-items: center;
     opacity: 0.5;
   }
 
   .horizontal .right {
     display: flex;
-    gap: 10px;
+    gap: calc(2 * var(--space));
   }
 
   .horizontal .right a {
@@ -197,8 +190,8 @@
   .link {
     background-color: var(--color-primary);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: calc(10 * var(--space));
+    height: calc(10 * var(--space));
     position: relative;
   }
 

@@ -16,8 +16,8 @@
   * {
     font-family: "Inter", sans-serif;
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
   }
 
   html,
@@ -38,7 +38,7 @@
         var(--color-grid-lines) 1px,
         var(--color-bg) 1px
       );
-    background-size: 20px 20px;
+    background-size: calc(5 * var(--space)) calc(5 * var(--space));
 
     box-sizing: border-box;
   }
@@ -97,7 +97,7 @@
   }
 
   .responsive-container {
-    padding: 0px 20px;
+    padding: 0 calc(5 * var(--space));
     width: 100%;
     max-width: 1000px;
     margin-left: auto;
@@ -106,7 +106,7 @@
 
   .card {
     background-color: var(--color-card);
-    padding: 20px;
+    padding: calc(5 * var(--space));
     border-radius: 15px;
     overflow: hidden;
   }
@@ -122,6 +122,6 @@
 
   .markdown li {
     line-height: 200%;
-    margin-left: 20px;
+    margin-left: calc(5 * var(--space));
   }
 </style>

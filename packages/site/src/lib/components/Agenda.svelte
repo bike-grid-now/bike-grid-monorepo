@@ -48,10 +48,9 @@
   main {
     background-color: var(--color-card);
     border-radius: 15px;
-    padding: 20px;
+    padding: calc(5 * var(--space));
     color: var(--color-text);
     fill: currentColor;
-    border-radius: 15px;
     border: 1px solid black;
     box-shadow: 0 2px 3px var(--color-shadow);
     transition: box-shadow 0.15s;
@@ -61,10 +60,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
-    gap: 0.5rem;
-    margin-bottom: 20px;
-    margin-top: 5px;
+    justify-content: flex-start;
+    gap: calc(2 * var(--space));
   }
 
   .row {
@@ -77,7 +74,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 15px;
+    padding: calc(3 * var(--space));
   }
 
   .row:hover,
@@ -91,7 +88,7 @@
 
   .time {
     font-size: var(--text-sm);
-    margin-top: 0.2rem;
+    margin-top: calc(0.8 * var(--space));
     color: #ddd;
     text-decoration: none;
   }
@@ -105,6 +102,7 @@
     width: 100%;
     height: 1px;
     background-color: rgb(201, 201, 201);
-    margin-bottom: 20px;
+    margin-top: calc(5 * var(--space));
+    margin-bottom: calc(5 * var(--space));
   }
 </style>

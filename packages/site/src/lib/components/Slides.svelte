@@ -37,7 +37,7 @@
 <style>
   .card {
     background-color: var(--color-card);
-    height: 600px;
+    height: calc(150 * var(--space));
     border-radius: 15px;
     width: 100%;
     overflow: hidden;

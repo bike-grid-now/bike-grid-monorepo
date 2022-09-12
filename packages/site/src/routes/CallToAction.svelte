@@ -49,7 +49,7 @@
     display: block;
 
     background-color: var(--color-primary);
-    padding: 25px;
+    padding: calc(6 * var(--space));
     font-size: var(--text-2xl);
     cursor: pointer;
     display: flex;

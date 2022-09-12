@@ -52,39 +52,39 @@
     margin-right: auto;
     display: flex;
     flex-direction: column;
-    grid-gap: 20px;
-    margin-top: 20px;
+    grid-gap: calc(5 * var(--space));
+    margin-top: calc(5 * var(--space));
   }
 
   .sideby {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    padding: 0px 20px;
+    grid-gap: calc(5 * var(--space));
+    padding: 0 calc(5 * var(--space));
   }
 
   .card {
     background-color: var(--color-card);
-    padding: 25px;
+    padding: calc(6 * var(--space));
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    grid-gap: 15px;
+    grid-gap: calc(4 * var(--space));
   }
 
   .footer {
-    height: 20px;
+    height: calc(5 * var(--space));
   }
 
   .button {
-    padding: 15px 30px;
+    padding: calc(4 * var(--space)) calc(8 * var(--space));
     background-color: var(--color-primary);
     border-radius: 15px;
     color: var(--color-text);
     text-decoration: none;
     cursor: pointer;
     width: fit-content;
-    margin-top: 15px;
+    margin-top: calc(4 * var(--space));
   }
 
   @media only screen and (max-width: 600px) {

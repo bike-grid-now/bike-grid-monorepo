@@ -37,7 +37,7 @@
 <style>
   .sideby {
     display: grid;
-    grid-gap: 20px;
+    grid-gap: calc(5 * var(--space));
     grid-template-columns: 1fr 1fr;
   }
 
@@ -47,14 +47,14 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    padding: 0px 20px;
+    padding: 0 calc(5 * var(--space));
   }
 
   .main-content {
     display: flex;
     flex-direction: column;
-    grid-gap: 25px;
-    margin-top: 25px;
+    grid-gap: calc(6 * var(--space));
+    margin-top: calc(6 * var(--space));
   }
 
   @media only screen and (max-width: 800px) {
