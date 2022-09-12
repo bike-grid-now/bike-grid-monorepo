@@ -70,6 +70,8 @@
     position: absolute;
     top: calc(75 * var(--space));
     cursor: pointer;
+    color: black;
+    background-color: rgba(255, 255, 255, .4);
   }
 
   .card .swap.right {
