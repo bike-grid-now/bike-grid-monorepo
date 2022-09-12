@@ -61,6 +61,10 @@
     transition: box-shadow 0.15s;
   }
 
+  h2 {
+    font-size: var(--text-2xl);
+  }
+
   .top {
     display: flex;
     flex-direction: row;
@@ -88,6 +92,7 @@
   }
 
   .title {
+    font-size: var(--text-base);
     font-weight: bold;
   }
 

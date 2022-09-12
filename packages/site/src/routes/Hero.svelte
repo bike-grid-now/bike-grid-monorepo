@@ -27,6 +27,7 @@
 
 <style>
   .hero {
+    font-size: var(--text-base);
     padding-top: calc(48 * var(--space));
     padding-bottom: calc(48 * var(--space));
     display: flex;

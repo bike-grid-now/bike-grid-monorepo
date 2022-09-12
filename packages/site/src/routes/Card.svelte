@@ -25,6 +25,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: var(--text-base);
 
     text-align: center;
 

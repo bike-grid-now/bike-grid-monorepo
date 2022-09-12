@@ -20,6 +20,7 @@
 
 <style>
   .nav-outer {
+    font-size: var(--text-base);
     position: sticky;
     top: calc(3 * var(--space));
     z-index: 99;
