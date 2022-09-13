@@ -122,7 +122,6 @@ importers:
       '@material-symbols/svg-400': ^0.2.9
       '@portabletext/svelte': ^1.0.1
       '@rodneylab/svelte-social-icons': ^0.0.23
-      '@sanity/block-content-to-html': ^2.0.0
       '@sanity/client': ^3.3.6
       '@sveltejs/adapter-vercel': ^1.0.0-next.68
       '@sveltejs/kit': 1.0.0-next.431
@@ -152,7 +151,6 @@ importers:
       '@bike-grid-now/cms': link:../cms
       '@material-symbols/svg-400': 0.2.9
       '@rodneylab/svelte-social-icons': 0.0.23
-      '@sanity/block-content-to-html': 2.0.0
       '@sanity/client': 3.3.6
       '@zerodevx/svelte-toast': 0.7.2
       add-to-calendar-button: 1.15.1
@@ -4770,21 +4768,6 @@ packages:
       rxjs: 6.6.7
     dev: false
 
-  /@sanity/block-content-to-html/2.0.0:
-    resolution: {integrity: sha512-QvwB/P7hd6emwvHBNDzR5vgTAEN+gflxlc/FTMmEBI73ns5IyebkaZzzqOGwcvem58HA9bxSKrt6w+kBVJ0E0w==}
-    dependencies:
-      '@sanity/block-content-to-hyperscript': 3.0.0
-    dev: false
-
-  /@sanity/block-content-to-hyperscript/3.0.0:
-    resolution: {integrity: sha512-uoXWLdFY5LqO8A9sFJqnZWWDCBC+0r3Egeh0bwKQ2EK2Vil5L40iJGNXMZhDB8BnvH+6B4155SU8Q3vY59T6pA==}
-    dependencies:
-      '@sanity/generate-help-url': 0.140.0
-      '@sanity/image-url': 0.140.22
-      hyperscript: 2.0.2
-      object-assign: 4.1.1
-    dev: false
-
   /@sanity/block-tools/2.31.0:
     resolution: {integrity: sha512-CGhtiNFkHXfaHscGqJviBftN+DrdyfwNRvxjtRfGfszp6TBX8pAv6aojixjNwNiKkRfrdKCKZ6CksyxjReRxpw==}
     dependencies:
@@ -5157,10 +5140,6 @@ packages:
       - supports-color
     dev: false
 
-  /@sanity/generate-help-url/0.140.0:
-    resolution: {integrity: sha512-H/G/WA9S22TXcXST52CIiTsHx3S2hH0gvK7LnI5w76vfKS0obnDPh8jrPg4xeNRYGPuV9MHYRlyERGpRGoo4Qw==}
-    dev: false
-
   /@sanity/generate-help-url/2.0.9:
     resolution: {integrity: sha512-Ibr4fEL3McAtvScwVPi5IpnLT+fXfY5NMxjmX0IyLHTod1iwOVpVlPBjWdLiiWiaMqX7Kf9CtoNcjFhtsVj2UA==}
     dev: false
@@ -5184,11 +5163,6 @@ packages:
       react: ^16.9 || ^17 || ^18
     dependencies:
       react: 17.0.2
-    dev: false
-
-  /@sanity/image-url/0.140.22:
-    resolution: {integrity: sha512-CAmQZnj+KM7FSEYiWlIGDit072syicYuAw0w7R2ctMzHiZ4p9mE/g6dBnYqrqFUrw2J+GpJgPt+RVspKP8vdqA==}
-    engines: {node: '>=10.0.0'}
     dev: false
 
   /@sanity/image-url/1.0.1:
@@ -7801,10 +7775,6 @@ packages:
     resolution: {integrity: sha512-9o5UecI3GhkpM6DrXr69PblIuWxPKk9Y0jHBRhdocZ2y7YECBFCsHm79Pr3OyR2AvjhDkabFJaDJMYRazHgsow==}
     dev: false
 
-  /browser-split/0.0.0:
-    resolution: {integrity: sha512-CNXO3AXAS1H/kOGQkPjucm1161/XoF3aVkMfujqwk85XN/D/MkQMvoB81lXyX/2rerZS+hPAYYRR3mAW05awjQ==}
-    dev: false
-
   /browserify-aes/1.2.0:
     resolution: {integrity: sha512-+7CHXqGuspUn/Sl5aO7Ea0xWGAtETPXNSAjHo48JfLdPWcMng33Xe4znFvQweqc/uzk5zSOI3H52CYnjCfb5hA==}
     dependencies:
@@ -8237,12 +8207,6 @@ packages:
 
   /cjs-module-lexer/1.2.2:
     resolution: {integrity: sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==}
-    dev: false
-
-  /class-list/0.1.1:
-    resolution: {integrity: sha512-zqR0uW+VsLtyQhixBhkdQ+z6B8+Y8HTh28kdSVjJ4zTTKM7Xz2asAQSya9VI6m/34F6N6Ktm0mrchKB+E5a8Xw==}
-    dependencies:
-      indexof: 0.0.1
     dev: false
 
   /class-utils/0.3.6:
@@ -12061,13 +12025,6 @@ packages:
     resolution: {integrity: sha512-7Wn5GMLuHBjZCb2bTmnDOycho0p/7UVaAeqXZGbHrBCl6Yd/xDhQJAXe6Ga9AXJH2I5zY1dEdYw2u1UptnSBJA==}
     dev: false
 
-  /html-element/2.3.1:
-    resolution: {integrity: sha512-xnFt2ZkbFcjc+JoAtg3Hl89VeEZDjododu4VCPkRvFmBTHHA9U1Nt6hLUWfW2O+6Sl/rT1hHK/PivleX3PdBJQ==}
-    engines: {node: '>=4.2'}
-    dependencies:
-      class-list: 0.1.1
-    dev: false
-
   /html-encoding-sniffer/1.0.2:
     resolution: {integrity: sha512-71lZziiDnsuabfdYiUeWdCVyKuqwWi23L8YeIgV9jSSZHCtb6wB1BKWooH7L3tn4/FuZJMVWyNaIDr4RGmaSYw==}
     dependencies:
@@ -12245,14 +12202,6 @@ packages:
     resolution: {integrity: sha512-4+p3fCRF21oUqxhK0yZ6yaSP/H5/wZumc7q1fH99RkW7Q13aAxDeP78BKjoR+6y+kaHqKF/JWuQhsNuuI2NKtA==}
     dev: false
 
-  /hyperscript/2.0.2:
-    resolution: {integrity: sha512-uggBAYfHFC5WyZQXlJ61BNZbPmJbschcvfYNhYdZWCp+0J8KYb5Du8nQuk8Ru+ThoCNb01B0tPtnTRqnrFBkVg==}
-    dependencies:
-      browser-split: 0.0.0
-      class-list: 0.1.1
-      html-element: 2.3.1
-    dev: false
-
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -12364,10 +12313,6 @@ packages:
 
   /indexes-of/1.0.1:
     resolution: {integrity: sha512-bup+4tap3Hympa+JBJUG7XuOsdNQ6fxt0MHyXMKuLBKn0OqsTfvUxkUrroEX1+B2VsSHvCjiIcZVxRtYa4nllA==}
-    dev: false
-
-  /indexof/0.0.1:
-    resolution: {integrity: sha512-i0G7hLJ1z0DE8dsqJa2rycj9dBmNKgXBvotXtZYXakU9oivfB9Uj2ZBC27qqef2U58/ZLwalxa1X/RDCdkHtVg==}
     dev: false
 
   /inflight/1.0.6:

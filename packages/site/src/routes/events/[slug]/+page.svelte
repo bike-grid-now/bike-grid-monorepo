@@ -5,7 +5,6 @@
   import Image from "$lib/components/Image.svelte";
   import { PortableText } from "@portabletext/svelte";
   import { atcb_action } from 'add-to-calendar-button';
-  import blocksToHtml from '@sanity/block-content-to-html'
 
   import type { PageData } from "./$types";
 
@@ -15,14 +14,6 @@
   
   function formatDate(date: string) {
     return format(new Date(date), "M/dd/yyyy 'at' h:mm a");
-  }
-
-  const toHtml = (blocks: PortableText): HTMLElement => {
-    return blocksToHtml({blocks})
-  }
-
-  const toHtmlString = (blocks: PortableText): string => {
-    return toHtml(blocks).innerHTML;
   }
 
   let addToCalendarButton: HTMLButtonElement;
@@ -37,7 +28,7 @@
 
     atcb_action({
       name: event.name,
-      description: event.description ? toHtmlString(event.description) : 'BikeGridNow.org event',
+      description: 'BikeGridNow.org event',
       startDate: format(startTime, 'yyyy-MM-dd'),
       startTime: format(startTime, 'HH:MM'),
       // End time is one hour after start by default
