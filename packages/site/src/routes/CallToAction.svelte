@@ -34,7 +34,7 @@
   <a href="https://newsletter.bikegridnow.org/" target="_blank" class="dark">
     <div class="content">
       <MailIcon {...iconProps} />
-      <p>Newsletter Signup</p>
+      <p>Sign up for the Newsletter</p>
     </div>
     <ChevronRightIcon {...iconProps} />
   </a>
