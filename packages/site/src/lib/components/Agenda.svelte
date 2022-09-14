@@ -2,6 +2,7 @@
   import { format, compareAsc, compareDesc } from "date-fns";
   import CalendarMonthIcon from "@material-symbols/svg-400/rounded/calendar_month.svg?component";
   import ChevronRight from "@material-symbols/svg-400/rounded/chevron_right.svg?component";
+  import { paginated } from "$lib/util";
 
   type Event = {
     name: string;
@@ -11,6 +12,27 @@
 
   export let events: Event[] = [];
   export let title: string;
+  export let maxPerPage: number = 5;
+  
+  $: pageNumber = 0;
+
+  const getFilteredEvents = (events: Event[], searchValue: string): Event[] => {
+    if(searchValue.trim() === '') {
+      return events
+    }
+    
+    return events.filter((ev) => ev.name.toLowerCase().includes(searchValue.toLowerCase()))
+  };
+
+  
+  $: filteredEvents = getFilteredEvents(events, searchValue);
+  
+  let numPages: number
+  $: numPages = Math.ceil(filteredEvents.length / maxPerPage);
+
+  $: currentPageEvents = paginated(filteredEvents, pageNumber, maxPerPage);
+
+  let searchValue: string = '';
 
   function formatDate(date: string) {
     return format(new Date(date), "EEEE, LLLL d - h:mm a");
@@ -20,6 +42,13 @@
     viewBox: "0 0 48 48",
     style: "width: calc(6 * var(--space)); height: calc(6 * var(--space))",
   };
+
+  $: canAdvance = pageNumber < numPages - 1;
+  $: canGoBack = pageNumber > 0;
+
+  const goBack = (): void => void pageNumber--;
+  const advance = (): void => void pageNumber++;
+
 </script>
 
 {#if events.length > 0}
@@ -27,12 +56,17 @@
     <div class="top">
       <CalendarMonthIcon {...iconProps} />
       <h2>{title}</h2>
+      {#if events.length > maxPerPage }
+        <div class="right">
+          <input type="text" placeholder="Search" bind:value={searchValue} />
+        </div>
+      {/if}
     </div>
 
     <div class="divider" />
 
     <div>
-      {#each events as event}
+      {#each currentPageEvents as event}
         <a class="row" href={`/events/${event.slug}`}>
           <div>
             <p class="title">{event.name}</p>
@@ -46,6 +80,19 @@
         </a>
       {/each}
     </div>
+    {#if numPages > 1}
+      <div class="right group">
+        {#if canAdvance }
+          <div><button type="button" on:click={advance}>Next</button></div>
+        {/if}
+        <div>Page {pageNumber + 1} of {numPages}</div>
+        {#if canGoBack }
+        <div>
+          <button type="button" on:click={goBack}>Back</button>
+        </div>
+        {/if}
+      </div>
+    {/if}
   </main>
 {/if}
 
@@ -84,6 +131,24 @@
     align-items: center;
     justify-content: space-between;
     padding: calc(3 * var(--space));
+  }
+
+  .group {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  
+  .group > div {
+    padding-left: calc(3 * var(--space));
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .right > * {
+    float: right;
   }
 
   .row:hover,
