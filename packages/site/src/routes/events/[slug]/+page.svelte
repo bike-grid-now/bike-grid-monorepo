@@ -4,17 +4,54 @@
   import Seo from "$lib/components/Seo.svelte";
   import Image from "$lib/components/Image.svelte";
   import { PortableText } from "@portabletext/svelte";
+  import { atcb_action } from 'add-to-calendar-button';
 
   import type { PageData } from "./$types";
 
   export let data: PageData;
 
   let event = data.event;
-  $: event = data.event;
-
+  
   function formatDate(date: string) {
     return format(new Date(date), "M/dd/yyyy 'at' h:mm a");
   }
+
+  let addToCalendarButton: HTMLButtonElement;
+
+  const addToCalendarAction = () => {
+    const startTime = new Date(event.date.local)
+    const endTime = (() => {
+      const temp = new Date(startTime);
+      temp.setHours(temp.getHours() + 1);
+      return temp;
+    })();
+
+    atcb_action({
+      name: event.name,
+      description: 'BikeGridNow.org event',
+      startDate: format(startTime, 'yyyy-MM-dd'),
+      startTime: format(startTime, 'HH:MM'),
+      // End time is one hour after start by default
+      endTime: format(endTime, 'HH:MM'),
+      location: event.name,
+      images: (event.media ?? []).map((img) => img.imageUrl),
+      options:[
+        "Apple",
+        "Google",
+        "iCal",
+        "Microsoft365",
+        "MicrosoftTeams",
+        "Outlook.com",
+        "Yahoo"
+      ],
+      "timeZone":"US/Central",
+      "trigger":"click",
+      "listStyle":"modal",
+      "iCalFileName":"BikeGridNow-Event"
+    })
+  }
+  
+  
 </script>
 
 <Seo title={event.name} />
@@ -36,6 +73,7 @@
       {#if event.rsvpLink}
         <a href={event.rsvpLink} target="_blank" class="button">RSVP</a>
       {/if}
+      <button class="button" bind:this={addToCalendarButton} on:click={addToCalendarAction}>Add to Calendar</button>
     </div>
 
     <Slides events={[event]} />
@@ -45,6 +83,8 @@
 <div class="footer" />
 
 <style>
+  @import '../../../styles/atcb.css';
+
   .container {
     width: 100%;
     max-width: 1000px;

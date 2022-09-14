@@ -129,6 +129,7 @@ importers:
       '@types/html-minifier': ^4.0.2
       '@types/sharp': ^0.30.5
       '@zerodevx/svelte-toast': ^0.7.2
+      add-to-calendar-button: ^1.15.1
       autoprefixer: ^10.4.9
       cssnano: ^5.1.13
       cssnano-preset-advanced: ^5.3.8
@@ -152,6 +153,7 @@ importers:
       '@rodneylab/svelte-social-icons': 0.0.23
       '@sanity/client': 3.3.6
       '@zerodevx/svelte-toast': 0.7.2
+      add-to-calendar-button: 1.15.1
       date-fns: 2.29.2
       firebase: 9.9.4
       html-minifier: 4.0.0
@@ -6810,6 +6812,11 @@ packages:
     resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+
+  /add-to-calendar-button/1.15.1:
+    resolution: {integrity: sha512-4RN+W74tK4m1bTr71VfUbBQAYSmkO7CKNIVt644pFomKMXpztyDVkzxTez73hCI+QM2D20VWWb763sIiLB2Rog==}
+    engines: {node: '>=14.20.0'}
+    dev: false
 
   /address/1.2.0:
     resolution: {integrity: sha512-tNEZYz5G/zYunxFm7sfhAxkXEuLj3K6BKwv6ZURlsF6yiUQ65z0Q2wZW9L5cPUl9ocofGvXOdFYbFHp0+6MOig==}
