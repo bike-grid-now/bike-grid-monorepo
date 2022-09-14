@@ -24,7 +24,7 @@
   <CallToAction />
   <div class="sideby">
     {#if nextEvent}
-      <Slides events={[nextEvent]} />
+      <Slides events={upcomingEvents} />
     {/if}
 
     <Agenda events={upcomingEvents} title="Upcoming Events" />
