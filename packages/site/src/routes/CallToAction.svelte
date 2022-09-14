@@ -3,6 +3,7 @@
   import CallIcon from "@material-symbols/svg-400/rounded/call.svg?component";
   import EditNoteIcon from "@material-symbols/svg-400/rounded/edit_note.svg?component";
   import ChevronRightIcon from "@material-symbols/svg-400/rounded/chevron_right.svg?component";
+  import DirectionsBusIcon from "@material-symbols/svg-400/rounded/directions_bus.svg?component";
 
   const iconProps = {
     viewBox: "0 0 48 48",
@@ -11,30 +12,30 @@
 </script>
 
 <div class="button-group">
-  <a
-    href="https://www.gofundme.com/f/flags-and-flyers-for-bike-grid-now"
-    target="_blank"
-    class="dark"
-  >
-    <div class="content">
-      <EditNoteIcon {...iconProps} />
-      <p>Sign the Petition</p>
-    </div>
-    <ChevronRightIcon {...iconProps} />
-  </a>
-
-  <a href="/posts/betterbelmont" class="light">
-    <div class="content">
-      <CallIcon {...iconProps} />
-      <p>Call for a Better Belmont</p>
-    </div>
-    <ChevronRightIcon {...iconProps} />
-  </a>
-
   <a href="https://newsletter.bikegridnow.org/" target="_blank" class="dark">
     <div class="content">
       <MailIcon {...iconProps} />
       <p>Sign up for the Newsletter</p>
+    </div>
+    <ChevronRightIcon {...iconProps} />
+  </a>
+
+  <a
+    href="https://docs.google.com/forms/d/e/1FAIpQLSegNjFMyIcrGiEKp5Y7RQFUjcu4Mk-gfllJrEC13NFk6SGxvw/viewform?usp=sf_link"
+    target="_blank"
+    class="light"
+  >
+    <div class="content">
+      <DirectionsBusIcon {...iconProps} />
+      <p>Request a Bike Bus</p>
+    </div>
+    <ChevronRightIcon {...iconProps} />
+  </a>
+
+  <a href="/posts/betterbelmont" class="dark">
+    <div class="content">
+      <CallIcon {...iconProps} />
+      <p>Call for a Better Belmont</p>
     </div>
     <ChevronRightIcon {...iconProps} />
   </a>
