@@ -4,6 +4,7 @@
   import EditNoteIcon from "@material-symbols/svg-400/rounded/edit_note.svg?component";
   import ChevronRightIcon from "@material-symbols/svg-400/rounded/chevron_right.svg?component";
   import DirectionsBusIcon from "@material-symbols/svg-400/rounded/directions_bus.svg?component";
+  import LocationOnIcon from "@material-symbols/svg-400/rounded/location_on.svg?component";
 
   const iconProps = {
     viewBox: "0 0 48 48",
@@ -32,10 +33,10 @@
     <ChevronRightIcon {...iconProps} />
   </a>
 
-  <a href="/posts/betterbelmont" class="dark">
+  <a href="https://bikebustracker.bikegridnow.org/" class="dark">
     <div class="content">
-      <CallIcon {...iconProps} />
-      <p>Call for a Better Belmont</p>
+      <LocationOnIcon {...iconProps} />
+      <p>Track the Bike Bus</p>
     </div>
     <ChevronRightIcon {...iconProps} />
   </a>
