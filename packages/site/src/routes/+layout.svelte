@@ -12,7 +12,10 @@
 </script>
 
 <Nav title={siteSettings.title} />
-<Seo siteTitle={siteSettings.title} />
+<Seo
+  siteTitle={siteSettings.title}
+  siteDescription={siteSettings.description}
+/>
 
 <slot />
 
