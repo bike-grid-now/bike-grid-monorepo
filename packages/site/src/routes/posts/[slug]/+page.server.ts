@@ -1,12 +1,9 @@
 import { error } from "@sveltejs/kit";
-import { headers } from "$lib/caching";
 import { postFromSlug } from "$lib/sanity";
 
 /** @type {import('./$types').PageLoad} */
-export async function load({ params: { slug }, setHeaders }) {
+export async function load({ params: { slug } }) {
   const post = await postFromSlug(slug);
-
-  setHeaders(headers);
 
   if (post !== null) {
     return {
