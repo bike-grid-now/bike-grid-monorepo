@@ -1,10 +1,4 @@
-import { headers } from "$lib/caching";
-import {
-  upcomingEvents,
-  pastEvents,
-  type Event,
-  getSiteSettings,
-} from "$lib/sanity";
+import { upcomingEvents, pastEvents, type Event } from "$lib/sanity";
 import type { PageServerLoad } from "./$types";
 
 function mapEvent({
