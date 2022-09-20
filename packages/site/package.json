@@ -27,7 +27,6 @@
     "vite-plugin-svelte-svg": "^2.0.2"
   },
   "dependencies": {
-    "@bike-grid-now/cms": "workspace:^",
     "@material-symbols/svg-400": "^0.2.9",
     "@rodneylab/svelte-social-icons": "^0.0.23",
     "@sanity/client": "^3.3.6",

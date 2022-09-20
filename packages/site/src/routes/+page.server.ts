@@ -1,4 +1,3 @@
-import { getEvents } from "$lib/firebase";
 import { headers } from "$lib/caching";
 import { upcomingEvents, pastEvents, type Event } from "$lib/sanity";
 
