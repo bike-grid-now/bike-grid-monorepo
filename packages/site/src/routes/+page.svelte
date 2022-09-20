@@ -9,16 +9,13 @@
 
   export let data: PageData;
 
-  let upcomingEvents = data.upcomingEvents;
-  let pastEvents = data.pastEvents;
-
   $: upcomingEvents = data.upcomingEvents;
   $: pastEvents = data.pastEvents;
-
-  let nextEvent = upcomingEvents.length > 0 ? upcomingEvents[0] : null;
+  $: nextEvent = upcomingEvents.length > 0 ? upcomingEvents[0] : null;
+  $: siteSettings = data.siteSettings;
 </script>
 
-<Hero />
+<Hero title={siteSettings.heroTitle} tagline={siteSettings.heroTagline} />
 
 <div class="content main-content">
   <CallToAction />

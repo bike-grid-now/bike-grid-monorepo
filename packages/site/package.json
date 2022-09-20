@@ -37,6 +37,7 @@
     "sharp": "^0.31.0",
     "svelte-carousel": "^1.0.19",
     "svelte-markdown": "^0.2.3",
+    "svelte-seo": "^1.4.1",
     "svelte-social-media-icons": "^0.0.3",
     "svelte-twitter-widgets": "^0.1.0"
   }

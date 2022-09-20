@@ -1,12 +1,12 @@
 <script lang="ts">
   import faviconUrl from "../../static/favicon_io/favicon.ico";
+  import SvelteSeo from "svelte-seo";
 
   export let title: string | undefined = undefined;
+  export let siteTitle: string;
+  export let siteDescription: string;
 
-  $: pageTitle = title ? `${title} | Bike Grid Now` : "Bike Grid Now";
+  $: pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 </script>
 
-<svelte:head>
-  <link rel="icon" href={faviconUrl} />
-  <title>{pageTitle}</title>
-</svelte:head>
+<SvelteSeo title={pageTitle} description={siteDescription} />
