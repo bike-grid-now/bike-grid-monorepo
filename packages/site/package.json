@@ -35,6 +35,7 @@
     "firebase": "^9.9.4",
     "html-minifier": "^4.0.0",
     "sharp": "^0.31.0",
+    "simple-icons": "^7.12.0",
     "svelte-carousel": "^1.0.19",
     "svelte-markdown": "^0.2.3",
     "svelte-seo": "^1.4.1",
