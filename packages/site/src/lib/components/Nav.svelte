@@ -1,5 +1,7 @@
 <script lang="ts">
   import PedalBike from "@material-symbols/svg-400/rounded/pedal_bike.svg?component";
+
+  export let title: string;
 </script>
 
 <div class="nav-outer">
@@ -10,7 +12,7 @@
           viewBox="0 0 48 48"
           style="width: calc(8 * var(--space)); height: calc(8 * var(--space))"
         />
-        <b>Chicago, Bike Grid Now!</b>
+        <b>{title}</b>
       </a>
 
       <div class="spacer" />

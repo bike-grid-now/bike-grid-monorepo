@@ -1,5 +1,11 @@
 import { headers } from "$lib/caching";
-import { upcomingEvents, pastEvents, type Event } from "$lib/sanity";
+import {
+  upcomingEvents,
+  pastEvents,
+  type Event,
+  getSiteSettings,
+} from "$lib/sanity";
+import type { PageServerLoad } from "./$types";
 
 function mapEvent({
   slug: { current: slug },
@@ -10,14 +16,13 @@ function mapEvent({
   return { slug, name, date, poster };
 }
 
-/** @type {import('./$types').PageLoad} */
-export async function load({ setHeaders }) {
-  setHeaders(headers);
-
-  const [future, past] = await Promise.all([upcomingEvents(), pastEvents()]);
+export const load: PageServerLoad = async ({ parent }) => {
+  const [futureEventsList, pastEventsList, { siteSettings }] =
+    await Promise.all([upcomingEvents(), pastEvents(), parent()]);
 
   return {
-    pastEvents: past.map(mapEvent) || [],
-    upcomingEvents: future.map(mapEvent) || [],
+    pastEvents: pastEventsList.map(mapEvent) || [],
+    upcomingEvents: futureEventsList.map(mapEvent) || [],
+    siteSettings,
   };
-}
+};

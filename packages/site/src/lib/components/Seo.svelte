@@ -2,8 +2,9 @@
   import faviconUrl from "../../static/favicon_io/favicon.ico";
 
   export let title: string | undefined = undefined;
+  export let siteTitle: string;
 
-  $: pageTitle = title ? `${title} | Bike Grid Now` : "Bike Grid Now";
+  $: pageTitle = title ? `${title} | ${siteTitle}` : siteTitle;
 </script>
 
 <svelte:head>

@@ -2,11 +2,17 @@
   import Nav from "$lib/components/Nav.svelte";
   import Seo from "$lib/components/Seo.svelte";
   import VercelBanner from "$lib/components/VercelBanner.svelte";
+
   import "../styles/globals.css";
+
+  import type { LayoutData } from "./$types";
+  export let data: LayoutData;
+
+  $: siteSettings = data.siteSettings;
 </script>
 
-<Nav />
-<Seo />
+<Nav title={siteSettings.title} />
+<Seo siteTitle={siteSettings.title} />
 
 <slot />
 

@@ -3,17 +3,17 @@
   import headerPhotoUrl from "../static/header-backdrop.jpeg";
 
   import LocationOn from "@material-symbols/svg-400/rounded/location_on.svg?component";
-    import SocialIcons from "@rodneylab/svelte-social-icons";
+
+  export let title: string;
+  export let tagline: string;
+  import SocialIcons from "@rodneylab/svelte-social-icons";
 </script>
 
 <BackgroundImage src={headerPhotoUrl} brightness={0.5} maxWidth={1020}>
   <div class="hero">
     <div class="header">
-      <h1>Enough is enough.</h1>
-      <p>
-        It's time to build a grid of bike-prioritized streets on 10% of Chicago
-        streets with a 10mph speed limit.
-      </p>
+      <h1>{title}</h1>
+      <p>{tagline}</p>
     </div>
 
     <!-- <div class="location">
@@ -42,8 +42,6 @@
       </a>
     </div>
   </div>
-
-  
 </BackgroundImage>
 
 <style>
@@ -90,5 +88,4 @@
     fill: currentColor;
     text-decoration: none;
   }
-
 </style>
