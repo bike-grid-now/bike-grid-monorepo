@@ -14,7 +14,7 @@
 </script>
 
 <div class="card-container">
-  <Card link="https://www.chidocc.org/post/streets-for-bikes-now">
+  <Card link="/posts/what-is-a-bike-grid" notarget>
     <GridOnIcon {...iconProps} />
     <CardHeading>What's a Bike Grid?</CardHeading>
     <p>10% of streets. 10mph. Protected. All across Chicago.</p>
