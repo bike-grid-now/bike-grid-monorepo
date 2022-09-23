@@ -1,5 +1,6 @@
 <script lang="ts">
   import MailIcon from "@material-symbols/svg-400/rounded/mail.svg?component";
+  import EditNote from "@material-symbols/svg-400/rounded/edit_note.svg?component";
   import CallIcon from "@material-symbols/svg-400/rounded/call.svg?component";
   import EditNoteIcon from "@material-symbols/svg-400/rounded/edit_note.svg?component";
   import ChevronRightIcon from "@material-symbols/svg-400/rounded/chevron_right.svg?component";
@@ -21,10 +22,18 @@
     <ChevronRightIcon {...iconProps} />
   </a>
 
+  <a href="https://www.change.org/p/chicago-needs-a-bike-grid" target="_blank" class="light">
+    <div class="content">
+      <EditNote {...iconProps} />
+      <p>Sign the Petition</p>
+    </div>
+    <ChevronRightIcon {...iconProps} />
+  </a>
+
   <a
     href="https://docs.google.com/forms/d/e/1FAIpQLSegNjFMyIcrGiEKp5Y7RQFUjcu4Mk-gfllJrEC13NFk6SGxvw/viewform?usp=sf_link"
     target="_blank"
-    class="light"
+    class="dark"
   >
     <div class="content">
       <DirectionsBusIcon {...iconProps} />
@@ -33,7 +42,7 @@
     <ChevronRightIcon {...iconProps} />
   </a>
 
-  <a href="https://bikebustracker.bikegridnow.org/" class="dark">
+  <a href="https://bikebustracker.bikegridnow.org/" class="light">
     <div class="content">
       <LocationOnIcon {...iconProps} />
       <p>Track the Bike Bus</p>
