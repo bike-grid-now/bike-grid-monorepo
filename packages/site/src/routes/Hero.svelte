@@ -1,11 +1,17 @@
 <script lang="ts">
   import BackgroundImage from "./BackgroundImage.svelte";
   import headerPhotoUrl from "../static/header-backdrop.jpeg";
+  import MailIcon from "@material-symbols/svg-700/rounded/mail.svg?component";
 
   import * as simpleIcons from "simple-icons/icons";
 
   export let title: string;
   export let tagline: string;
+
+  const iconProps = {
+    viewBox: "0 0 48 48",
+    style: "width: calc(6 * var(--space)); height: calc(6 * var(--space)); transform: scale(1.2);",
+  };
 </script>
 
 <BackgroundImage src={headerPhotoUrl} brightness={0.5} maxWidth={1020}>
@@ -38,6 +44,10 @@
         <div class="icon">
           {@html simpleIcons.siTiktok.svg}
         </div>
+      </a>
+
+      <a href="mailto:grassroots@bikegridnow.org" target="_blank">
+        <MailIcon {...iconProps} weight={700} />
       </a>
     </div>
   </div>
