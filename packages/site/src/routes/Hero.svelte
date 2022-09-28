@@ -40,7 +40,7 @@
       <!-- <a href="https://www.tiktok.com/@chicagobikegridnow" target="_blank">
         <SocialIcons width={40} height={40} network="reddit" />
       </a> -->
-      <a href="https://www.tiktok.com/@chicagobikegridnow" target="_blank">
+      <a href="https://www.tiktok.com/@bikegridnow" target="_blank">
         <div class="icon">
           {@html simpleIcons.siTiktok.svg}
         </div>
