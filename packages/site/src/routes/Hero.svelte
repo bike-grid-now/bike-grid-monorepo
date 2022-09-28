@@ -10,7 +10,8 @@
 
   const iconProps = {
     viewBox: "0 0 48 48",
-    style: "width: calc(6 * var(--space)); height: calc(6 * var(--space)); transform: scale(1.2);",
+    style:
+      "width: calc(6 * var(--space)); height: calc(6 * var(--space)); transform: scale(1.2);",
   };
 </script>
 
@@ -37,9 +38,6 @@
           {@html simpleIcons.siFacebook.svg}
         </div>
       </a>
-      <!-- <a href="https://www.tiktok.com/@chicagobikegridnow" target="_blank">
-        <SocialIcons width={40} height={40} network="reddit" />
-      </a> -->
       <a href="https://www.tiktok.com/@chicagobikegridnow" target="_blank">
         <div class="icon">
           {@html simpleIcons.siTiktok.svg}
@@ -56,40 +54,53 @@
 <style>
   .hero {
     font-size: var(--text-base);
-    padding-top: calc(48 * var(--space));
-    padding-bottom: calc(48 * var(--space));
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    max-width: 1000px;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: calc(36 * var(--space)) calc(var(--space) * 4);
   }
 
   .hero > * + * {
-    margin-top: calc(10 * var(--space));
+    margin-top: calc(16 * var(--space));
   }
 
   .header > * + * {
-    margin-top: calc(2 * var(--space));
-  }
-
-  .header {
-    text-align: center;
+    margin-top: calc(6 * var(--space));
   }
 
   h1 {
-    font-size: var(--text-5xl);
+    font-size: calc(var(--space) * 20);
+    background-color: white;
+    color: black;
+    padding: calc(4 * var(--space));
+    mix-blend-mode: lighten;
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  p {
+    font-size: var(--text-xl);
+    font-weight: 500;
+    line-height: 1.8;
+    letter-spacing: 0.009rem;
+    /* padding: calc(var(--space) * 4); */
+    mix-blend-mode: lighten;
   }
 
   .links {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: calc(var(--space) * 4);
+    background-color: white;
+    width: fit-content;
+    padding: calc(var(--space) * 3) calc(var(--space) * 4);
   }
 
   .links a {
-    color: var(--color-text);
+    color: black;
     fill: currentColor;
     text-decoration: none;
   }
