@@ -4,27 +4,25 @@
   export let title: string;
 </script>
 
-<div class="nav-outer">
+<nav>
   <div class="content">
-    <nav>
-      <a href="/" class="logo">
-        <PedalBike
-          viewBox="0 0 48 48"
-          style="width: calc(8 * var(--space)); height: calc(8 * var(--space))"
-        />
-        <b>{title}</b>
-      </a>
+    <a href="/" class="logo">
+      <PedalBike
+        viewBox="0 0 48 48"
+        style="width: calc(8 * var(--space)); height: calc(8 * var(--space))"
+      />
+      <b>{title}</b>
+    </a>
 
-      <div class="spacer" />
-    </nav>
+    <div class="spacer" />
   </div>
-</div>
+</nav>
 
 <style>
-  .nav-outer {
+  nav {
     font-size: var(--text-base);
     position: sticky;
-    top: calc(3 * var(--space));
+    top: 0;
     z-index: 99;
     width: 100%;
   }
@@ -35,6 +33,10 @@
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   nav {
@@ -57,7 +59,6 @@
 
   nav {
     width: 100%;
-    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 
@@ -65,8 +66,6 @@
 
     color: var(--color-text);
     padding: calc(5 * var(--space));
-    margin-bottom: calc(6 * var(--space));
-    border-radius: 15px;
 
     box-shadow: 0 0 10px var(--color-shadow);
     transition: box-shadow 0.15s;
