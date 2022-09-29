@@ -31,6 +31,33 @@ export default {
       title: "Header Image",
       type: "media",
     },
+    {
+      name: "trackerBounds",
+      type: "object",
+      title: "Tracker Bounds",
+      description:
+        "Square that the tracker should be active in. Helps keep things private :)",
+      fields: [
+        {
+          name: "bottomLeft",
+          type: "geopoint",
+          title: "Bottom Left",
+          description: "The bottom left point",
+          initialValue: {
+            alt: 0,
+          },
+        },
+        {
+          name: "topRight",
+          type: "geopoint",
+          title: "Top Right",
+          description: "The top right point",
+          initialValue: {
+            alt: 0,
+          },
+        },
+      ],
+    },
   ],
   preview: {
     select: {
