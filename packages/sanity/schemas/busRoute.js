@@ -58,6 +58,53 @@ export default {
         },
       ],
     },
+    {
+      name: "stops",
+      type: "array",
+      title: "Stops",
+      of: [
+        {
+          type: "object",
+          name: "stop",
+          title: "Stop",
+          fields: [
+            {
+              name: "title",
+              type: "string",
+              title: "Stop title",
+              description: "The title of the stop. Shows up next to the icon.",
+            },
+            {
+              name: "subtitle",
+              type: "string",
+              title: "Subtitle",
+              description: "Appears below the title on the map.",
+            },
+            {
+              name: "time",
+              type: "string",
+              title: "Time",
+              description: "Time of arrival at the stop.",
+            },
+            {
+              name: "icon",
+              type: "media",
+              title: "Icon",
+              description: "Optional icon to show next to the stop.",
+            },
+            {
+              name: "coordinates",
+              type: "geopoint",
+              title: "Coordinates",
+              description: "The latitude and longitude of the stop.",
+              initialValue: {
+                alt: 0,
+              },
+            },
+          ],
+        },
+      ],
+    },
   ],
   preview: {
     select: {
