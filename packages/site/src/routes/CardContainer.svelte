@@ -19,8 +19,8 @@
     <CardHeading>What's a Bike Grid?</CardHeading>
     <p>10% of streets. 10mph. Protected. All across Chicago.</p>
   </Card>
-  <Card
-    link="https://www.chidocc.org/post/why-joining-a-bike-jam-can-change-the-world"
+  <Card notarget
+    link="/posts/CBGN-direct-action-101"
   >
     <EditRoadIcon {...iconProps} />
     <CardHeading>Why do we Jam?</CardHeading>
