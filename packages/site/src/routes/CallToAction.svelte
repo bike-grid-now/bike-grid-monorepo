@@ -42,7 +42,7 @@
     <ChevronRightIcon {...iconProps} />
   </a> -->
 
-  <a
+  <!-- <a
     href="https://docs.google.com/forms/d/e/1FAIpQLScmo18WuNDZXnMfEdpVi6NErKp4fvCFHEe6x7GaE0ok1tvDIA/viewform"
     target="_blank"
     class="dark"
@@ -52,9 +52,9 @@
       <p>Chicago Mobility Collaborative</p>
     </div>
     <ChevronRightIcon {...iconProps} />
-  </a>
+  </a> -->
 
-  <a href="https://bikebustracker.bikegridnow.org/" class="light">
+  <a href="https://bikebustracker.bikegridnow.org/" class="dark">
     <div class="content">
       <LocationOnIcon {...iconProps} />
       <p>Track the Bike Bus</p>
