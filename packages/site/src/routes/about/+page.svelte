@@ -8,6 +8,10 @@
   let { organizers } = data;
 </script>
 
+<svelte:head>
+  <title>About | Chicago, Bike Grid Now!</title>
+</svelte:head>
+
 {#if organizers && organizers.length > 0}
   <div class="content">
     <div class="grid">

@@ -15,6 +15,10 @@
   $: siteSettings = data.siteSettings;
 </script>
 
+<svelte:head>
+  <title>Chicago, Bike Grid Now!</title>
+</svelte:head>
+
 <Hero title={siteSettings.heroTitle} tagline={siteSettings.heroTagline} />
 
 <div class="content main-content">

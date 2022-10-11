@@ -30,6 +30,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>{post.title} | Chicago, Bike Grid Now!</title>
+</svelte:head>
+
 <div class="responsive-container">
   <div class="card">
     <div class="card-inner">

@@ -17,7 +17,11 @@
   }
 </script>
 
-<Seo title={event.name} />
+<svelte:head>
+  <title>{event.name} | Chicago, Bike Grid Now!</title>
+</svelte:head>
+
+<!-- <Seo title={event.name} /> -->
 
 <div class="container">
   <div class="sideby">
