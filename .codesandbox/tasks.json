@@ -1,0 +1,23 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "npm install"
+    }
+  ],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "npm run -w @bike-grid-now/site dev": {
+      "name": "Site dev server",
+      "command": "npm run -w @bike-grid-now/site dev",
+      "runAtStart": true
+    },
+    "npm run -w @bike-grid-now/sanity start": {
+      "name": "Sanity dev server",
+      "command": "npm run -w @bike-grid-now/sanity start",
+      "runAtStart": true
+    }
+  }
+}
