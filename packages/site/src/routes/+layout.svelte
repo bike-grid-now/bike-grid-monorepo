@@ -2,6 +2,7 @@
   import Nav from "$lib/components/Nav.svelte";
   import Seo from "$lib/components/Seo.svelte";
   import VercelBanner from "$lib/components/VercelBanner.svelte";
+  import Footer from '$lib/components/Footer.svelte';
 
   import "../styles/globals.css";
 
@@ -19,7 +20,7 @@
 
 <slot />
 
-<VercelBanner />
+<Footer />
 
 <style global>
   * {
