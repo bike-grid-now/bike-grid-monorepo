@@ -4,40 +4,43 @@
   export let title: string;
 </script>
 
-<div class="nav-outer">
-  <div class="content">
-    <nav>
-      <a href="/" class="logo">
-        <PedalBike
-          viewBox="0 0 48 48"
-          style="width: calc(8 * var(--space)); height: calc(8 * var(--space))"
-        />
-        <b>{title}</b>
-      </a>
+<nav>
+  <div class="container">
+    <a href="/" class="logo">
+      <PedalBike
+        viewBox="0 0 48 48"
+        style="width: calc(8 * var(--space)); height: calc(8 * var(--space))"
+      />
+      <b>{title}</b>
+    </a>
 
-      <div class="spacer" />
-    </nav>
+    <div class="spacer" />
   </div>
-</div>
+</nav>
 
 <style>
-  .nav-outer {
+  nav {
     font-size: var(--text-base);
     position: sticky;
-    top: calc(3 * var(--space));
+    top: 0;
     z-index: 99;
     width: 100%;
+    padding: 0 calc(5 * var(--space));
+
+    background-color: var(--color-card);
+
+    color: var(--color-text);
+    padding: calc(5 * var(--space));
+
+    box-shadow: 0 0 10px var(--color-shadow);
   }
 
-  .content {
-    padding: 0 calc(5 * var(--space));
-    width: 100%;
+  .container {
     max-width: 1000px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-  }
 
-  nav {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -53,22 +56,5 @@
     color: var(--color-text);
     fill: currentColor;
     gap: calc(2 * var(--space));
-  }
-
-  nav {
-    width: 100%;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-
-    background-color: var(--color-card);
-
-    color: var(--color-text);
-    padding: calc(5 * var(--space));
-    margin-bottom: calc(6 * var(--space));
-    border-radius: 15px;
-
-    box-shadow: 0 0 10px var(--color-shadow);
-    transition: box-shadow 0.15s;
   }
 </style>
