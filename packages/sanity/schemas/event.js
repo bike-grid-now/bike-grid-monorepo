@@ -1,9 +1,11 @@
 import { format } from "date-fns";
+import { FiCalendar } from "react-icons/fi";
 
 export default {
   name: "event",
   type: "document",
-  title: "Event",
+  title: "Events",
+  icon: FiCalendar,
   fields: [
     {
       name: "name",

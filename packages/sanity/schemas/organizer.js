@@ -1,7 +1,10 @@
+import { FiUsers } from "react-icons/fi";
+
 export default {
   name: "organizer",
   type: "document",
-  title: "Organizer",
+  title: "Organizers",
+  icon: FiUsers,
   fields: [
     {
       name: "name",

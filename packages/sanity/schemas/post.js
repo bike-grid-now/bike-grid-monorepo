@@ -1,7 +1,10 @@
+import { FiFileText } from "react-icons/fi";
+
 export default {
   name: "post",
   type: "document",
-  title: "Post",
+  title: "Posts",
+  icon: FiFileText,
   fields: [
     {
       name: "title",
@@ -55,7 +58,7 @@ export default {
     select: {
       title: "title",
       subtitle: "subtitle",
-      media: "poster.asset",
+      media: "image.asset",
     },
   },
 };

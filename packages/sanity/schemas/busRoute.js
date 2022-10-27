@@ -1,7 +1,10 @@
+import { FiMap } from "react-icons/fi";
+
 export default {
   name: "busRoute",
   type: "document",
   title: "Bus Routes",
+  icon: FiMap,
   fields: [
     {
       name: "name",
