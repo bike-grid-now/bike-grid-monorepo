@@ -1,11 +1,10 @@
 <script lang="ts">
   import { format } from "date-fns";
   import Slides from "$lib/components/Slides.svelte";
-  import Seo from "$lib/components/Seo.svelte";
-  import Image from "$lib/components/Image.svelte";
   import { PortableText } from "@portabletext/svelte";
 
   import type { PageData } from "./$types";
+  import Container from "$lib/components/Container.svelte";
 
   export let data: PageData;
 
@@ -23,37 +22,35 @@
 
 <!-- <Seo title={event.name} /> -->
 
-<div class="container">
-  <div class="sideby">
-    <div class="card">
-      <h1>{event.name}</h1>
-      <p>
-        Date: {formatDate(event.date.local)}
-      </p>
+<Container>
+  <div class="container">
+    <div class="sideby">
+      <div class="card">
+        <h1>{event.name}</h1>
+        <p>
+          Date: {formatDate(event.date.local)}
+        </p>
 
-      {#if event.description}
-        <div>
-          <PortableText value={event.description} />
-        </div>
-      {/if}
+        {#if event.description}
+          <div>
+            <PortableText value={event.description} />
+          </div>
+        {/if}
 
-      {#if event.rsvpLink}
-        <a href={event.rsvpLink} target="_blank" class="button">RSVP</a>
-      {/if}
+        {#if event.rsvpLink}
+          <a href={event.rsvpLink} target="_blank" class="button">RSVP</a>
+        {/if}
+      </div>
+
+      <Slides events={[event]} />
     </div>
-
-    <Slides events={[event]} />
   </div>
-</div>
+</Container>
 
 <div class="footer" />
 
 <style>
   .container {
-    width: 100%;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
     flex-direction: column;
     grid-gap: calc(5 * var(--space));

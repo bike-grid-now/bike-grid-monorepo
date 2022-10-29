@@ -2,7 +2,7 @@
   import Nav from "$lib/components/Nav.svelte";
   import Seo from "$lib/components/Seo.svelte";
   import VercelBanner from "$lib/components/VercelBanner.svelte";
-  import Footer from '$lib/components/Footer.svelte';
+  import Footer from "$lib/components/Footer.svelte";
 
   import "../styles/globals.css";
 
@@ -104,14 +104,6 @@
 
   button:focus {
     border-color: #666;
-  }
-
-  .responsive-container {
-    padding: 0 calc(5 * var(--space));
-    width: 100%;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .card {

@@ -7,6 +7,7 @@
   import SocialIcons from "@rodneylab/svelte-social-icons";
   import Image from "$lib/components/Image.svelte";
   import { PortableText } from "@portabletext/svelte";
+  import Container from "$lib/components/Container.svelte";
 
   export let data: PageData;
   let { post } = data;
@@ -34,7 +35,7 @@
   <title>{post.title} | Chicago, Bike Grid Now!</title>
 </svelte:head>
 
-<div class="responsive-container">
+<Container>
   <div class="card">
     <div class="card-inner">
       {#if post}
@@ -109,7 +110,7 @@
       {/if}
     </div>
   </div>
-</div>
+</Container>
 
 <style>
   .card-inner {

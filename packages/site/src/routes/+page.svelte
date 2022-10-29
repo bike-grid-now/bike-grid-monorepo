@@ -6,6 +6,7 @@
   import CardContainer from "./CardContainer.svelte";
 
   import type { PageData } from "./$types";
+  import Container from "$lib/components/Container.svelte";
 
   export let data: PageData;
 
@@ -21,19 +22,21 @@
 
 <Hero title={siteSettings.heroTitle} tagline={siteSettings.heroTagline} />
 
-<div class="content main-content">
-  <CallToAction />
-  <div class="sideby">
-    {#if nextEvent}
-      <Slides events={upcomingEvents} />
-    {/if}
+<Container>
+  <div class="content main-content">
+    <CallToAction />
+    <div class="sideby">
+      {#if nextEvent}
+        <Slides events={upcomingEvents} />
+      {/if}
 
-    <Agenda events={upcomingEvents} title="Upcoming Events" />
+      <Agenda events={upcomingEvents} title="Upcoming Events" />
+    </div>
+
+    <CardContainer />
+    <Agenda events={pastEvents} title="Past Events" />
   </div>
-
-  <CardContainer />
-  <Agenda events={pastEvents} title="Past Events" />
-</div>
+</Container>
 
 <style>
   .sideby {
@@ -43,11 +46,6 @@
   }
 
   .content {
-    width: 100%;
-    max-width: 1000px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
     padding: 0 calc(5 * var(--space));
   }
 

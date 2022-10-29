@@ -1,21 +1,24 @@
 <script lang="ts">
   import PedalBike from "@material-symbols/svg-400/rounded/pedal_bike.svg?component";
+  import Container from "./Container.svelte";
 
   export let title: string;
 </script>
 
 <nav>
-  <div class="container">
-    <a href="/" class="logo">
-      <PedalBike
-        viewBox="0 0 48 48"
-        style="width: calc(8 * var(--space)); height: calc(8 * var(--space))"
-      />
-      <b>{title}</b>
-    </a>
+  <Container>
+    <div class="align-items">
+      <a href="/" class="logo">
+        <PedalBike
+          viewBox="0 0 48 48"
+          style="width: calc(8 * var(--space)); height: calc(8 * var(--space))"
+        />
+        <b>{title}</b>
+      </a>
 
-    <div class="spacer" />
-  </div>
+      <div class="spacer" />
+    </div>
+  </Container>
 </nav>
 
 <style>
@@ -35,12 +38,7 @@
     box-shadow: 0 0 10px var(--color-shadow);
   }
 
-  .container {
-    max-width: 1000px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-
+  .align-items {
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Container from "$lib/components/Container.svelte";
   import Image from "$lib/components/Image.svelte";
   import { PortableText } from "@portabletext/svelte";
 
@@ -13,24 +14,26 @@
 </svelte:head>
 
 {#if organizers && organizers.length > 0}
-  <div class="content">
-    <div class="grid">
-      {#each organizers as organizer}
-        <div class="card">
-          {#if organizer.image}
-            <Image
-              style="height: calc(36 * var(--space)); width: calc(36 * var(--space)); object-fit: cover; border-radius: 50%"
-              src={organizer.image.imageUrl}
-              alt={organizer.image.altText}
-              width={150}
-            />
-          {/if}
-          <h2>{organizer.name}</h2>
-          <PortableText value={organizer.description} />
-        </div>
-      {/each}
+  <Container>
+    <div class="content">
+      <div class="grid">
+        {#each organizers as organizer}
+          <div class="card">
+            {#if organizer.image}
+              <Image
+                style="height: calc(36 * var(--space)); width: calc(36 * var(--space)); object-fit: cover; border-radius: 50%"
+                src={organizer.image.imageUrl}
+                alt={organizer.image.altText}
+                width={150}
+              />
+            {/if}
+            <h2>{organizer.name}</h2>
+            <PortableText value={organizer.description} />
+          </div>
+        {/each}
+      </div>
     </div>
-  </div>
+  </Container>
 {/if}
 
 <style>
@@ -52,11 +55,6 @@
   }
 
   .content {
-    width: 100%;
-    max-width: 1000px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
     padding: 0 calc(5 * var(--space));
 
     margin-top: calc(5 * var(--space));
