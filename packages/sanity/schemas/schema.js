@@ -9,6 +9,7 @@ import richDate from "part:@sanity/form-builder/input/rich-date/schema";
 import blockContent from "./blockContent";
 import event from "./event";
 import organizer from "./organizer";
+import callToAction from "./callToAction";
 import media from "./media";
 import post from "./post";
 import siteSettings from "./siteSettings";
@@ -30,6 +31,7 @@ export default createSchema({
     post,
     siteSettings,
     busRoute,
+    callToAction,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
