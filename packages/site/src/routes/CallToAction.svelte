@@ -1,11 +1,6 @@
 <script lang="ts">
-  import MailIcon from "@material-symbols/svg-400/rounded/mail.svg?component";
-  import EditNote from "@material-symbols/svg-400/rounded/edit_note.svg?component";
-  import CallIcon from "@material-symbols/svg-400/rounded/call.svg?component";
-  import EditNoteIcon from "@material-symbols/svg-400/rounded/edit_note.svg?component";
   import ChevronRightIcon from "@material-symbols/svg-400/rounded/chevron_right.svg?component";
-  import DirectionsBusIcon from "@material-symbols/svg-400/rounded/directions_bus.svg?component";
-  import LocationOnIcon from "@material-symbols/svg-400/rounded/location_on.svg?component";
+  export let data;
 
   const iconProps = {
     viewBox: "0 0 48 48",
@@ -14,54 +9,18 @@
 </script>
 
 <div class="button-group">
-  <a href="https://newsletter.bikegridnow.org/" target="_blank" class="dark">
+  {#each data as d, i}
+   <a href={d.link} class={i % 2 == 0 ? "dark" : "light"}>
     <div class="content">
-      <MailIcon {...iconProps} />
-      <p>Sign up for the Newsletter</p>
+      <!-- <LocationOnIcon {...iconProps} /> -->
+      <p>{d.text}</p>
     </div>
     <ChevronRightIcon {...iconProps} />
-  </a>
-
-  <a href="https://www.change.org/p/chicago-needs-a-bike-grid" target="_blank" class="light">
-    <div class="content">
-      <EditNote {...iconProps} />
-      <p>Sign the Petition</p>
-    </div>
-    <ChevronRightIcon {...iconProps} />
-  </a>
-
-  <!-- <a
-    href="https://docs.google.com/forms/d/e/1FAIpQLSegNjFMyIcrGiEKp5Y7RQFUjcu4Mk-gfllJrEC13NFk6SGxvw/viewform?usp=sf_link"
-    target="_blank"
-    class="dark"
-  >
-    <div class="content">
-      <DirectionsBusIcon {...iconProps} />
-      <p>Request a Bike Bus</p>
-    </div>
-    <ChevronRightIcon {...iconProps} />
-  </a> -->
-
-  <!-- <a
-    href="https://docs.google.com/forms/d/e/1FAIpQLScmo18WuNDZXnMfEdpVi6NErKp4fvCFHEe6x7GaE0ok1tvDIA/viewform"
-    target="_blank"
-    class="dark"
-  >
-    <div class="content">
-      <DirectionsBusIcon {...iconProps} />
-      <p>Chicago Mobility Collaborative</p>
-    </div>
-    <ChevronRightIcon {...iconProps} />
-  </a> -->
-
-  <a href="https://bikebustracker.bikegridnow.org/" class="dark">
-    <div class="content">
-      <LocationOnIcon {...iconProps} />
-      <p>Track the Bike Bus</p>
-    </div>
-    <ChevronRightIcon {...iconProps} />
-  </a>
+    </a>
+{/each}
 </div>
+
+
 
 <style>
   a {

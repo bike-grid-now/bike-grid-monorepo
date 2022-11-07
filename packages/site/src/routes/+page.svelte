@@ -13,6 +13,7 @@
   $: upcomingEvents = data.upcomingEvents;
   $: pastEvents = data.pastEvents;
   $: nextEvent = upcomingEvents.length > 0 ? upcomingEvents[0] : null;
+  $: callsToAction = data.callsToAction;
   $: siteSettings = data.siteSettings;
 </script>
 
@@ -24,7 +25,7 @@
 
 <Container>
   <div class="content main-content">
-    <CallToAction />
+    <CallToAction data={callsToAction}/>
     <div class="sideby">
       {#if nextEvent}
         <Slides events={upcomingEvents} />
