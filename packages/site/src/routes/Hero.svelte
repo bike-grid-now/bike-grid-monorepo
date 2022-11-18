@@ -46,6 +46,12 @@
         </div>
       </a>
 
+      <a href="https://urbanists.social/@bikegridnow" target="_blank">
+        <div class="icon">
+          {@html simpleIcons.siMastodon.svg}
+        </div>
+      </a>
+
       <a href="mailto:grassroots@bikegridnow.org" target="_blank">
         <MailIcon {...iconProps} weight={700} />
       </a>
