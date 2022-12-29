@@ -6,6 +6,7 @@ export interface SiteSettings {
   description: string;
   heroTitle: string;
   heroTagline: string;
+  platformText: any;
 }
 
 export async function getSiteSettings(): Promise<SiteSettings> {
