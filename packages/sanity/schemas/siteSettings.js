@@ -32,5 +32,12 @@ export default {
       validation: (R) => R.required(),
       description: "Appears below the hero title on our homepage.",
     },
+    {
+      name: "platformText",
+      title: "platformText",
+      type: "blockContent",
+      description:
+        "This will show up on the platform page, under 'Bike Grid Platform'.",
+    },
   ],
 };

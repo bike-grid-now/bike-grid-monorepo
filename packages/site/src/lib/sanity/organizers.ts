@@ -18,6 +18,5 @@ const organizerQuery = `*[_type == "organizer"] | order(name)`;
 export async function getOrganizers() {
   const query = organizerQuery + organizerProjection;
   const results: Organizer[] = await client.fetch(query);
-  console.log(results);
   return results;
 }
