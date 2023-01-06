@@ -10,10 +10,9 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "ward",
-      type: "string",
-      description: "The ward the office is located in. Put 'city' for Mayor.",
-      validation: (Rule) => Rule.required(),
+      name: "wardNumber",
+      type: "number",
+      description: "The ward the office is located in. Leave empty for mayor.",
     },
   ],
 };

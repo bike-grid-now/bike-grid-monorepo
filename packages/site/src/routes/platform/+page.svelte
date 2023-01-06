@@ -19,7 +19,6 @@
       <tr>
         <th>Name</th>
         <th>Office</th>
-        <th>Ward</th>
         <th>Endorsed the bike grid?</th>
         <th>Link</th>
       </tr>
@@ -27,7 +26,6 @@
         <tr>
           <td>{candidate.name}</td>
           <td>{candidate.office.name}</td>
-          <td>{candidate.office.ward ?? "City"}</td>
           <td
             >{candidate.supportsPlatform === "yes"
               ? "✅ Yes"
@@ -45,8 +43,7 @@
       {#each regularCandidates as candidate}
         <tr>
           <td>{candidate.name}</td>
-          <td>{candidate.office.name}</td>
-          <td>{candidate.office.ward ?? "City"}</td>
+          <td>Ward {candidate.office.wardNumber} {candidate.office.name}</td>
           <td
             >{candidate.supportsPlatform === "yes"
               ? "✅ Yes"

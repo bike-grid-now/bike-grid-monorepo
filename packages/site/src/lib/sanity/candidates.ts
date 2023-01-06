@@ -4,16 +4,17 @@ export interface Candidate {
   name: string;
   office: {
     name: string;
+    wardNumber: number;
   };
   supportsPlatform: boolean;
 }
 
-const mayoralCandidatesQuery = `*[_type == "candidate" && office->name == "Mayor"] | order(office->ward, office->name, name) {
+const mayoralCandidatesQuery = `*[_type == "candidate" && office->name == "Mayor"] | order(name) {
   ...,
 	office->{...}
 }`;
 
-const regularCandidatesQuery = `*[_type == "candidate" && office->name != "Mayor"] | order(office->ward, office->name, name) {
+const regularCandidatesQuery = `*[_type == "candidate" && office->name != "Mayor"] | order(office->wardNumber, office->name, name) {
  ...,
  office->{...}
 }`;
