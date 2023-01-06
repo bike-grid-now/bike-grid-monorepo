@@ -1,0 +1,40 @@
+---
+interface Props {
+  level?: "1" | "2" | "3";
+  extraLarge?: boolean;
+  class?: string;
+}
+
+const { level = "1", class: className, extraLarge } = Astro.props;
+
+const tags = {
+  "1": "h2",
+  "2": "h3",
+  "3": "h4",
+};
+const Tag = tags[level];
+
+const normalFontSizes = {
+  "1": "text-3xl",
+  "2": "text-2xl",
+  "3": "text-xl",
+};
+
+const largeSizes = {
+  "1": "text-4xl",
+  "2": "text-3xl",
+  "3": "text-2xl",
+};
+
+const sizeClass = extraLarge ? largeSizes[level] : normalFontSizes[level];
+
+const fontClasses = {
+  "1": "font-bold mt-4 mb-3",
+  "2": "font-semibold mt-3 mb-2",
+  "3": "font-semibold mt-2 mb-1",
+};
+---
+
+<Tag class:list={[className, sizeClass, "leading-snug", fontClasses[level]]}>
+  <slot />
+</Tag>
