@@ -11,7 +11,7 @@
 
 <div class="page">
   <PageContainer>
-    <h1>Bike Grid Now Platform</h1>
+    <h1>Our 2023 Election Platform</h1>
     <div class="markdown">
       <PortableText value={platformText} />
     </div>
