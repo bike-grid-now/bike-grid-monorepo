@@ -43,7 +43,7 @@
       {#each regularCandidates as candidate}
         <tr>
           <td>{candidate.name}</td>
-          <td>Ward {candidate.office.wardNumber} {candidate.office.name}</td>
+          <td>{candidate.office.name}</td>
           <td
             >{candidate.supportsPlatform === "yes"
               ? "✅ Yes"
