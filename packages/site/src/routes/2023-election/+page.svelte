@@ -11,21 +11,21 @@
 
 <div class="page">
   <PageContainer>
-    <h1>Our 2023 Election Platform</h1>
+    <h1>Who has endorsed the Bike Grid?</h1>
     <div class="markdown">
       <PortableText value={platformText} />
     </div>
     <table>
       <tr>
-        <th>Name</th>
         <th>Office</th>
+        <th>Name</th>
         <th>Endorsed the bike grid?</th>
         <th>Link</th>
       </tr>
       {#each mayoralCandidates as candidate}
         <tr>
-          <td>{candidate.name}</td>
           <td>{candidate.office.name}</td>
+          <td>{candidate.name}</td>
           <td
             >{candidate.supportsPlatform === "yes"
               ? "✅ Yes"
@@ -42,8 +42,8 @@
       {/each}
       {#each regularCandidates as candidate}
         <tr>
-          <td>{candidate.name}</td>
           <td>{candidate.office.name}</td>
+          <td>{candidate.name}</td>
           <td
             >{candidate.supportsPlatform === "yes"
               ? "✅ Yes"
