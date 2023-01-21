@@ -1,4 +1,5 @@
 // noinspection JSXNamespaceValidation
+import '@/styles/variables.css'
 
 function RootLayout({
   children,
