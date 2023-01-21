@@ -1,11 +1,15 @@
-// noinspection JSXNamespaceValidation
-import '@/styles/variables.css'
+import '@/styles/tailwind.css'
+import Navbar from "@/components/Navbar";
+import { getSiteSettings } from '@/lib/sanity/siteSettings'
 
-function RootLayout({
+// noinspection JSXNamespaceValidation
+async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const siteSettings = await getSiteSettings()
+
   return (
     <html lang="en">
       {/*
@@ -13,7 +17,10 @@ function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body>
+        <Navbar title={siteSettings.title} />
+        {children}
+      </body>
     </html>
   )
 }
