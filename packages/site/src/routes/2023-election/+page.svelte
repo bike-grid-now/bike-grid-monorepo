@@ -51,6 +51,11 @@
               ? "❌ No"
               : "Contacted"}</td
           >
+          <td>
+            {#if candidate.link}
+              <a href={candidate.link}>{candidate.linkText ?? "Link"}</a>
+            {/if}
+          </td>
         </tr>
       {/each}
     </table>
