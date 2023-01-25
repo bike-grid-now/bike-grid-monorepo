@@ -2,9 +2,10 @@ import GridBackground from "@/components/GridBackground";
 import Container from "@/components/Container";
 import CallToAction from "@/components/CallToAction";
 import { getCallsToAction } from "@/lib/sanity/callsToAction";
+import { use } from "react";
 
-async function Main() {
-  const callsToAction = await getCallsToAction();
+function Main() {
+  const callsToAction = use(getCallsToAction());
 
   return (
     <GridBackground className="py-16">
