@@ -1,14 +1,10 @@
-import '@/styles/tailwind.css'
+import "@/styles/tailwind.css";
 import Navbar from "@/components/Navbar";
-import { getSiteSettings } from '@/lib/sanity/siteSettings'
+import { getSiteSettings } from "@/lib/sanity/siteSettings";
 
 // noinspection JSXNamespaceValidation
-async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  const siteSettings = await getSiteSettings()
+async function RootLayout({ children }: { children: React.ReactNode }) {
+  const siteSettings = await getSiteSettings();
 
   return (
     <html lang="en">
@@ -22,7 +18,7 @@ async function RootLayout({
         {children}
       </body>
     </html>
-  )
+  );
 }
 
-export default RootLayout
+export default RootLayout;
