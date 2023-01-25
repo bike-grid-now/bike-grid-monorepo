@@ -3,8 +3,7 @@ import Backdrop from "@/static/header-backdrop.jpeg";
 import Hero, { HeroHeading, HeroTagline } from "@/components/Hero";
 import { getSiteSettings } from "@/lib/sanity";
 import SocialIconList from "@/components/SocialIconList";
-import GridBackground from "@/components/GridBackground";
-import Container from "@/components/Container";
+import Main from "./Main";
 
 async function Home() {
   const siteSettings = await getSiteSettings();
@@ -18,11 +17,7 @@ async function Home() {
           <SocialIconList />
         </Hero>
       </BackgroundImage>
-      <GridBackground className="py-56">
-        <Container>
-          <h1 className="text-4xl text-white">Hi!</h1>
-        </Container>
-      </GridBackground>
+      <Main />
     </div>
   );
 }
