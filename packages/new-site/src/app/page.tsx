@@ -1,10 +1,11 @@
 import BackgroundImage from "@/components/BackgroundImage";
-import Backdrop from '@/static/header-backdrop.jpeg'
-import Hero, {HeroHeading, HeroTagline} from "@/components/Hero";
-import {getSiteSettings} from "@/lib/sanity";
+import Backdrop from "@/static/header-backdrop.jpeg";
+import Hero, { HeroHeading, HeroTagline } from "@/components/Hero";
+import { getSiteSettings } from "@/lib/sanity";
+import SocialIconList from "@/components/SocialIconList";
 
 async function Home() {
-  const siteSettings = await getSiteSettings()
+  const siteSettings = await getSiteSettings();
 
   return (
     <div>
@@ -12,10 +13,11 @@ async function Home() {
         <Hero>
           <HeroHeading>{siteSettings.heroTitle}</HeroHeading>
           <HeroTagline>{siteSettings.heroTagline}</HeroTagline>
+          <SocialIconList />
         </Hero>
       </BackgroundImage>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
