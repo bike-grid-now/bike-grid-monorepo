@@ -9,6 +9,10 @@
   $: platformText = data.platformText;
 </script>
 
+<svelte:head>
+  <title>Who's Endorsed The Grid? | Chicago, Bike Grid Now!</title>
+</svelte:head>
+
 <div class="page">
   <PageContainer>
     <h1>Who has endorsed the Bike Grid?</h1>
