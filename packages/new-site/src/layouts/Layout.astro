@@ -1,8 +1,8 @@
 ---
 import { getSiteSettings } from "../lib/sanity";
 import Nav from "../components/Nav.astro";
-import Seo from "../lib/components/Seo.svelte";
 import Footer from "../lib/components/Footer.svelte";
+import { SEO } from "astro-seo";
 
 import "./globals.css";
 import "./globalStyles.css";
@@ -34,11 +34,7 @@ const siteSettings = await getSiteSettings();
   </head>
   <body>
     <Nav title={siteSettings.title} />
-    <Seo
-      siteTitle={siteSettings.title}
-      siteDescription={siteSettings.description}
-      client:load
-    />
+    <SEO title={siteSettings.title} description={siteSettings.description} />
 
     <slot />
 
