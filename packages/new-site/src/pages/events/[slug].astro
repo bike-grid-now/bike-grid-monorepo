@@ -1,0 +1,17 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Page from "./page.svelte";
+import { eventFromSlug } from "../../lib/sanity";
+
+const { slug } = Astro.params;
+
+const event = await eventFromSlug(slug!);
+
+const data = {
+  event,
+};
+---
+
+<Layout title="Post">
+  <Page data={data} client:load />
+</Layout>
