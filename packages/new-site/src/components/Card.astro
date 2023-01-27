@@ -1,16 +1,18 @@
-<script lang="ts">
-  export let link: string;
-  export let notarget: boolean = false;
+---
+import { Icon } from "astro-iconify";
+export interface Props {
+  link: string;
+  notarget?: boolean;
+}
 
-  import ArrowCircleRight from "@material-symbols/svg-400/rounded/arrow_circle_right.svg?component";
-</script>
+const { link, notarget = false } = Astro.props;
+---
 
 <a href={link} target={notarget ? "" : "_blank"} class="card">
   <slot />
-  <ArrowCircleRight
+  <Icon
+    name="material-symbols:arrow-circle-right-outline-rounded"
     class="arrow"
-    viewBox="0 0 48 48"
-    style="width: calc(16 * var(--space)); height: calc(16 * var(--space))"
   />
 </a>
 
@@ -18,6 +20,11 @@
   a {
     text-decoration: none;
     display: block;
+  }
+
+  .arrow {
+    width: calc(16 * var(--space));
+    height: calc(16 * var(--space));
   }
 
   .card {
