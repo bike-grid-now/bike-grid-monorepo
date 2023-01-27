@@ -1,7 +1,7 @@
 ---
 import { getSiteSettings } from "../lib/sanity";
 import Nav from "../components/Nav.astro";
-import Footer from "../lib/components/Footer.svelte";
+import Footer from "./Footer.astro";
 import { SEO } from "astro-seo";
 
 import "./globals.css";
@@ -38,6 +38,6 @@ const siteSettings = await getSiteSettings();
 
     <slot />
 
-    <Footer client:load />
+    <Footer />
   </body>
 </html>
