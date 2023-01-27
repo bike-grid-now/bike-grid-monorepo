@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/svelte": "^2.0.0",
     "@astrojs/vercel": "^3.0.0",
+    "@material-symbols/svg-400": "^0.4.2",
     "@portabletext/svelte": "^1.0.1",
     "@rodneylab/svelte-social-icons": "^0.0.24",
     "@sanity/client": "^4.0.1",
