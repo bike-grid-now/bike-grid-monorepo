@@ -1,0 +1,13 @@
+---
+import { Icon } from "./utils";
+export type { Props } from "./Props";
+
+const { name: fullName, ...props } = Astro.props;
+
+const icon = new Icon(fullName);
+const parsedIcon = await icon.content();
+---
+
+<svg {...parsedIcon.defaultProps} {...props}>
+  <Fragment set:html={parsedIcon.innerHTML} />
+</svg>

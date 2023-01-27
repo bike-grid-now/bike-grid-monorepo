@@ -22,9 +22,12 @@
     "date-fns": "^2.29.3",
     "simple-icons": "^8.3.0",
     "svelte": "^3.55.1",
-    "svelte-seo": "^1.4.1"
+    "svelte-seo": "^1.4.1",
+    "svg-parser": "^2.0.4",
+    "svgo": "^3.0.2"
   },
   "devDependencies": {
+    "@types/svg-parser": "^2.0.3",
     "vite-plugin-svelte-svg": "^2.2.1"
   }
 }
