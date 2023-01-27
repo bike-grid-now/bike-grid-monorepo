@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Page from "./about.svelte";
+
+import { getOrganizers } from "../lib/sanity";
+
+const data = {
+  organizers: await getOrganizers(),
+};
+---
+
+<Layout title="Post">
+  <Page data={data} client:load />
+</Layout>
