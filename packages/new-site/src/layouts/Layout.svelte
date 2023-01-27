@@ -1,42 +1,27 @@
----
-import { getSiteSettings } from "../lib/sanity";
-import Layout from "./Layout.svelte";
+<script>
+  import Nav from "../lib/components/Nav.svelte";
+  import Seo from "../lib/components/Seo.svelte";
+  import VercelBanner from "../lib/components/VercelBanner.svelte";
+  import Footer from "../lib/components/Footer.svelte";
 
-export interface Props {
-  title: string;
-}
+  import "./globals.css";
 
-const { title } = Astro.props;
+  export let data;
 
-const siteSettings = await getSiteSettings();
+  $: siteSettings = data.siteSettings;
+</script>
 
-const data = {
-  siteSettings,
-};
----
+<Nav title={siteSettings.title} />
+<Seo
+  siteTitle={siteSettings.title}
+  siteDescription={siteSettings.description}
+/>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <title>{title}</title>
-  </head>
-  <body>
-    <Layout data={data}>
-      <slot />
-    </Layout>
-  </body>
-</html>
-<style is:global>
+<slot />
+
+<Footer />
+
+<style global>
   * {
     font-family: "Inter", sans-serif;
     box-sizing: border-box;
