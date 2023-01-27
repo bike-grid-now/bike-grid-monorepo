@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Page from "./2023-election.svelte";
+
+import { getCandidates } from "../lib/sanity/candidates";
+import { getSiteSettings } from "../lib/sanity/siteSettings";
+
+const results = await getCandidates();
+const siteSettings = await getSiteSettings();
+
+const data = {
+  ...results,
+  ...siteSettings,
+};
+---
+
+<Layout title="Post">
+  <Page data={data} client:load />
+</Layout>
