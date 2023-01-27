@@ -30,11 +30,10 @@ const siteSettings = await getSiteSettings();
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>{title}</title>
+    <SEO title={siteSettings.title} description={siteSettings.description} />
   </head>
   <body>
     <Nav title={siteSettings.title} />
-    <SEO title={siteSettings.title} description={siteSettings.description} />
 
     <slot />
 

@@ -1,5 +1,11 @@
 ---
-import Icon from "../icons/Icon.astro";
+import Agenda from "../lib/components/Agenda.svelte";
+import Slides from "../lib/components/Slides.svelte";
+import Hero from "../old-pages/Hero.svelte";
+import CallToAction from "../old-pages/CallToAction.svelte";
+import CardContainer from "../old-pages/CardContainer.svelte";
+
+import Container from "../components/Container.astro";
 import Layout from "../layouts/Layout.astro";
 import {
   upcomingEvents,
@@ -9,9 +15,8 @@ import {
 } from "../lib/sanity";
 import {
   getCallsToAction,
-  type CallToAction,
+  type CallToAction as CallToActionType,
 } from "../lib/sanity/callsToAction";
-import Root from "../old-pages/root.svelte";
 
 function mapEvent({
   slug: { current: slug },
@@ -19,10 +24,10 @@ function mapEvent({
   date: { local: date },
   poster,
 }: Event) {
-  return { slug, name, date, poster };
+  return { slug, name, date, poster: poster! };
 }
 
-function mapCTA({ text, link, enabled }: CallToAction) {
+function mapCTA({ text, link, enabled }: CallToActionType) {
   return { text, link, enabled };
 }
 
@@ -40,8 +45,57 @@ const data = {
   callsToAction: callsToAction.map(mapCTA) || [],
   siteSettings,
 };
+
+const nextEvent = upcomingEvents.length > 0 ? data.upcomingEvents[0] : null;
 ---
 
-<Layout title="Welcome to Astro.">
-  <Root data={data} client:load />
+<Layout title="">
+  <Hero title={siteSettings.heroTitle} tagline={siteSettings.heroTagline} />
+
+  <Container>
+    <div class="content main-content">
+      <CallToAction data={callsToAction} />
+      <div class="sideby">
+        {nextEvent && <Slides events={data.upcomingEvents} />}
+
+        {
+          upcomingEvents.length > 0 && (
+            <Agenda
+              events={data.upcomingEvents}
+              title="Upcoming Events"
+              client:visible
+            />
+          )
+        }
+      </div>
+
+      <CardContainer />
+      <Agenda events={data.pastEvents} title="Past Events" client:visible />
+    </div>
+  </Container>
 </Layout>
+
+<style>
+  .sideby {
+    display: grid;
+    grid-gap: calc(5 * var(--space));
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .content {
+    padding: 0 calc(5 * var(--space));
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    grid-gap: calc(6 * var(--space));
+    margin-top: calc(6 * var(--space));
+  }
+
+  @media only screen and (max-width: 800px) {
+    .sideby {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -19,6 +19,7 @@
     "@rodneylab/svelte-social-icons": "^0.0.24",
     "@sanity/client": "^4.0.1",
     "astro": "^2.0.2",
+    "astro-iconify": "^1.2.0",
     "astro-seo": "^0.7.0",
     "date-fns": "^2.29.3",
     "simple-icons": "^8.3.0",
