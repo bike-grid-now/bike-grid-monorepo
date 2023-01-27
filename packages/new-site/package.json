@@ -13,8 +13,11 @@
   "dependencies": {
     "@astrojs/svelte": "^2.0.0",
     "@astrojs/vercel": "^3.0.0",
+    "@portabletext/svelte": "^1.0.1",
+    "@rodneylab/svelte-social-icons": "^0.0.24",
     "@sanity/client": "^4.0.1",
     "astro": "^2.0.2",
+    "date-fns": "^2.29.3",
     "svelte": "^3.55.1"
   },
   "devDependencies": {
