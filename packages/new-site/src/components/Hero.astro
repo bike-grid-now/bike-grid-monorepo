@@ -1,0 +1,58 @@
+---
+import BackgroundImage from "../old-pages/BackgroundImage.svelte";
+import headerPhotoUrl from "../static/header-backdrop.jpeg";
+import SocialIconList from "./SocialIconList.astro";
+
+export interface Props {
+  title: string;
+  tagline: string;
+}
+
+const { title, tagline } = Astro.props;
+---
+
+<BackgroundImage
+  src={headerPhotoUrl}
+  alt="A blue grid map."
+  brightness={0.5}
+  maxWidth={1020}
+>
+  <div class="hero">
+    <div class="header">
+      <h1>{title}</h1>
+      <p>{tagline}</p>
+    </div>
+
+    <div class="social">
+      <SocialIconList />
+    </div>
+  </div>
+</BackgroundImage>
+
+<style>
+  .hero {
+    font-size: var(--text-base);
+    padding-top: calc(48 * var(--space));
+    padding-bottom: calc(48 * var(--space));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header > * + * {
+    margin-bottom: calc(2 * var(--space));
+  }
+
+  .header {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: var(--text-5xl);
+  }
+
+  .social {
+    margin-top: calc(10 * var(--space));
+  }
+</style>

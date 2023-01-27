@@ -1,0 +1,44 @@
+---
+import SocialIcon from "./SocialIcon.astro";
+
+const socialIcons = [
+  {
+    name: "simple-icons:twitter",
+    href: "https://www.twitter.com/bikegridnow",
+  },
+  {
+    name: "simple-icons:instagram",
+    href: "https://www.instagram.com/bikegridnow/",
+  },
+  {
+    name: "simple-icons:facebook",
+    href: "https://www.facebook.com/BikeGridNow/",
+  },
+  {
+    name: "simple-icons:tiktok",
+    href: "https://www.tiktok.com/@bikegridnow",
+  },
+  {
+    name: "simple-icons:mastodon",
+    href: "https://urbanists.social/@bikegridnow",
+  },
+  {
+    name: "material-symbols:mail-outline-rounded",
+    href: "mailto:grassroots@bikegridnow.org",
+  },
+];
+---
+
+<div class="links">
+  {socialIcons.map((icon) => <SocialIcon {...icon} />)}
+</div>
+
+<style>
+  .links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--space) * 4);
+  }
+</style>

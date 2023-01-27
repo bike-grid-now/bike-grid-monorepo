@@ -1,0 +1,29 @@
+---
+import { Icon } from "astro-iconify";
+
+export interface Props {
+  name: string;
+  href: string;
+}
+
+const { name, href } = Astro.props;
+---
+
+<a href={href} target="_blank">
+  <div class="icon">
+    <Icon name={name} />
+  </div>
+</a>
+
+<style>
+  a {
+    color: var(--color-text) !important;
+    fill: currentColor;
+    text-decoration: none;
+  }
+
+  div {
+    width: calc(var(--space) * 7);
+    height: calc(var(--space) * 7);
+  }
+</style>
