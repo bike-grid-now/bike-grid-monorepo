@@ -1,6 +1,10 @@
 ---
 import { getSiteSettings } from "../lib/sanity";
-import Layout from "./Layout.svelte";
+import Nav from "../lib/components/Nav.svelte";
+import Seo from "../lib/components/Seo.svelte";
+import Footer from "../lib/components/Footer.svelte";
+
+import "./globals.css";
 
 export interface Props {
   title: string;
@@ -9,10 +13,6 @@ export interface Props {
 const { title } = Astro.props;
 
 const siteSettings = await getSiteSettings();
-
-const data = {
-  siteSettings,
-};
 ---
 
 <!DOCTYPE html>
@@ -31,9 +31,16 @@ const data = {
     <title>{title}</title>
   </head>
   <body>
-    <Layout data={data}>
-      <slot />
-    </Layout>
+    <Nav title={siteSettings.title} client:load />
+    <Seo
+      siteTitle={siteSettings.title}
+      siteDescription={siteSettings.description}
+      client:load
+    />
+
+    <slot />
+
+    <Footer client:load />
   </body>
 </html>
 <style is:global>
