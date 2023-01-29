@@ -2,7 +2,7 @@
 export interface Props {
   align?: "left" | "center" | "right";
   justify?: "start" | "center" | "end" | "between";
-  gap?: "none" | "sm" | "md" | "lg" | "xl";
+  gap?: "none" | "sm" | "md" | "lg" | "xl" | "2xl";
   direction?: "row" | "column";
   class?: string;
 }
@@ -29,6 +29,7 @@ const {
     spacing === "md" && "gap-2",
     spacing === "lg" && "gap-4",
     spacing === "xl" && "gap-8",
+    spacing === "2xl" && "gap-16",
     justify === "start" && "justify-start",
     justify === "center" && "justify-center",
     justify === "end" && "justify-end",
