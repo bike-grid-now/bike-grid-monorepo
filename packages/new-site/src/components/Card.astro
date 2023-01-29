@@ -17,24 +17,21 @@ const { link, notarget = false } = Astro.props;
     href: link,
     target: notarget ? "" : "_blank",
   }}
+  class="focus:bg-red-700 hover:bg-red-700 text-white fill-current p-8"
 >
-  <div
-    class="hover:bg-red-700 text-white fill-current transition-all duration-150 ease-in-out p-8"
+  <Stack
+    direction="column"
+    align="center"
+    justify="center"
+    gap="xl"
+    class="text-center"
   >
-    <Stack
-      direction="column"
-      align="center"
-      justify="center"
-      gap="xl"
-      class="text-center"
-    >
-      <slot />
-      <Icon
-        name="material-symbols:arrow-circle-right-outline-rounded"
-        class="w-16 h-16"
-      />
-    </Stack>
-  </div>
+    <slot />
+    <Icon
+      name="material-symbols:arrow-circle-right-outline-rounded"
+      class="w-16 h-16"
+    />
+  </Stack>
 </Rounded>
 
 <style>
