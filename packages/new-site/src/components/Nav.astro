@@ -9,53 +9,21 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<nav>
+<nav class="sticky top-0 z-10 w-full p-5 bg-zinc-900 text-white shadow-lg">
   <Container>
-    <div class="align-items">
-      <a href="/" class="logo color-text">
+    <div class="flex flex-row items-center justify-between">
+      <a
+        href="/"
+        class="flex flex-row items-center justify-center space-x-2 text-white fill-current"
+      >
         <Icon
           name="material-symbols:pedal-bike-outline-rounded"
-          style="width: calc(var(--space) * 8); height: calc(var(--space) * 8)"
+          class="w-8 h-8"
         />
-        <b>{title}</b>
+        <b class="font-semibold">{title}</b>
       </a>
 
-      <div class="spacer"></div>
+      <div></div>
     </div>
   </Container>
 </nav>
-
-<style>
-  nav {
-    font-size: var(--text-base);
-    position: sticky;
-    top: 0;
-    z-index: 99;
-    width: 100%;
-    padding: 0 calc(5 * var(--space));
-
-    background-color: var(--color-card);
-
-    color: var(--color-text);
-    padding: calc(5 * var(--space));
-
-    box-shadow: 0 0 10px var(--color-shadow);
-  }
-
-  .align-items {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  a.logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text);
-    fill: currentColor;
-    gap: calc(2 * var(--space));
-  }
-</style>
