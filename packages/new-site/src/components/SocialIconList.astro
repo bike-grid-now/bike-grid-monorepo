@@ -1,5 +1,6 @@
 ---
 import SocialIcon from "./SocialIcon.astro";
+import Stack from "./Stack.astro";
 
 const socialIcons = [
   {
@@ -29,16 +30,6 @@ const socialIcons = [
 ];
 ---
 
-<div class="links">
+<Stack direction="row" align="center" justify="center" gap="lg">
   {socialIcons.map((icon) => <SocialIcon {...icon} />)}
-</div>
-
-<style>
-  .links {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: calc(var(--space) * 4);
-  }
-</style>
+</Stack>

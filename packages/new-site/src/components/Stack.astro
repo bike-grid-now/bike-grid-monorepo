@@ -1,0 +1,40 @@
+---
+export interface Props {
+  align?: "left" | "center" | "right";
+  justify?: "start" | "center" | "end" | "between";
+  gap?: "none" | "sm" | "md" | "lg" | "xl";
+  direction?: "row" | "column";
+  class?: string;
+}
+
+const {
+  align = "left",
+  gap: spacing = "none",
+  justify = "start",
+  direction = "row",
+  class: className,
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    "flex",
+    direction === "row" && "flex-row",
+    direction === "column" && "flex-col",
+    align === "left" && "items-start",
+    align === "center" && "items-center",
+    align === "right" && "items-end",
+    spacing === "none" && "gap-0",
+    spacing === "sm" && "gap-1",
+    spacing === "md" && "gap-2",
+    spacing === "lg" && "gap-4",
+    spacing === "xl" && "gap-8",
+    justify === "start" && "justify-start",
+    justify === "center" && "justify-center",
+    justify === "end" && "justify-end",
+    justify === "between" && "justify-between",
+    className,
+  ]}
+>
+  <slot />
+</div>

@@ -3,57 +3,45 @@ import { Icon } from "astro-iconify";
 
 import Card from "./Card.astro";
 import CardHeading from "./CardHeading.astro";
+
+const cards = [
+  {
+    icon: "material-symbols:grid-on",
+    title: "What's a Bike Grid?",
+    link: "/posts/what-is-a-bike-grid",
+    description: "10% of streets. 10mph. Protected. All across Chicago.",
+  },
+  {
+    icon: "material-symbols:edit-road-outline-rounded",
+    title: "Why do we Jam?",
+    link: "/posts/CBGN-direct-action-101",
+    description: "Advocacy is good, but it's not cutting it. Read more here.",
+  },
+  {
+    icon: "material-symbols:signpost-outline-rounded",
+    title: "About us",
+    link: "/about",
+    description:
+      "We're a grassroots group of Chicagoans who want to see safer streets. Learn more about the current organizers.",
+  },
+  {
+    icon: "material-symbols:savings-outline-rounded",
+    title: "Support Us",
+    link: "https://www.gofundme.com/f/flags-and-flyers-for-bike-grid-now",
+    description:
+      "We'd love your support through gofundme so we can keep printing flyers, stickers, etc. Reach out on Social Media if you'd like some stickers!",
+  },
+];
 ---
 
-<div class="card-container">
-  <Card link="/posts/what-is-a-bike-grid" notarget>
-    <Icon name="material-symbols:grid-on" class="icon" />
-    <CardHeading>What's a Bike Grid?</CardHeading>
-    <p>10% of streets. 10mph. Protected. All across Chicago.</p>
-  </Card>
-
-  <Card notarget link="/posts/CBGN-direct-action-101">
-    <Icon name="material-symbols:edit-road-outline-rounded" class="icon" />
-    <CardHeading>Why do we Jam?</CardHeading>
-    <p>Advocacy is good, but it's not cutting it. Read more here.</p>
-  </Card>
-
-  <Card link="/about" notarget>
-    <Icon name="material-symbols:signpost-outline-rounded" class="icon" />
-    <CardHeading>About us</CardHeading>
-    <p>
-      We're a grassroots group of Chicagoans who want to see safer streets.
-      Learn more about the current organizers.
-    </p>
-  </Card>
-
-  <Card link="https://www.gofundme.com/f/flags-and-flyers-for-bike-grid-now">
-    <Icon name="material-symbols:savings-outline-rounded" class="icon" />
-    <CardHeading>Support Us</CardHeading>
-    <p>
-      We'd love your support through gofundme so we can keep printing flyers,
-      stickers, etc. Reach out on Social Media if you'd like some stickers!
-    </p>
-  </Card>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
+  {
+    cards.map((card) => (
+      <Card link={card.link} notarget>
+        <Icon name={card.icon} class="w-16 h-16" />
+        <CardHeading>{card.title}</CardHeading>
+        <p class="text-base">{card.description}</p>
+      </Card>
+    ))
+  }
 </div>
-
-<style>
-  .card-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: calc(5 * var(--space));
-    width: 100%;
-    position: relative;
-  }
-
-  .icon {
-    width: calc(16 * var(--space));
-    height: calc(16 * var(--space));
-  }
-
-  @media only screen and (max-width: 800px) {
-    .card-container {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
