@@ -2,7 +2,7 @@
 import Agenda from "../lib/components/Agenda.svelte";
 import Slides from "../lib/components/Slides.svelte";
 import Hero from "../components/Hero.astro";
-import CallToAction from "../old-pages/CallToAction.svelte";
+import CallToActionList from "../components/CallToActionList.astro";
 import CardContainer from "../components/CardContainer.astro";
 
 import Container from "../components/Container.astro";
@@ -13,10 +13,6 @@ import {
   type Event,
   getSiteSettings,
 } from "../lib/sanity";
-import {
-  getCallsToAction,
-  type CallToAction as CallToActionType,
-} from "../lib/sanity/callsToAction";
 
 function mapEvent({
   slug: { current: slug },
@@ -27,22 +23,15 @@ function mapEvent({
   return { slug, name, date, poster: poster! };
 }
 
-function mapCTA({ text, link, enabled }: CallToActionType) {
-  return { text, link, enabled };
-}
-
-const [futureEventsList, pastEventsList, callsToAction, siteSettings] =
-  await Promise.all([
-    upcomingEvents(),
-    pastEvents(),
-    getCallsToAction(),
-    getSiteSettings(),
-  ]);
+const [futureEventsList, pastEventsList, siteSettings] = await Promise.all([
+  upcomingEvents(),
+  pastEvents(),
+  getSiteSettings(),
+]);
 
 const data = {
   pastEvents: pastEventsList.map(mapEvent) || [],
   upcomingEvents: futureEventsList.map(mapEvent) || [],
-  callsToAction: callsToAction.map(mapCTA) || [],
   siteSettings,
 };
 
@@ -54,7 +43,7 @@ const nextEvent = upcomingEvents.length > 0 ? data.upcomingEvents[0] : null;
 
   <Container>
     <div class="content main-content">
-      <CallToAction data={callsToAction} />
+      <CallToActionList />
       <div class="sideby">
         {nextEvent && <Slides events={data.upcomingEvents} />}
 

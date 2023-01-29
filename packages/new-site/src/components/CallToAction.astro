@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-iconify";
+
+export interface Props {
+  title: string;
+  href: string;
+}
+
+const { href, title } = Astro.props;
+---
+
+<a href={href}>
+  <p>{title}</p>
+  <Icon name="material-symbols:chevron-right-rounded" class="icon" />
+</a>
+
+<style>
+  a,
+  a:visited,
+  a:hover {
+    text-decoration: none;
+    color: var(--color-text);
+    fill: currentColor;
+  }
+
+  a {
+    display: block;
+
+    padding: calc(6 * var(--space));
+    font-size: var(--text-2xl);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  a:nth-child(odd) {
+    background-color: var(--color-card);
+  }
+
+  a:nth-child(even) {
+    background-color: var(--color-card-light);
+  }
+
+  .icon {
+    width: calc(6 * var(--space));
+    height: calc(6 * var(--space));
+  }
+</style>

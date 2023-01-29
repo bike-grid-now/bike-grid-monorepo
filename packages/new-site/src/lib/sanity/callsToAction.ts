@@ -12,7 +12,6 @@ const callToActionProjection = `{
   enabled
 }`;
 
-// const callToActionQuery = `*[_type == "callToAction"] | [enabled == true]`;
 const callToActionQuery = `*[_type == "callToAction" && enabled == true]`;
 
 export async function getCallsToAction() {
