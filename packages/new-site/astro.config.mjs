@@ -2,15 +2,22 @@ import { defineConfig } from "astro/config";
 import svelteSvg from "vite-plugin-svelte-svg";
 import svelte from "@astrojs/svelte";
 import vercel from "@astrojs/vercel/serverless";
-
 import tailwind from "@astrojs/tailwind";
+
+import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), tailwind()],
+  integrations: [
+    svelte(),
+    tailwind(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
+  ],
   vite: {
-    plugins: [svelteSvg()]
+    plugins: [svelteSvg()],
   },
   output: "server",
-  adapter: vercel()
+  adapter: vercel(),
 });
