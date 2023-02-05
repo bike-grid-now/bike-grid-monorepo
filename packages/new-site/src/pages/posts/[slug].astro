@@ -1,18 +1,63 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Page from "./page.svelte";
 
 import { postFromSlug } from "../../lib/sanity";
+import Container from "../../components/Container.astro";
+import Rounded from "../../components/Rounded.astro";
+import { Icon } from "astro-iconify";
+import { PortableText } from "astro-portabletext";
+import { format } from "date-fns";
 
 const { slug } = Astro.params;
 
 const post = await postFromSlug(slug!);
 
-const data = {
-  post,
-};
+function formatDate(date: string) {
+  return format(new Date(date), "EEEE, LLLL d");
+}
 ---
 
-<Layout title="Post">
-  <Page data={data} client:load />
+<Layout title={post?.title ?? ""}>
+  <Container class="mt-4">
+    <Rounded>
+      <div class="py-10 px-6 md:p-16 text-white">
+        {post && <h1 class="text-5xl font-bold mb-6">{post.title}</h1>}
+        {
+          post?.subtitle && (
+            <h2 class="text-2xl font-medium mb-4">{post.subtitle}</h2>
+          )
+        }
+        <div class="flex flex-row justify-between text-zinc-400 fill-current">
+          {
+            post?.date && (
+              <div class="flex flex-row justify-center items-center space-x-2">
+                <Icon
+                  name="material-symbols:calendar-month-outline-rounded"
+                  class="w-6 h-6"
+                />
+                <p>{formatDate(post.date.local)}</p>
+              </div>
+            )
+          }
+        </div>
+        {
+          post?.image && (
+            <img
+              src={post.image.imageUrl}
+              alt={post.image.altText}
+              class="w-full rounded-2xl my-12"
+              style="width: 100%; border-radius: 15px"
+            />
+          )
+        }
+        {
+          post?.body && (
+            <div class="prose prose-invert lg:prose-xl mx-auto">
+              <PortableText value={post.body} />
+            </div>
+          )
+        }
+      </div>
+    </Rounded>
+  </Container>
 </Layout>

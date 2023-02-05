@@ -1,3 +1,9 @@
-<div class="w-full max-w-5xl mx-auto px-5">
+---
+export interface Props {
+  class?: string;
+}
+---
+
+<div class:list={["w-full max-w-5xl mx-auto px-5", Astro.props.class]}>
   <slot />
 </div>

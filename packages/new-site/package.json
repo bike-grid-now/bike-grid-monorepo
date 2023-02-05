@@ -21,6 +21,7 @@
     "@sanity/client": "^4.0.1",
     "astro": "^2.0.2",
     "astro-iconify": "^1.2.0",
+    "astro-portabletext": "^0.8.0",
     "astro-seo": "^0.7.0",
     "date-fns": "^2.29.3",
     "sharp": "^0.31.3",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@astrojs/image": "^0.13.0",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/svg-parser": "^2.0.3",
     "vite-plugin-svelte-svg": "^2.2.1"
   }
