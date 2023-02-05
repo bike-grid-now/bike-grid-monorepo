@@ -1,19 +1,11 @@
 ---
 import { getCallsToAction } from "../lib/sanity/callsToAction";
 import CallToAction from "./CallToAction.astro";
+import Rounded from "./Rounded.astro";
 
 const callsToAction = await getCallsToAction();
 ---
 
-<div class="button-group">
+<Rounded>
   {callsToAction.map((d) => <CallToAction title={d.text} href={d.link} />)}
-</div>
-
-<style>
-  .button-group {
-    border-radius: 15px;
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 2px 3px var(--color-shadow);
-  }
-</style>
+</Rounded>

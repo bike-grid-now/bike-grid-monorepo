@@ -9,41 +9,14 @@ export interface Props {
 const { href, title } = Astro.props;
 ---
 
-<a href={href}>
-  <p>{title}</p>
-  <Icon name="material-symbols:chevron-right-rounded" class="icon" />
+<a
+  href={href}
+  class="block text-white fill-current p-3 odd:bg-zinc-900 even:bg-zinc-800 hover:bg-zinc-700 focus:bg-red-700 focus:outline-none transition-all duration-150 ease-in-out group"
+>
+  <div
+    class="flex flex-row items-center p-3 group-focus:ring group-focus:ring-white justify-between rounded-xl"
+  >
+    <p class="text-xl font-medium">{title}</p>
+    <Icon name="material-symbols:chevron-right-rounded" class="w-6 h-6" />
+  </div>
 </a>
-
-<style>
-  a,
-  a:visited,
-  a:hover {
-    text-decoration: none;
-    color: var(--color-text);
-    fill: currentColor;
-  }
-
-  a {
-    display: block;
-
-    padding: calc(6 * var(--space));
-    font-size: var(--text-2xl);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  a:nth-child(odd) {
-    background-color: var(--color-card);
-  }
-
-  a:nth-child(even) {
-    background-color: var(--color-card-light);
-  }
-
-  .icon {
-    width: calc(6 * var(--space));
-    height: calc(6 * var(--space));
-  }
-</style>
