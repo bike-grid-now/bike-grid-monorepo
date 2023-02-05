@@ -17,6 +17,7 @@
     "@material-symbols/svg-400": "^0.4.2",
     "@material-symbols/svg-700": "^0.4.2",
     "@portabletext/svelte": "^1.0.1",
+    "@portabletext/types": "^2.0.2",
     "@rodneylab/svelte-social-icons": "^0.0.24",
     "@sanity/client": "^4.0.1",
     "astro": "^2.0.2",

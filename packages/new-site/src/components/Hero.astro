@@ -1,6 +1,6 @@
 ---
 import BackgroundImage from "./BackgroundImage.astro";
-import headerPhotoUrl from "../static/header-backdrop.jpeg";
+import headerPhotoUrl from "../static/header-backdrop.jpeg?url";
 import SocialIconList from "./SocialIconList.astro";
 import Stack from "./Stack.astro";
 
@@ -12,12 +12,7 @@ export interface Props {
 const { title, tagline } = Astro.props;
 ---
 
-<BackgroundImage
-  src={headerPhotoUrl}
-  alt="A blue grid map."
-  brightness={0.5}
-  maxWidth={1020}
->
+<BackgroundImage src={headerPhotoUrl} alt="A blue grid map." dimmed>
   <Stack
     direction="column"
     align="center"

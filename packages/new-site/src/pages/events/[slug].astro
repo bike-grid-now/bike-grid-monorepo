@@ -1,17 +1,59 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Page from "./page.svelte";
 import { eventFromSlug } from "../../lib/sanity";
+import Container from "../../components/Container.astro";
+import Rounded from "../../components/Rounded.astro";
+import Prose from "../../components/Prose.astro";
+import Button from "../../components/Button.astro";
+import ImageHeader from "../../components/ImageHeader.astro";
+import CalendarDate from "../../components/CalendarDate.astro";
 
 const { slug } = Astro.params;
 
 const event = await eventFromSlug(slug!);
-
-const data = {
-  event,
-};
 ---
 
-<Layout title="Post">
-  <Page data={data} client:load />
+<Layout title={event?.name || ""}>
+  <Container class="mt-8">
+    <Rounded>
+      {
+        (
+          <>
+            <ImageHeader
+              src={event?.poster?.imageUrl}
+              alt={event?.poster?.altText}
+              centerContent
+            >
+              <h1 class="text-3xl font-semibold text-center mb-4">
+                {event?.name}
+              </h1>
+              {event?.date && (
+                <CalendarDate
+                  date={event.date.local}
+                  withTime
+                  light
+                  large
+                  class="mb-8"
+                />
+              )}
+              {event?.rsvpLink && (
+                <Button large href={event.rsvpLink}>
+                  RSVP for Event
+                </Button>
+              )}
+            </ImageHeader>
+          </>
+        )
+      }
+      {
+        event?.description && (
+          <Prose
+            class="py-12 md:py-16 px-8 md:px-16"
+            text={event.description}
+            fill
+          />
+        )
+      }
+    </Rounded>
+  </Container>
 </Layout>

@@ -4,17 +4,12 @@ import Layout from "../../layouts/Layout.astro";
 import { postFromSlug } from "../../lib/sanity";
 import Container from "../../components/Container.astro";
 import Rounded from "../../components/Rounded.astro";
-import { Icon } from "astro-iconify";
+import CalendarDate from "../../components/CalendarDate.astro";
 import { PortableText } from "astro-portabletext";
-import { format } from "date-fns";
 
 const { slug } = Astro.params;
 
 const post = await postFromSlug(slug!);
-
-function formatDate(date: string) {
-  return format(new Date(date), "EEEE, LLLL d");
-}
 ---
 
 <Layout title={post?.title ?? ""}>
@@ -28,17 +23,7 @@ function formatDate(date: string) {
           )
         }
         <div class="flex flex-row justify-between text-zinc-400 fill-current">
-          {
-            post?.date && (
-              <div class="flex flex-row justify-center items-center space-x-2">
-                <Icon
-                  name="material-symbols:calendar-month-outline-rounded"
-                  class="w-6 h-6"
-                />
-                <p>{formatDate(post.date.local)}</p>
-              </div>
-            )
-          }
+          {post?.date && <CalendarDate date={post.date.local} />}
         </div>
         {
           post?.image && (

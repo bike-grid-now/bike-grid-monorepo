@@ -1,0 +1,29 @@
+---
+export interface Props {
+  large?: boolean;
+  class?: string;
+  href?: string;
+}
+
+const { class: classList, large, href } = Astro.props;
+
+const size = large ? "large" : "normal";
+
+const Element = href ? "a" : "button";
+---
+
+<Element
+  href={href}
+  class:list={[
+    classList,
+    "bg-zinc-900 text-white font-medium",
+    "hover:bg-red-600 focus:outline-none focus:ring focus:ring-white focus:bg-red-600",
+    "transition-all duration-150 ease-in-out",
+    size === "large" &&
+      "px-8 py-5 text-xl shadow-xl hover:shadow-2xl focus:shadow-2xl rounded-2xl",
+    size === "normal" &&
+      "px-6 py-3 text-lg shadow-lg hover:shadow-xl focus:shadow-xl rounded-xl",
+  ]}
+>
+  <slot />
+</Element>

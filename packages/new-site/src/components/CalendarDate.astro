@@ -1,0 +1,41 @@
+---
+import { format } from "date-fns";
+import { Icon } from "astro-iconify";
+
+export interface Props {
+  date: Date | string;
+  withTime?: boolean;
+  large?: boolean;
+  class?: string;
+  light?: boolean;
+}
+
+function formatNoTime(date: Date) {
+  return format(date, "EEEE, LLLL d");
+}
+
+function formatWithTime(date: Date) {
+  return format(date, "EEEE, LLLL d 'at' h:mm a");
+}
+
+const { date, withTime, class: className, light, large } = Astro.props;
+
+const parsedDate = typeof date === "string" ? new Date(date) : date;
+
+const formatFn = withTime ? formatWithTime : formatNoTime;
+---
+
+<div
+  class:list={[
+    "flex flex-row justify-center items-center space-x-2",
+    light ? "text-zinc-100" : "text-zinc-400",
+    large ? "text-xl font-medium" : "text-base font-normal",
+    className,
+  ]}
+>
+  <Icon
+    name="material-symbols:calendar-month-outline-rounded"
+    class:list={[large ? "w-9 h-9" : "w-6 h-6"]}
+  />
+  <p>{formatFn(parsedDate)}</p>
+</div>
