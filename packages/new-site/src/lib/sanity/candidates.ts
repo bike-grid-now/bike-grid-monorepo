@@ -6,7 +6,9 @@ export interface Candidate {
     name: string;
     wardNumber: number;
   };
-  supportsPlatform: boolean;
+  supportsPlatform: "yes" | "no";
+  link?: string;
+  linkText?: string;
 }
 
 const mayoralCandidatesQuery = `*[_type == "candidate" && office->name == "Mayor"] | order(name) {

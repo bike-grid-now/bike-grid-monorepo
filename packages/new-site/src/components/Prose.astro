@@ -18,5 +18,6 @@ const { text, class: className, fill } = Astro.props;
     fill && "max-w-none",
   ]}
 >
+  <slot />
   <PortableText value={text} />
 </div>

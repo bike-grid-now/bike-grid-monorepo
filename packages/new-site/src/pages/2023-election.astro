@@ -1,19 +1,90 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Page from "./2023-election.svelte";
+import Prose from "../components/Prose.astro";
 
 import { getCandidates } from "../lib/sanity/candidates";
 import { getSiteSettings } from "../lib/sanity/siteSettings";
+import PageContainer from "../components/PageContainer.astro";
 
-const results = await getCandidates();
-const siteSettings = await getSiteSettings();
-
-const data = {
-  ...results,
-  ...siteSettings,
-};
+const { mayoralCandidates, regularCandidates } = await getCandidates();
+const { platformText } = await getSiteSettings();
 ---
 
-<Layout title="Post">
-  <Page data={data} client:load />
+<Layout title="Who's Endorsed The Bike Grid?">
+  <div class="mt-8">
+    <PageContainer>
+      <Prose text={platformText}>
+        <h1>Who has endorsed the Bike Grid?</h1>
+      </Prose>
+
+      <table>
+        <tr>
+          <th>Office</th>
+          <th>Name</th>
+          <th>Endorsed the bike grid?</th>
+          <th>Link</th>
+        </tr>
+        {
+          mayoralCandidates.map((candidate) => (
+            <tr>
+              <td>{candidate.office.name}</td>
+              <td>{candidate.name}</td>
+              <td>
+                {candidate.supportsPlatform === "yes"
+                  ? "✅ Yes"
+                  : candidate.supportsPlatform === "no"
+                  ? "❌ No"
+                  : "Contacted"}
+              </td>
+              <td>
+                {candidate.link && (
+                  <a target="_blank" href={candidate.link}>
+                    {candidate.linkText ?? "Link"}
+                  </a>
+                )}
+              </td>
+            </tr>
+          ))
+        }
+        {
+          regularCandidates.map((candidate) => (
+            <tr>
+              <td>{candidate.office.name}</td>
+              <td>{candidate.name}</td>
+              <td>
+                {candidate.supportsPlatform === "yes"
+                  ? "✅ Yes"
+                  : candidate.supportsPlatform === "no"
+                  ? "❌ No"
+                  : "Contacted"}
+              </td>
+              <td>
+                {candidate.link && (
+                  <a href={candidate.link}>{candidate.linkText ?? "Link"}</a>
+                )}
+              </td>
+            </tr>
+          ))
+        }
+      </table>
+    </PageContainer>
+  </div>
 </Layout>
+
+<style>
+  th {
+    text-align: left;
+    padding-bottom: calc(var(--space) * 4);
+    border-bottom: 1px solid white;
+  }
+
+  td {
+    padding-top: calc(var(--space) * 2);
+    padding-bottom: calc(var(--space) * 2);
+  }
+
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+</style>
