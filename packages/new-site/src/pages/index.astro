@@ -42,9 +42,9 @@ const nextEvent = upcomingEvents.length > 0 ? data.upcomingEvents[0] : null;
   <Hero title={siteSettings.heroTitle} tagline={siteSettings.heroTagline} />
 
   <Container>
-    <div class="content main-content">
+    <div class="py-5 main-content mt-6 space-y-6">
       <CallToActionList />
-      <div class="sideby">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         {nextEvent && <Slides events={data.upcomingEvents} />}
 
         {
@@ -63,28 +63,3 @@ const nextEvent = upcomingEvents.length > 0 ? data.upcomingEvents[0] : null;
     </div>
   </Container>
 </Layout>
-
-<style>
-  .sideby {
-    display: grid;
-    grid-gap: calc(5 * var(--space));
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .content {
-    padding: 0 calc(5 * var(--space));
-  }
-
-  .main-content {
-    display: flex;
-    flex-direction: column;
-    grid-gap: calc(6 * var(--space));
-    margin-top: calc(6 * var(--space));
-  }
-
-  @media only screen and (max-width: 800px) {
-    .sideby {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

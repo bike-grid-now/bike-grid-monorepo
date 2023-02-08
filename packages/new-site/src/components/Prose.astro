@@ -5,16 +5,21 @@ import type { ArbitraryTypedObject } from "@portabletext/types";
 export interface Props {
   text: ArbitraryTypedObject | Array<ArbitraryTypedObject>;
   fill?: boolean;
+  small?: boolean;
   class?: string;
 }
 
-const { text, class: className, fill } = Astro.props;
+const { text, class: className, fill, small } = Astro.props;
+
+const size = small ? "small" : "regular";
 ---
 
 <div
   class:list={[
-    "prose prose-lg prose-invert mx-auto lg:prose-xl ",
+    "prose prose-invert mx-auto",
     className,
+    size === "small" && "prose",
+    size === "regular" && "prose-lg lg:prose-xl",
     fill && "max-w-none",
   ]}
 >
