@@ -17,24 +17,16 @@ let {
 } = Astro.props;
 ---
 
-<div class:list={[className, "relative w-full block"]}>
+<div class:list={[className, "relative overflow-hidden"]}>
   <div
     class:list={[
-      "absolute top-0 z-0 left-0 w-full h-full image overflow-hidden",
-      dimmed ? "brightness-50" : blurred ? "brightness-75" : "",
-      blurred && "blur-2xl saturate-50 contrast-75",
-      !blurred && "flex justify-center items-center",
       imageClass,
+      "absolute top-0 w-full h-full z-0 bg-cover",
+      dimmed && "brightness-50",
+      blurred && "blur-2xl scale-110 brightness-75 saturate-75",
     ]}
+    style={`background-image: url('${src}')`}
   >
-    <img
-      class:list={[
-        blurred &&
-          "absolute left-0 right-0 mx-auto t-[-20%] h-[140%] w-[140%] max-w-[200%]",
-      ]}
-      src={src}
-      alt={alt}
-    />
   </div>
   <div class="relative z-10">
     <slot />
