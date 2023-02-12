@@ -9,12 +9,17 @@ import "./globalStyles.css";
 import "./utilities.css";
 
 export interface Props {
-  title: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
 
 const siteSettings = await getSiteSettings();
+
+const pageTitle =
+  title && title.trim().length > 0
+    ? `${title} | ${siteSettings.title}`
+    : siteSettings.title;
 ---
 
 <!DOCTYPE html>
@@ -30,7 +35,7 @@ const siteSettings = await getSiteSettings();
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <SEO title={siteSettings.title} description={siteSettings.description} />
+    <SEO title={pageTitle} description={siteSettings.description} />
   </head>
   <body>
     <Nav title={siteSettings.title} />
