@@ -1,20 +1,25 @@
 ---
+import type { Image } from "../lib/sanity";
 import BackgroundImage from "./BackgroundImage.astro";
+import SanityImage from "./SanityImage.astro";
 
 export interface Props {
-  src?: string;
-  alt?: string;
+  image?: Image;
   centerContent?: boolean;
 }
 
-const { alt, src, centerContent } = Astro.props;
+const { centerContent, image } = Astro.props;
 
-const Component = !src ? "div" : BackgroundImage;
+const Component = !image ? "div" : BackgroundImage;
 ---
 
-<Component blurred src={src as any} alt={alt as any}>
+<Component blurred image={image as any}>
   <div class="py-16 px-8">
-    <img class="w-full max-w-sm mx-auto shadow-2xl" {src} {alt} />
+    {
+      image && (
+        <SanityImage image={image} class="w-full max-w-sm mx-auto shadow-2xl" />
+      )
+    }
     <div
       class:list={[
         "mt-12 md:mt-16 w-full",

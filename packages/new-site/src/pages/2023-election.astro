@@ -13,9 +13,10 @@ const { platformText } = await getSiteSettings();
 <Layout title="Who's Endorsed The Bike Grid?">
   <div class="mt-8">
     <PageContainer>
-      <Prose text={platformText}>
-        <h1>Who has endorsed the Bike Grid?</h1>
-      </Prose>
+      <h1 class="font-heading text-5xl leading-snug uppercase font-bold">
+        Who has endorsed the Bike Grid?
+      </h1>
+      <Prose text={platformText} fill />
 
       <table>
         <tr>

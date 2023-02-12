@@ -1,30 +1,36 @@
 ---
+import type { Image } from "../lib/sanity";
 import BackgroundImage from "./BackgroundImage.astro";
+import Container from "./Container.astro";
 import SocialIconList from "./SocialIconList.astro";
 import Stack from "./Stack.astro";
 
 export interface Props {
   title: string;
   tagline: string;
-  headerImage: string;
+  headerImage: Image;
 }
 
 const { title, tagline, headerImage } = Astro.props;
 ---
 
-<BackgroundImage src={headerImage} alt="A blue grid map." dimmed>
-  <Stack
-    direction="column"
-    align="center"
-    justify="center"
-    class="py-48"
-    gap="2xl"
-  >
-    <div class="space-y-5 text-center">
-      <h1 class="text-5xl font-bold">{title}</h1>
-      <p class="text-lg font-medium">{tagline}</p>
-    </div>
+<BackgroundImage image={headerImage} dimmed>
+  <Container>
+    <Stack
+      direction="column"
+      align="center"
+      justify="center"
+      class="py-48"
+      gap="2xl"
+    >
+      <div class="space-y-8 text-center">
+        <h1 class="text-6xl font-heading uppercase font-bold leading-snug">
+          {title}
+        </h1>
+        <p class="text-lg font-medium text-zinc-100">{tagline}</p>
+      </div>
 
-    <SocialIconList />
-  </Stack>
+      <SocialIconList />
+    </Stack>
+  </Container>
 </BackgroundImage>

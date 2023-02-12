@@ -1,20 +1,30 @@
 ---
+import { Image, imageBuilder } from "../lib/sanity";
+
 export interface Props {
-  src: string;
-  alt: string;
+  image?: Image;
   class?: string;
   imageClass?: string;
   dimmed?: boolean;
   blurred?: boolean;
 }
 let {
-  src,
-  alt,
+  image,
   class: className,
   imageClass,
   dimmed = false,
   blurred = false,
 } = Astro.props;
+
+const imageUrl =
+  image &&
+  imageBuilder
+    .image(image.image)
+    .width(1200)
+    .fit("max")
+    .auto("format")
+    .dpr(2)
+    .url();
 ---
 
 <div class:list={[className, "relative overflow-hidden"]}>
@@ -25,7 +35,7 @@ let {
       dimmed && "brightness-50",
       blurred && "blur-2xl scale-110 brightness-75 saturate-75",
     ]}
-    style={`background-image: url('${src}')`}
+    style={`background-image: url('${imageUrl}')`}
   >
   </div>
   <div class="relative z-10">

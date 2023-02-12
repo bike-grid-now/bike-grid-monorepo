@@ -1,5 +1,6 @@
 import { client } from "./client";
 import { type Image, imageProjection } from "./images";
+import { blockContentProjection } from "./blockContent";
 
 export interface SiteSettings {
   title: string;
@@ -11,7 +12,7 @@ export interface SiteSettings {
 }
 
 export async function getSiteSettings(): Promise<SiteSettings> {
-  const query = `*[_type == "siteSettings" && _id == "siteSettings"] { ..., heroImage${imageProjection} }`;
+  const query = `*[_type == "siteSettings" && _id == "siteSettings"] { ..., heroImage${imageProjection}, platformText${blockContentProjection} }`;
   const document = await client.fetch(query);
 
   if (!document || !(document.length > 0)) {

@@ -14,16 +14,19 @@ if (!img) {
   throw new Error("Image component requires an image prop");
 }
 
+console.log(img);
+
 // Image sizes for responsive images.
 const sizes: number[] = [640, 768, 1024, 1536];
 ---
 
-<picture>
+<picture class:list={[className, "w-full rounded-xl"]}>
   {
     sizes
       .reverse()
       .map((size) => (
         <source
+          class:list={[className, "w-full rounded-xl"]}
           srcset={imageBuilder
             .image(img.image)
             .width(size)
@@ -45,6 +48,6 @@ const sizes: number[] = [640, 768, 1024, 1536];
       .auto("format")
       .url()}
     alt={img.altText}
-    class={className}
+    class:list={[className, "w-full rounded-xl"]}
   />
 </picture>

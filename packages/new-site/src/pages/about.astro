@@ -5,6 +5,7 @@ import { getOrganizers } from "../lib/sanity";
 import Prose from "../components/Prose.astro";
 import Container from "../components/Container.astro";
 import Rounded from "../components/Rounded.astro";
+import SanityImage from "../components/SanityImage.astro";
 
 const organizers = await getOrganizers();
 ---
@@ -18,16 +19,15 @@ const organizers = await getOrganizers();
             {organizers.map((organizer) => (
               <Rounded class="p-12 space-y-8">
                 {organizer.image && (
-                  <img
+                  <SanityImage
+                    image={organizer.image}
                     class="w-36 h-36 rounded-full object-cover"
-                    src={organizer.image.imageUrl}
-                    alt={organizer.image.altText}
-                    width={150}
                   />
                 )}
-                <Prose text={organizer.description} small>
-                  <h2>{organizer.name}</h2>
-                </Prose>
+                <h2 class="font-heading font-bold text-xl uppercase">
+                  {organizer.name}
+                </h2>
+                <Prose text={organizer.description} small />
               </Rounded>
             ))}
           </div>

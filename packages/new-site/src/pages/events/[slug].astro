@@ -19,11 +19,7 @@ const event = await eventFromSlug(slug!);
       {
         (
           <>
-            <ImageHeader
-              src={event?.poster?.imageUrl}
-              alt={event?.poster?.altText}
-              centerContent
-            >
+            <ImageHeader image={event?.poster} centerContent>
               <h1 class="text-3xl font-semibold text-center mb-4">
                 {event?.name}
               </h1>
