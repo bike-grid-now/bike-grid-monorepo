@@ -5,6 +5,7 @@ import { postFromSlug } from "../../lib/sanity";
 import Container from "../../components/Container.astro";
 import Rounded from "../../components/Rounded.astro";
 import CalendarDate from "../../components/CalendarDate.astro";
+import Stack from "../../components/Stack.astro";
 import { PortableText } from "astro-portabletext";
 
 const { slug } = Astro.params;
@@ -22,9 +23,13 @@ const post = await postFromSlug(slug!);
             <h2 class="text-2xl font-medium mb-4">{post.subtitle}</h2>
           )
         }
-        <div class="flex flex-row justify-between text-zinc-400 fill-current">
+        <Stack
+          justify="between"
+          direction="row"
+          class="text-zinc-400 fill-current"
+        >
           {post?.date && <CalendarDate date={post.date.local} />}
-        </div>
+        </Stack>
         {
           post?.image && (
             <img

@@ -1,6 +1,7 @@
 ---
 import { format } from "date-fns";
 import { Icon } from "astro-iconify";
+import Stack from "./Stack.astro";
 
 export interface Props {
   date: Date | string;
@@ -27,15 +28,16 @@ const formatFn = withTime ? formatWithTime : formatNoTime;
 
 <div
   class:list={[
-    "flex flex-row justify-center items-center space-x-2",
     light ? "text-zinc-100" : "text-zinc-400",
     large ? "text-xl font-medium" : "text-base font-normal",
     className,
   ]}
 >
-  <Icon
-    name="material-symbols:calendar-month-outline-rounded"
-    class:list={[large ? "w-9 h-9" : "w-6 h-6"]}
-  />
-  <p>{formatFn(parsedDate)}</p>
+  <Stack justify="center" align="center" class="space-x-2">
+    <Icon
+      name="material-symbols:calendar-month-outline-rounded"
+      class:list={[large ? "w-9 h-9" : "w-6 h-6"]}
+    />
+    <p>{formatFn(parsedDate)}</p>
+  </Stack>
 </div>

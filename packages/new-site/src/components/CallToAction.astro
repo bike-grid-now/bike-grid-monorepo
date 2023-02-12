@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-iconify";
+import Stack from "./Stack.astro";
 
 export interface Props {
   title: string;
@@ -13,10 +14,10 @@ const { href, title } = Astro.props;
   href={href}
   class="block text-white fill-current p-3 odd:bg-zinc-900 even:bg-zinc-800 hover:bg-zinc-700 focus:bg-red-700 focus:outline-none transition-all duration-150 ease-in-out group"
 >
-  <div
-    class="flex flex-row items-center p-3 group-focus:ring group-focus:ring-white justify-between rounded-xl"
-  >
-    <p class="text-xl font-medium">{title}</p>
-    <Icon name="material-symbols:chevron-right-rounded" class="w-6 h-6" />
+  <div class="p-3 group-focus:ring group-focus:ring-white rounded-xl">
+    <Stack align="center" justify="between">
+      <p class="text-xl font-medium">{title}</p>
+      <Icon name="material-symbols:chevron-right-rounded" class="w-6 h-6" />
+    </Stack>
   </div>
 </a>

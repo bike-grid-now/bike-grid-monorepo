@@ -13,15 +13,19 @@ const { title } = Astro.props;
 <nav class="sticky top-0 z-50 w-full p-5 bg-zinc-900 text-white shadow-lg">
   <Container>
     <Stack align="center" justify="between">
-      <a
-        href="/"
-        class="flex flex-row items-center justify-center space-x-2 text-white fill-current"
-      >
-        <Icon
-          name="material-symbols:pedal-bike-outline-rounded"
-          class="w-8 h-8"
-        />
-        <b class="font-semibold">{title}</b>
+      <a href="/" class="text-white fill-current">
+        <Stack
+          direction="row"
+          align="center"
+          justify="center"
+          class="space-x-2"
+        >
+          <Icon
+            name="material-symbols:pedal-bike-outline-rounded"
+            class="w-8 h-8"
+          />
+          <b class="font-semibold">{title}</b>
+        </Stack>
       </a>
 
       <div></div>
