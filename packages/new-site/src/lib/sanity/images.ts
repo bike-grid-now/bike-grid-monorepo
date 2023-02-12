@@ -1,9 +1,12 @@
 export interface Image {
   altText: string;
-  imageUrl: string;
+  image: {
+    url: string;
+    assetId: string;
+  };
 }
 
 export const imageProjection = `{
   altText,
-  "imageUrl": asset->url
+  "image": asset->{...}
 }`;

@@ -20,6 +20,7 @@
     "@portabletext/types": "^2.0.2",
     "@rodneylab/svelte-social-icons": "^0.0.24",
     "@sanity/client": "^4.0.1",
+    "@sanity/image-url": "^1.0.2",
     "astro": "^2.0.2",
     "astro-iconify": "^1.2.0",
     "astro-portabletext": "^0.8.0",

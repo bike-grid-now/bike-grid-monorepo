@@ -1,9 +1,16 @@
 import { client } from "./client";
 import { type Image, imageProjection } from "./images";
 
+const blockContentProjection = `[]{
+  ...select(_type == 'image' => ${imageProjection}),
+  ...select(_type != 'image' => {...}),
+  _type
+}`;
+
 const postsProjection = `{
   ...,
   image${imageProjection},
+  body${blockContentProjection}
 }`;
 
 interface DateType {

@@ -1,16 +1,27 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 
-import { postFromSlug } from "../../lib/sanity";
+import { postFromSlug, imageBuilder } from "../../lib/sanity";
 import Container from "../../components/Container.astro";
 import Rounded from "../../components/Rounded.astro";
 import CalendarDate from "../../components/CalendarDate.astro";
 import Stack from "../../components/Stack.astro";
 import { PortableText } from "astro-portabletext";
+import SanityImage from "../../components/SanityImage.astro";
+import Prose from "../../components/Prose.astro";
 
 const { slug } = Astro.params;
 
 const post = await postFromSlug(slug!);
+
+const imageUrl =
+  post?.image &&
+  imageBuilder
+    .image(post.image.image)
+    .width(1000)
+    .fit("max")
+    .auto("format")
+    .url();
 ---
 
 <Layout title={post?.title ?? ""}>
@@ -32,21 +43,10 @@ const post = await postFromSlug(slug!);
         </Stack>
         {
           post?.image && (
-            <img
-              src={post.image.imageUrl}
-              alt={post.image.altText}
-              class="w-full rounded-2xl my-12"
-              style="width: 100%; border-radius: 15px"
-            />
+            <SanityImage image={post.image} class="w-full rounded-2xl my-12" />
           )
         }
-        {
-          post?.body && (
-            <div class="prose prose-invert lg:prose-xl mx-auto">
-              <PortableText value={post.body} />
-            </div>
-          )
-        }
+        {post?.body && <Prose text={post.body} />}
       </div>
     </Rounded>
   </Container>

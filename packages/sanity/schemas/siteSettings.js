@@ -33,6 +33,13 @@ export default {
       description: "Appears below the hero title on our homepage.",
     },
     {
+      name: "heroImage",
+      title: "Hero background image",
+      type: "media",
+      validation: (R) => R.required(),
+      description: "The image to show for the background on the home page.",
+    },
+    {
       name: "platformText",
       title: "platformText",
       type: "blockContent",

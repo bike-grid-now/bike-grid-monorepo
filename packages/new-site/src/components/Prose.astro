@@ -1,6 +1,7 @@
 ---
 import { PortableText } from "astro-portabletext";
 import type { ArbitraryTypedObject } from "@portabletext/types";
+import SanityImage from "./SanityImage.astro";
 
 export interface Props {
   text: ArbitraryTypedObject | Array<ArbitraryTypedObject>;
@@ -24,5 +25,13 @@ const size = small ? "small" : "regular";
   ]}
 >
   <slot />
-  <PortableText value={text} />
+  <PortableText
+    onMissingComponent={(...args) => console.error(...args)}
+    components={{
+      type: {
+        image: SanityImage,
+      },
+    }}
+    value={text}
+  />
 </div>

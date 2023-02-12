@@ -1,0 +1,50 @@
+---
+import { type Image, imageBuilder } from "../lib/sanity";
+
+export interface Props {
+  image?: Image;
+  node?: Image;
+  class?: string;
+}
+
+const { class: className, node, image } = Astro.props;
+
+const img = node ?? image;
+if (!img) {
+  throw new Error("Image component requires an image prop");
+}
+
+// Image sizes for responsive images.
+const sizes: number[] = [640, 768, 1024, 1536];
+---
+
+<picture>
+  {
+    sizes
+      .reverse()
+      .map((size) => (
+        <source
+          srcset={imageBuilder
+            .image(img.image)
+            .width(size)
+            .fit("max")
+            .dpr(2)
+            .quality(65)
+            .auto("format")
+            .url()}
+          media={`(min-width: ${size}px)`}
+        />
+      ))
+  }
+  <img
+    src={imageBuilder
+      .image(img.image)
+      .width(320)
+      .fit("max")
+      .dpr(2)
+      .auto("format")
+      .url()}
+    alt={img.altText}
+    class={className}
+  />
+</picture>
