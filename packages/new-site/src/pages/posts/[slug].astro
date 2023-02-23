@@ -10,6 +10,8 @@ import { PortableText } from "astro-portabletext";
 import SanityImage from "../../components/SanityImage.astro";
 import Prose from "../../components/Prose.astro";
 
+Astro.response.headers.append('cache-control', 's-maxage=60, state-while-revalidate=60')
+
 const { slug } = Astro.params;
 
 const post = await postFromSlug(slug!);

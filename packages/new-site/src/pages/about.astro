@@ -7,6 +7,8 @@ import Container from "../components/Container.astro";
 import Rounded from "../components/Rounded.astro";
 import SanityImage from "../components/SanityImage.astro";
 
+Astro.response.headers.append('cache-control', 's-maxage=60, state-while-revalidate=60')
+
 const organizers = await getOrganizers();
 ---
 

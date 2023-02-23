@@ -6,6 +6,8 @@ import { getCandidates } from "../lib/sanity/candidates";
 import { getSiteSettings } from "../lib/sanity/siteSettings";
 import PageContainer from "../components/PageContainer.astro";
 
+Astro.response.headers.append('cache-control', 's-maxage=60, state-while-revalidate=60')
+
 const { mayoralCandidates, regularCandidates } = await getCandidates();
 const { platformText } = await getSiteSettings();
 ---
