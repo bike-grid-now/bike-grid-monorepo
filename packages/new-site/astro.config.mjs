@@ -19,5 +19,7 @@ export default defineConfig({
     plugins: [svelteSvg()],
   },
   output: "server",
-  adapter: vercel(),
+  adapter: vercel({
+    analytics: true
+  }),
 });
