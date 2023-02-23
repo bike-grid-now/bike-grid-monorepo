@@ -37,6 +37,20 @@ const pageTitle =
     /> -->
     <link rel="stylesheet" href="https://use.typekit.net/tym1rat.css" />
     <SEO title={pageTitle} description={siteSettings.description} />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FLWKKE90YJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FLWKKE90YJ");
+    </script>
+
   </head>
   <body>
     <Nav title={siteSettings.title} />
