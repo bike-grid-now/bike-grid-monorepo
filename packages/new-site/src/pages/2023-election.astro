@@ -20,7 +20,7 @@ const { platformText } = await getSiteSettings();
       </h1>
       <Prose text={platformText} fill />
 
-      <h2 class="font-heading text-3xl leading-snug uppercase font-bold">
+      <h2 class="font-heading text-2xl leading-snug uppercase font-bold">
         Candidates in the Runoff
       </h2>
       <table>
@@ -54,60 +54,6 @@ const { platformText } = await getSiteSettings();
         }
         {
           regularCandidates.map((candidate) => (
-            <tr>
-              <td>{candidate.office.name}</td>
-              <td>{candidate.name}</td>
-              <td>
-                {candidate.supportsPlatform === "yes"
-                  ? "✅ Yes"
-                  : candidate.supportsPlatform === "no"
-                  ? "❌ No"
-                  : "Contacted"}
-              </td>
-              <td>
-                {candidate.link && (
-                  <a href={candidate.link}>{candidate.linkText ?? "Link"}</a>
-                )}
-              </td>
-            </tr>
-          ))
-        }
-      </table>
-
-      <h2 class="font-heading text-3xl leading-snug uppercase font-bold">
-        Candidates *not* in the Runoff
-      </h2>
-      <table>
-        <tr>
-          <th>Office</th>
-          <th>Name</th>
-          <th>Endorsed the bike grid?</th>
-          <th>Link</th>
-        </tr>
-        {
-          mayoralNotRunoffCandidates.map((candidate) => (
-            <tr>
-              <td>{candidate.office.name}</td>
-              <td>{candidate.name}</td>
-              <td>
-                {candidate.supportsPlatform === "yes"
-                  ? "✅ Yes"
-                  : candidate.supportsPlatform === "no"
-                  ? "❌ No"
-                  : "Contacted"}
-              </td>
-              <td>
-                {candidate.link && (
-                  <a target="_blank" href={candidate.link}>
-                    {candidate.linkText ?? "Link"}
-                  </a>
-                )}
-              </td>
-            </tr>
-          ))
-        }
-        {
-          regularNotRunoffCandidates.map((candidate) => (
             <tr>
               <td>{candidate.office.name}</td>
               <td>{candidate.name}</td>
