@@ -16,7 +16,7 @@ const mayoralCandidatesQuery = `*[_type == "candidate" && office->name == "Mayor
 	office->{...}
 }`;
 
-const regularCandidatesQuery = `*[_type == "candidate" && office->name != "Mayor" && runoff == "yes] | order(office->wardNumber, office->name, name) {
+const regularCandidatesQuery = `*[_type == "candidate" && office->name != "Mayor" && runoff == "yes"] | order(office->wardNumber, office->name, name) {
  ...,
  office->{...}
 }`;
