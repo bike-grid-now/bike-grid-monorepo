@@ -11,12 +11,12 @@ export interface Candidate {
   linkText?: string;
 }
 
-const mayoralCandidatesQuery = `*[_type == "candidate" && office->name == "Mayor" && runoff->value == "yes"] | order(name) {
+const mayoralCandidatesQuery = `*[_type == "candidate" && office->name == "Mayor" && runoff == "yes"] | order(name) {
   ...,
 	office->{...}
 }`;
 
-const regularCandidatesQuery = `*[_type == "candidate" && office->name != "Mayor" && runoff->value == "yes] | order(office->wardNumber, office->name, name) {
+const regularCandidatesQuery = `*[_type == "candidate" && office->name != "Mayor" && runoff == "yes] | order(office->wardNumber, office->name, name) {
  ...,
  office->{...}
 }`;
