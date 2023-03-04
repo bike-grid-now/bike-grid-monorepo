@@ -18,6 +18,20 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "runoff",
+      type: "string",
+      initialValue: "no",
+      description:
+        "Is this candidate in the runoff",
+      options: {
+        list: [
+          { title: "✅ Yes", value: "yes" },
+          { title: "❌ No", value: "no" },
+          { title: "Contacted", value: "contacted" },
+        ],
+      },
+    },
+    {
       name: "supportsPlatform",
       type: "string",
       initialValue: "contacted",
