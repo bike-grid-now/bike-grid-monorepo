@@ -8,7 +8,7 @@ import PageContainer from "../components/PageContainer.astro";
 
 Astro.response.headers.append('cache-control', 's-maxage=60, state-while-revalidate=60')
 
-const { mayoralCandidates, regularCandidates } = await getCandidates();
+const { mayoralCandidates, regularCandidates, mayoralNotRunoffCandidates, regularNotRunoffCandidates } = await getCandidates();
 const { platformText } = await getSiteSettings();
 ---
 
@@ -20,7 +20,7 @@ const { platformText } = await getSiteSettings();
       </h1>
       <Prose text={platformText} fill />
 
-      <h3>Candidates in the Runoff</h3>
+      <h2>Candidates in the Runoff</h2>
       <table>
         <tr>
           <th>Office</th>
@@ -52,6 +52,58 @@ const { platformText } = await getSiteSettings();
         }
         {
           regularCandidates.map((candidate) => (
+            <tr>
+              <td>{candidate.office.name}</td>
+              <td>{candidate.name}</td>
+              <td>
+                {candidate.supportsPlatform === "yes"
+                  ? "✅ Yes"
+                  : candidate.supportsPlatform === "no"
+                  ? "❌ No"
+                  : "Contacted"}
+              </td>
+              <td>
+                {candidate.link && (
+                  <a href={candidate.link}>{candidate.linkText ?? "Link"}</a>
+                )}
+              </td>
+            </tr>
+          ))
+        }
+      </table>
+
+      <h2>Candidates *not* in the Runoff</h2>
+      <table>
+        <tr>
+          <th>Office</th>
+          <th>Name</th>
+          <th>Endorsed the bike grid?</th>
+          <th>Link</th>
+        </tr>
+        {
+          mayoralNotRunoffCandidates.map((candidate) => (
+            <tr>
+              <td>{candidate.office.name}</td>
+              <td>{candidate.name}</td>
+              <td>
+                {candidate.supportsPlatform === "yes"
+                  ? "✅ Yes"
+                  : candidate.supportsPlatform === "no"
+                  ? "❌ No"
+                  : "Contacted"}
+              </td>
+              <td>
+                {candidate.link && (
+                  <a target="_blank" href={candidate.link}>
+                    {candidate.linkText ?? "Link"}
+                  </a>
+                )}
+              </td>
+            </tr>
+          ))
+        }
+        {
+          regularNotRunoffCandidates.map((candidate) => (
             <tr>
               <td>{candidate.office.name}</td>
               <td>{candidate.name}</td>

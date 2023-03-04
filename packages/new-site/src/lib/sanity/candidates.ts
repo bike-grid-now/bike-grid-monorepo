@@ -21,6 +21,16 @@ const regularCandidatesQuery = `*[_type == "candidate" && office->name != "Mayor
  office->{...}
 }`;
 
+const mayoralNotRunoffCandidatesQuery = `*[_type == "candidate" && office->name == "Mayor" && runoff != "yes"] | order(name) {
+  ...,
+  office->{...}
+}`;
+
+const regularNotRunoffCandidatesQuery = `*[_type == "candidate" && office->name != "Mayor" && runoff != "yes"] | order(office->wardNumber, office->name, name) {
+ ...,
+ office->{...}
+}`;
+
 export async function getCandidates() {
   const mayoralCandidates: Candidate[] = await client.fetch(
     mayoralCandidatesQuery
@@ -28,9 +38,17 @@ export async function getCandidates() {
   const regularCandidates: Candidate[] = await client.fetch(
     regularCandidatesQuery
   );
+  const mayoralNotRunoffCandidates: Candidate[] = await client.fetch(
+    mayoralNotRunoffCandidatesQuery
+  );
+  const regularNotRunoffCandidates: Candidate[] = await client.fetch(
+    regularNotRunoffCandidatesQuery
+  );
 
   return {
     mayoralCandidates,
     regularCandidates,
+    mayoralNotRunoffCandidates,
+    regularNotRunoffCandidates,
   };
 }
