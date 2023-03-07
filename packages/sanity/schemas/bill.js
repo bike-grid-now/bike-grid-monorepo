@@ -43,6 +43,12 @@ export default {
 			},
 			validation: (Rule) => Rule.required(),
 		},
-
+		{
+			name: "active",
+			type: "boolean",
+			initialValue: true,
+			description: "Should this bill be shown on the site?",
+			validation: (Rule) => Rule.required(),
+		}
 	],
 };
