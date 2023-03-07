@@ -4,5 +4,8 @@
   "editor.tabSize": 2,
   "editor.useTabStops": true,
   "editor.insertSpaces": false,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }

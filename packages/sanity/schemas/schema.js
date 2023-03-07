@@ -16,6 +16,7 @@ import siteSettings from "./siteSettings";
 import busRoute from "./busRoute";
 import office from "./office";
 import candidate from "./candidate";
+import bill from "./bill";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -39,5 +40,6 @@ export default createSchema({
     richDate,
     office,
     candidate,
+    bill,
   ]),
 });
