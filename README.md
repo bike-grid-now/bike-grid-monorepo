@@ -2,7 +2,7 @@
 
 <img src='packages/site/src/static/assets/event_banner.jpg'><br>
 
-This directory contains the code for the website of Bike Grid Now, a group advocating for a bike grid in Chicago. This website is open source (licensed under the MIT license) and created by volunteers. Pull requests are welcome.
+This directory contains the code for the website of Bike Grid Now, a group advocating for a bike grid in Chicago. This website is open source (licensed under the MIT license) and created by volunteers. Pull requests are welcome!
 
 ## Getting Started
 
