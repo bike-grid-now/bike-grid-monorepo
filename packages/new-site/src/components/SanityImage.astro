@@ -5,22 +5,21 @@ export interface Props {
   image?: Image;
   node?: Image;
   class?: string;
+  style?: string;
 }
 
-const { class: className, node, image } = Astro.props;
+const { class: className, node, image, style } = Astro.props;
 
 const img = node ?? image;
 if (!img) {
   throw new Error("Image component requires an image prop");
 }
 
-console.log(img);
-
 // Image sizes for responsive images.
 const sizes: number[] = [640, 768, 1024, 1536];
 ---
 
-<picture class:list={[className, "w-full rounded-xl"]}>
+<picture class:list={[className, "w-full rounded-xl"]} style={style}>
   {
     sizes
       .reverse()
